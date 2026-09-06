@@ -134,10 +134,13 @@
   .topbar.nav-open .nav-toggle-bar:nth-child(2){ opacity: 0; }
   .topbar.nav-open .nav-toggle-bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
   @media (max-width: 719px){
-    /* Closed state: keep the mobile header to just the brand mark and
+    /* Closed state: keep the mobile header to just the brand icon and
        the menu toggle — everything else lives in the dropdown, so the
-       bar itself never feels crowded. */
-    .topbar{ flex-wrap: wrap; }
+       bar itself reads as clean and uncluttered, not a business card. */
+    .topbar{ flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+    .topbar-brand{ gap: 0; }
+    .topbar-brand .brand-text{ display:none; }
+    .topbar-brand .stamp-mini{ width: 32px; height: 32px; }
     .nav-toggle{ display:flex; }
     .topbar-nav{ display:none; }
     .topbar.nav-open .topbar-nav{
@@ -584,7 +587,6 @@
 <header class="hero wrap">
   <div class="hero-grid">
     <div>
-      <p class="eyebrow" data-i18n="hero.eyebrow">2026 · Paris, France</p>
       <div class="wordmark"><img src="assets/wordmark-transparent.png" alt="阿嬤日記 · Your Asian Granny"></div>
 
       <p class="hero-tagline"><span class="cjk">養生</span><span class="display" data-i18n="hero.tagline.gloss">· slow living, the old way</span></p>
