@@ -37,40 +37,11 @@
     --serif: "Instrument Serif", "Noto Serif TC", ui-serif, Georgia, serif;
     --serif-cjk: "Noto Serif TC", "Instrument Serif", ui-serif, serif;
     --sans: "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg: #1B140F;
-      --surface: #241B14;
-      --surface-2: #2F241A;
-      --ink: #F2E6D8;
-      --ink-soft: #C7B7A3;
-      --ink-faint: #A08F76;
-      --accent: #E08862;
-      --accent-strong: #EDA080;
-      --accent-ink: #1B140F;
-      --line: #3B2E22;
-      --panel-bg: #F2E6D8;
-      --panel-ink: #1B140F;
-      --panel-ink-soft: #5A4A3A;
-      --shadow: 0 18px 44px -20px rgba(0,0,0,0.6);
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg: #1B140F;
-    --surface: #241B14;
-    --surface-2: #2F241A;
-    --ink: #F2E6D8;
-    --ink-soft: #C7B7A3;
-    --ink-faint: #A08F76;
-    --accent: #E08862;
-    --accent-strong: #EDA080;
-    --accent-ink: #1B140F;
-    --line: #3B2E22;
-    --panel-bg: #F2E6D8;
-    --panel-ink: #1B140F;
-    --panel-ink-soft: #5A4A3A;
-    --shadow: 0 18px 44px -20px rgba(0,0,0,0.6);
+    /* Locked to this palette on purpose: the site does not switch to a
+       dark theme when a visitor's device is in Dark Mode / Night Shift —
+       on a warm, terracotta-accented palette that auto-swap reduced
+       contrast rather than helping, so color-scheme is pinned to light. */
+    color-scheme: light;
   }
 
   /* ============ RESET-ISH ============ */
@@ -152,6 +123,30 @@
   .topbar-nav a.btn{ display:inline-flex; }
   .topbar-nav a.btn-primary{ color: var(--accent-ink); }
   .topbar-nav a.btn-primary:hover{ color: var(--accent-ink); }
+
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; align-items:center;
+    gap: 5px; width: 34px; height: 34px; padding:0; border:none; background:transparent;
+    cursor:pointer; flex: none;
+  }
+  .nav-toggle-bar{ display:block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+  .topbar.nav-open .nav-toggle-bar:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .topbar.nav-open .nav-toggle-bar:nth-child(2){ opacity: 0; }
+  .topbar.nav-open .nav-toggle-bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 719px){
+    .nav-toggle{ display:flex; }
+    .topbar.nav-open{ flex-wrap: wrap; }
+    .topbar.nav-open .topbar-nav{ flex-basis: 100%; justify-content:flex-start; }
+    .topbar-nav a.nav-link{
+      flex: 1 0 100%;
+      display:none;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      font-size: 0.78rem;
+    }
+    .topbar.nav-open .topbar-nav a.nav-link{ display:block; }
+    .topbar-nav a.nav-link:first-of-type{ border-top: none; }
+  }
 
   .topbar-lang{ display:flex; align-items:center; gap: 4px; }
   .topbar-lang .lang-chip{
@@ -393,8 +388,12 @@
   .reel-link-cta{ font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; color: var(--ink-soft); text-align:center; padding: 0 10px; }
   .reel-link-card:hover .reel-link-cta{ color: var(--accent-strong); }
   .reel-link-meta{ margin-top: 10px; display:flex; align-items:baseline; justify-content:space-between; gap: 8px; }
-  .reel-link-idx{ font-family: var(--serif); font-style: italic; font-size: 0.98rem; }
+  .reel-link-idx{ font-family: var(--serif); font-style: italic; font-size: 0.98rem; min-width:0; }
   .reel-link-handle{ font-size: 0.68rem; color: var(--ink-faint); white-space: nowrap; }
+  @media (max-width: 640px){
+    .reel-link-meta{ flex-direction: column; align-items:flex-start; gap: 2px; }
+    .reel-link-handle{ font-size: 0.62rem; }
+  }
 
   .reel-link-card.has-photo .reel-link-thumb{ padding:0; background: var(--surface-2); box-shadow: var(--shadow); }
   .reel-link-card.has-photo .reel-link-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
@@ -433,6 +432,7 @@
     padding-top: 26px;
   }
   @media (max-width: 760px){ .contact-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 480px){ .contact-grid{ grid-template-columns: 1fr; } }
   .contact-grid dt{ font-size: 0.68rem; letter-spacing: 0.1em; text-transform:uppercase; color: var(--panel-ink-soft); }
   .contact-grid dd{ margin: 6px 0 0; font-size: 0.98rem; }
   .contact-grid a{
@@ -548,7 +548,7 @@
       <span class="brand-handle">@your.asiangranny</span>
     </span>
   </a>
-  <nav class="topbar-nav">
+  <nav class="topbar-nav" id="topbarNav">
     <a href="#about" class="nav-link" data-i18n="nav.who">About</a>
     <a href="#work" class="nav-link" data-i18n="nav.reels">Work</a>
     <a href="#offer" class="nav-link" data-i18n="nav.offer">Offer</a>
@@ -559,6 +559,9 @@
       <button type="button" class="lang-chip" data-lang="fr">FR</button>
     </div>
     <a href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="topbarNav">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+    </button>
   </nav>
 </div>
 
@@ -1017,6 +1020,24 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    var navToggle = document.getElementById('navToggle');
+    if(navToggle){
+      var closeMenu = function(){
+        bar.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      };
+      navToggle.addEventListener('click', function(){
+        var open = bar.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.querySelectorAll('#topbarNav a.nav-link').forEach(function(a){
+        a.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('click', function(e){
+        if(bar.classList.contains('nav-open') && !bar.contains(e.target)){ closeMenu(); }
+      });
+    }
 
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!reduce && 'IntersectionObserver' in window){
