@@ -134,18 +134,31 @@
   .topbar.nav-open .nav-toggle-bar:nth-child(2){ opacity: 0; }
   .topbar.nav-open .nav-toggle-bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
   @media (max-width: 719px){
+    /* Closed state: keep the mobile header to just the brand mark and
+       the menu toggle — everything else lives in the dropdown, so the
+       bar itself never feels crowded. */
+    .topbar{ flex-wrap: wrap; }
     .nav-toggle{ display:flex; }
-    .topbar.nav-open{ flex-wrap: wrap; }
-    .topbar.nav-open .topbar-nav{ flex-basis: 100%; justify-content:flex-start; }
-    .topbar-nav a.nav-link{
-      flex: 1 0 100%;
-      display:none;
-      padding: 12px 0;
-      border-top: 1px solid var(--line);
-      font-size: 0.78rem;
+    .topbar-nav{ display:none; }
+    .topbar.nav-open .topbar-nav{
+      display:flex; flex-direction:column; align-items:stretch;
+      flex-basis: 100%; width:100%; gap:0; margin-top: 16px;
     }
-    .topbar.nav-open .topbar-nav a.nav-link{ display:block; }
+    .topbar-nav a.nav-link{
+      display:block;
+      padding: 14px 2px;
+      border-top: 1px solid var(--line);
+      font-size: 0.82rem;
+    }
     .topbar-nav a.nav-link:first-of-type{ border-top: none; }
+    .topbar.nav-open .topbar-lang{
+      border-top: 1px solid var(--line);
+      margin-top: 4px; padding-top: 16px;
+      justify-content:center; gap: 8px;
+    }
+    .topbar.nav-open .topbar-nav a.btn{
+      margin-top: 14px; justify-content:center; width:100%;
+    }
   }
 
   .topbar-lang{ display:flex; align-items:center; gap: 4px; }
@@ -173,7 +186,8 @@
 
   /* ============ HERO ============ */
   .hero{
-    padding: clamp(36px, 8vw, 84px) 0 clamp(48px, 8vw, 96px);
+    padding-top: clamp(36px, 8vw, 84px);
+    padding-bottom: clamp(48px, 8vw, 96px);
     position: relative;
   }
   .hero-grid{
@@ -548,6 +562,9 @@
       <span class="brand-handle">@your.asiangranny</span>
     </span>
   </a>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="topbarNav">
+    <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+  </button>
   <nav class="topbar-nav" id="topbarNav">
     <a href="#about" class="nav-link" data-i18n="nav.who">About</a>
     <a href="#work" class="nav-link" data-i18n="nav.reels">Work</a>
@@ -559,9 +576,6 @@
       <button type="button" class="lang-chip" data-lang="fr">FR</button>
     </div>
     <a href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a>
-    <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="topbarNav">
-      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
-    </button>
   </nav>
 </div>
 
