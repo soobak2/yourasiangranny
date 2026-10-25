@@ -1,0 +1,19 @@
+node_modules
+dist
+build
+.DS_Store
+.env
+
+# Ignore the output video from Git but not videos you import into src/.
+out
+
+# whisper.cpp is cloned/built locally by scripts/transcribe.mjs setup, not vendored.
+bin/whisper.cpp
+
+# Raw media dropped into these folders for editing (not source-controlled).
+public/recordings/*
+public/screen-recordings/*
+public/images/*
+public/sound pack/*
+public/music pack/*
+!public/**/.gitkeep
