@@ -2,905 +2,850 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Your Asian Granny</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="UGC &amp; influencer portfolio for Your Asian Granny: Iris Lin's slow-living, Asian roots and culture content, filmed in Paris.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500;600&family=Noto+Serif+TC:wght@200;300;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  /* ============================================================
-     TOKENS — "The Diary" system
-     Rejecting the cream+terracotta AI-default on purpose: a cooler,
-     greyer rice-paper ground, ink that leans blue-black rather than
-     brown, and a single cultural accent — seal/chop vermillion (印泥),
-     the colour of the stamp she already uses as her mark. Jade is a
-     secondary, decorative-only accent for data, never for text at
-     body size (checked below 4.5:1 for that reason).
-     All text/background pairings verified at AA (4.5:1) or better —
-     see the contrast notes kept alongside this project.
-  ============================================================ */
+  /* Layout: a hanging scroll. Wide margins, dotted construction lines, one thin oversized glyph per chapter;
+     photographs stay small so the paper does the talking. One look, on purpose: mist-green paper, moss ink. */
   :root{
-    --paper: #EDE8DC;
-    --paper-raised: #F6F2E8;
-    --paper-sunken: #E3DCC9;
-    --ink: #181611;
-    --ink-soft: #4A463D;
-    --ink-faint: #5B5546;
-    --seal: #B5301B;
-    --seal-deep: #7E2010;
-    --seal-on-dark: #E08862;
-    --jade: #5C7A5E;
-    --line: #D9CFB8;
-    --panel-bg: #181611;
-    --panel-ink: #EDE8DC;
-    --panel-ink-soft: #C9BBA3;
-    --shadow: 0 14px 32px -22px rgba(24,22,17,0.35);
-    --display: "Fraunces", "Noto Serif TC", ui-serif, Georgia, serif;
-    --display-cjk: "Noto Serif TC", "Fraunces", ui-serif, serif;
-    --sans: "IBM Plex Sans", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --paper:#F4F1E6; --mist:#E3EAD0; --porcelain:#FBFAF4;
+    --ink:#20281C; --ink-soft:#465040; --ink-faint:#5E6852;
+    --moss:#56642F; --moss-deep:#27311F; --line:#B4BE9C;
+    --seal:#A8391F; --tea:#EFEBC2; --shade:rgba(32,40,28,.5);
+    --on-deep:#EFF1E3; --on-deep-soft:#C3CCB1; --leaf:#CBD79C; --line-deep:#5A6849;
+    --display:"Cormorant Garamond","Noto Serif TC",Georgia,serif;
+    --cjk:"Noto Serif TC","Songti TC",serif;
+    --text:"Hanken Grotesk","Noto Sans TC",system-ui,sans-serif;
+    --hand:"Cormorant Garamond","LXGW WenKai TC","Noto Serif TC",Georgia,serif;
+    --gut:clamp(20px,5vw,64px);
+    --bar-h:64px;
     color-scheme: light;
   }
-
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+  *{ box-sizing:border-box; }
+  [hidden]{ display:none !important; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
   body{
-    margin:0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    margin:0; background:var(--paper); color:var(--ink-soft);
+    font-family:var(--text); font-size:1.0625rem; line-height:1.7; font-weight:400;
+    -webkit-font-smoothing:antialiased;
   }
+  body::before{ content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:50; background:var(--paper); }
   img{ max-width:100%; display:block; }
-  a{ color: inherit; }
-  h1,h2,h3,h4{ text-wrap: balance; margin: 0; font-weight: 600; }
-  p{ margin: 0; }
-  ::selection{ background: var(--seal); color: var(--paper-raised); }
-  :focus-visible{ outline: 2px solid var(--seal); outline-offset: 3px; }
+  a{ color:inherit; }
+  h1,h2,h3,h4,p,ul,ol,dl,dd,figure{ margin:0; }
+  ul,ol{ padding:0; list-style:none; }
+  h2,h3,h4{ text-wrap:balance; color:var(--ink); }
+  button{ font:inherit; color:inherit; }
+  ::selection{ background:var(--moss); color:var(--porcelain); }
+  :focus-visible{ outline:1px solid var(--moss); outline-offset:4px; }
 
-  .wrap{ max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px); }
-  .cjk{ font-family: var(--display-cjk); }
-  .mono{ font-family: var(--mono); }
-  .eyebrow{
-    font-family: var(--mono); font-weight: 500; font-size: 0.72rem;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--seal-deep);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .eyebrow::before{ content:""; display:inline-block; width:14px; height:1px; background: var(--seal-deep); }
+  .wrap{ max-width:1200px; margin-inline:auto; padding-left:max(var(--gut), env(safe-area-inset-left,0px)); padding-right:max(var(--gut), env(safe-area-inset-right,0px)); }
+  main{ overflow-x:clip; }
+  section{ padding-block:clamp(80px,11vw,152px); position:relative; }
+  .band{ background:var(--mist); }
 
-  .rev{ opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
-  .rev.in{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){ .rev{ opacity:1; transform:none; transition:none; } }
+  .label{ font:500 .7rem/1.5 var(--text); letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); }
+  .note{ font-family:var(--hand); font-style:italic; font-synthesis:none; font-size:1.06rem; line-height:1.45; color:var(--ink-faint); }
+  .paren::before{ content:"("; } .paren::after{ content:")"; }
 
-  /* ============ BUTTONS — stamped, not pills ============ */
+  .rev{ transition:opacity 1.1s ease, transform 1.1s ease; }
+  .rev.pre{ opacity:0; transform:translateY(22px); }
+  @media (prefers-reduced-motion: reduce){ .rev{ transition:none; } }
+
+  /* ---------- buttons ---------- */
   .btn{
-    display:inline-flex; align-items:center; gap: 8px;
-    font-family: var(--sans); font-weight: 600; font-size: 0.86rem;
-    padding: 12px 22px;
-    border-radius: 2px;
-    text-decoration:none;
-    border: 1px solid var(--ink);
-    cursor:pointer;
-    transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
-    white-space: nowrap;
+    display:inline-flex; align-items:center; gap:8px; white-space:nowrap; cursor:pointer;
+    font:500 .8rem/1 var(--text); letter-spacing:.06em; text-decoration:none;
+    padding:14px 26px; border-radius:999px; border:1px solid var(--ink);
+    transition:background .25s ease, color .25s ease, border-color .25s ease, transform .15s ease;
   }
-  .btn:active{ transform: scale(0.96) rotate(-0.6deg); }
-  .btn-primary{ background: var(--seal); color: var(--paper-raised); border-color: var(--seal); }
-  .btn-primary:hover{ background: var(--seal-deep); border-color: var(--seal-deep); }
-  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--ink); }
-  .btn-ghost:hover{ background: var(--ink); color: var(--paper-raised); }
-  .btn-sm{ padding: 9px 16px; font-size: 0.78rem; }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{ background:var(--moss-deep); border-color:var(--moss-deep); color:var(--porcelain); }
+  .btn-primary:hover{ background:var(--moss); border-color:var(--moss); }
+  .btn-ghost{ background:transparent; color:var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+  .btn-sm{ padding:11px 20px; font-size:.74rem; }
+  .link{ font:500 .8rem/1.4 var(--text); letter-spacing:.06em; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:3px; transition:color .2s, border-color .2s; }
+  .link:hover{ color:var(--moss); border-color:var(--moss); }
 
-  /* ============ TOP BAR ============ */
+  /* ---------- cup (shared tea colour steeps with scroll) ---------- */
+  .cup{
+    display:grid; place-items:center; flex:none; width:var(--cup,84px); aspect-ratio:1; border-radius:50%;
+    background:var(--porcelain); box-shadow:0 14px 26px -16px var(--shade), inset 0 0 0 1px rgba(32,40,28,.07);
+  }
+  .cup::before{
+    content:""; width:76%; aspect-ratio:1; border-radius:50%; background:var(--tea);
+    box-shadow:inset 0 4px 9px rgba(70,50,10,.2), inset 0 -2px 4px rgba(255,255,255,.35);
+    transition:background .4s linear;
+  }
+
+  /* ---------- top bar ---------- */
   .topbar{
-    position: sticky; top:0; z-index: 40;
-    display:flex; align-items:center; justify-content:space-between;
-    gap: 16px; padding: 12px clamp(20px, 5vw, 56px);
-    background: color-mix(in srgb, var(--paper) 92%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid transparent;
-    transition: border-color .3s ease;
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:40; min-height:var(--bar-h);
+    display:flex; align-items:center; gap:18px;
+    padding-block:10px; padding-left:max(var(--gut), env(safe-area-inset-left,0px)); padding-right:max(var(--gut), env(safe-area-inset-right,0px));
+    transition:background .4s ease, box-shadow .4s ease;
   }
-  .topbar.is-scrolled{ border-bottom-color: var(--line); }
-  .progress-rail{ position:absolute; left:0; right:0; bottom:-1px; height:2px; background: transparent; }
-  .progress-fill{ height:100%; width:0%; background: var(--seal); }
-  .topbar-brand{ display:flex; align-items:center; gap:11px; text-decoration:none; white-space: nowrap; }
-  .topbar-brand .stamp-mini{ width: 32px; height: 32px; overflow:hidden; flex: none; border:1px solid var(--ink); }
-  .topbar-brand .stamp-mini img{ width:100%; height:100%; object-fit:cover; }
-  .topbar-brand .brand-text{ display:flex; flex-direction:column; line-height:1.15; }
-  .topbar-brand .brand-name{ font-family: var(--sans); font-weight:600; font-size: 0.92rem; color: var(--ink); }
-  .topbar-brand .brand-handle{ font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; color: var(--ink-faint); }
-  .topbar-nav{ display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap: 10px clamp(14px,2vw,28px); }
-  .topbar-nav a{
-    font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-    text-decoration:none; color: var(--ink-soft); display: none;
-    border-bottom: 1px solid transparent;
-  }
-  .topbar-nav a:hover{ color: var(--seal-deep); border-bottom-color: var(--seal-deep); }
-  @media (min-width: 720px){ .topbar-nav a.nav-link{ display:inline; padding-bottom: 2px; } }
-  .topbar-nav a.btn{ display:inline-flex; }
-
-  .nav-toggle{
-    display:none; flex-direction:column; justify-content:center; align-items:flex-end;
-    gap: 5px; width: 30px; height: 30px; padding:0; border:none; background:transparent;
-    cursor:pointer; flex: none;
-  }
-  .nav-toggle-bar{ display:block; height: 1px; background: var(--ink); transition: all .2s ease; }
-  .nav-toggle-bar:nth-child(1){ width: 22px; }
-  .nav-toggle-bar:nth-child(2){ width: 15px; }
-  .nav-toggle-bar:nth-child(3){ width: 22px; }
-  .topbar.nav-open .nav-toggle-bar{ width: 22px; }
-  .topbar.nav-open .nav-toggle-bar:nth-child(1){ transform: translateY(6px) rotate(45deg); }
-  .topbar.nav-open .nav-toggle-bar:nth-child(2){ opacity: 0; }
-  .topbar.nav-open .nav-toggle-bar:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
-
-  @media (max-width: 719px){
-    .topbar{ flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
-    .topbar-brand .brand-text{ display:none; }
-    .nav-toggle{ display:flex; }
-    .topbar-nav{ display:none; }
-    .topbar.nav-open .topbar-nav{
-      display:flex; flex-direction:column; align-items:stretch;
-      flex-basis: 100%; width:100%; gap:0; margin-top: 16px;
-    }
-    .topbar-nav a.nav-link{ display:block; padding: 14px 2px; border-top: 1px solid var(--line); font-size: 0.8rem; }
-    .topbar-nav a.nav-link:first-of-type{ border-top: none; }
-    .topbar.nav-open .topbar-lang{ border-top: 1px solid var(--line); margin-top: 4px; padding-top: 16px; justify-content:center; gap: 8px; }
-    .topbar.nav-open .topbar-nav a.btn{ margin-top: 14px; justify-content:center; width:100%; }
+  .topbar.is-scrolled, .topbar.nav-open{ background:color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow:0 1px 0 var(--line); }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; margin-right:auto; }
+  .brand img{ width:34px; height:34px; object-fit:cover; }
+  .brand-text{ display:flex; flex-direction:column; line-height:1.2; }
+  .brand-name{ font:400 1.12rem/1.1 var(--display); color:var(--ink); letter-spacing:.02em; }
+  .brand-handle{ font:400 .62rem/1.3 var(--text); letter-spacing:.12em; color:var(--ink-faint); }
+  .bar-cup{ --cup:22px; display:none; box-shadow:inset 0 0 0 1px rgba(32,40,28,.12); }
+  .nav{ display:flex; align-items:center; gap:clamp(16px,2.4vw,34px); }
+  .nav-link{ font:500 .7rem/1 var(--text); letter-spacing:.2em; text-transform:uppercase; text-decoration:none; color:var(--ink-soft); padding-block:6px; border-bottom:1px solid transparent; transition:color .2s, border-color .2s; }
+  .nav-link:hover{ color:var(--ink); border-color:var(--ink); }
+  .langs{ display:flex; gap:12px; }
+  .lang-chip{ background:none; border:none; padding:6px 0; cursor:pointer; font:500 .7rem/1 var(--text); letter-spacing:.12em; color:var(--ink-faint); border-bottom:1px dotted transparent; }
+  .lang-chip:hover{ color:var(--ink); }
+  .lang-chip[aria-pressed="true"]{ color:var(--ink); border-bottom-color:var(--ink); }
+  .nav-toggle{ display:none; width:34px; height:34px; padding:0; border:none; background:none; cursor:pointer; position:relative; flex:none; }
+  .nav-toggle i{ position:absolute; right:4px; height:1px; background:var(--ink); transition:transform .25s ease, width .25s ease, top .25s ease; }
+  .nav-toggle i:nth-child(1){ top:13px; width:24px; } .nav-toggle i:nth-child(2){ top:21px; width:15px; }
+  .nav-open .nav-toggle i{ top:17px; width:24px; }
+  .nav-open .nav-toggle i:nth-child(1){ transform:rotate(45deg); } .nav-open .nav-toggle i:nth-child(2){ transform:rotate(-45deg); }
+  @media (max-width:859px){
+    .topbar{ flex-wrap:wrap; }
+    .brand-text{ display:none; }
+    .bar-cup, .nav-toggle{ display:grid; } .nav-toggle{ display:block; }
+    .nav{ display:none; flex-basis:100%; flex-direction:column; align-items:stretch; gap:0; padding-block:8px 18px; }
+    .nav-open .nav{ display:flex; }
+    .nav-link{ padding:17px 0; border-bottom:1px dotted var(--line); font-size:.76rem; }
+    .langs{ justify-content:center; gap:26px; padding-block:20px 16px; }
+    .nav .btn{ justify-content:center; }
   }
 
-  .topbar-lang{ display:flex; align-items:center; gap: 2px; }
-  .lang-chip{
-    font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
-    padding: 5px 10px; border-radius: 2px;
-    background: transparent; color: var(--ink-faint);
-    border: 1px solid var(--line);
-    cursor: pointer; transition: all .15s ease;
-  }
-  .lang-chip:hover{ border-color: var(--seal); color: var(--seal-deep); }
-  .lang-chip[aria-pressed="true"]{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
-  /* ============ HERO — editorial masthead ============ */
-  .hero{ padding-top: clamp(40px, 8vw, 88px); padding-bottom: clamp(48px, 8vw, 96px); position: relative; }
-  .hero-grid{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-  @media (max-width: 860px){ .hero-grid{ grid-template-columns: 1fr; } }
-
-  .masthead{ position: relative; display:inline-block; }
-  .wordmark img{ width: min(380px, 70vw); height:auto; display:block; }
-  .seal-stamp{
-    position:absolute; top: -18px; right: -34px; width: 92px; height: 92px;
-    transform: rotate(9deg);
-    opacity: 0.94;
-  }
-  @media (max-width: 640px){ .seal-stamp{ width: 66px; height:66px; top:-10px; right:-10px; } }
-
-  .hero-strapline{
-    margin-top: 26px; font-family: var(--display); font-style: italic; font-weight: 500;
-    font-size: clamp(1.25rem, 2.6vw, 1.65rem); color: var(--ink); max-width: 20ch;
-  }
-  .hero-tagline{
-    margin-top: 14px; font-size: 1rem; font-family: var(--mono);
-    color: var(--ink-faint); display:flex; flex-wrap:wrap; align-items:baseline; gap: 0.5em;
-  }
-  .hero-tagline .cjk{ font-weight: 600; color: var(--seal-deep); font-family: var(--display-cjk); font-size: 1.2em; }
-
-  .hero-bio{ margin-top: 22px; max-width: 48ch; font-size: 1.04rem; color: var(--ink-soft); }
-
-  .hero-facts{ list-style:none; margin: 20px 0 0; padding:0; display:flex; flex-direction:column; gap: 7px; }
-  .hero-facts li{ font-family: var(--mono); font-size: 0.82rem; color: var(--ink-soft); padding-left: 18px; position:relative; }
-  .hero-facts li::before{ content:"·"; position:absolute; left:2px; color: var(--seal); font-weight:700; }
-
-  .cta-row{ display:flex; gap:12px; margin-top: 30px; flex-wrap: wrap; }
-
-  .hero-portrait{ position: relative; justify-self: center; width: min(300px, 76vw); }
-  .hero-portrait .frame{ overflow:hidden; box-shadow: var(--shadow); aspect-ratio: 4/5; border: 1px solid var(--ink); }
-  .hero-portrait .frame img{ width:100%; height:100%; object-fit:cover; filter: grayscale(0.08) contrast(1.04); }
-  .hero-portrait .badge{
-    position:absolute; bottom: -16px; left: -16px; background: var(--panel-bg); color: var(--panel-ink);
-    padding: 11px 15px; font-size: 0.76rem; line-height: 1.35; max-width: 172px; box-shadow: var(--shadow);
-  }
-  .hero-portrait .badge strong{ font-family: var(--display); font-style: italic; font-size: 1rem; display:block; }
-
-  /* ============ SECTION SCAFFOLD ============ */
-  section.wrap{ padding: clamp(64px, 11vw, 136px) clamp(20px, 5vw, 56px); border-top: 1px solid var(--line); }
-  .section-head-row{ display:flex; gap: clamp(16px,3vw,32px); align-items:baseline; }
-  .section-index{
-    flex:none; font-family: var(--mono); font-weight: 500;
-    font-size: 0.82rem; color: var(--ink-faint);
-    padding: 3px 8px; border: 1px solid var(--line);
-  }
-  @media (max-width: 640px){ .section-head-row{ flex-direction:column; gap: 10px; } }
-  .section-head{ max-width: 64ch; margin-bottom: clamp(36px, 6vw, 68px); }
-  .section-head h2{ font-family: var(--display); font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 600; margin-top: 10px; }
-  .section-head .cjk-h{ font-family: var(--display-cjk); font-weight: 600; color: var(--seal-deep); margin-left: 0.3em; font-size: 0.6em; }
-  .section-head p{ margin-top: 14px; color: var(--ink-soft); font-size: 1.02rem; max-width: 58ch; }
-
-  hr.rule{ border:none; border-top:1px solid var(--line); margin: clamp(36px,6vw,56px) 0; }
-
-  /* ============ ABOUT / DIARY ENTRIES ============ */
-  .who-layout{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px,5vw,64px); }
-  @media (max-width: 900px){ .who-layout{ grid-template-columns: 1fr; } }
-
-  .diary{ display:flex; flex-direction:column; gap: 22px; }
-  .diary-entry{ padding-left: 20px; border-left: 2px solid var(--line); position:relative; }
-  .diary-entry::before{
-    content:""; position:absolute; left:-6px; top:4px; width:10px; height:10px; border-radius:50%;
-    background: var(--paper); border: 2px solid var(--seal);
-  }
-  .diary-label{ font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform:uppercase; color: var(--seal-deep); font-weight:600; }
-  .diary-entry p{ margin-top: 6px; color: var(--ink-soft); font-size: 1.02rem; max-width: 56ch; }
-
-  .bg-list{ list-style:none; margin: 28px 0 0; padding: 20px 0 0; display:flex; flex-direction:column; gap: 14px; border-top: 1px solid var(--line); }
-  .bg-list li{ display:flex; gap: 14px; align-items:flex-start; font-size: 0.93rem; color: var(--ink-soft); }
-  .bg-list .mark{
-    flex:none; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--seal);
-    color: var(--seal-deep); font-family: var(--display-cjk); font-weight:700; font-size: 0.82rem;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .bg-list strong{ color: var(--ink); font-weight:600; }
-
-  /* ledger stats */
-  .ledger{ border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 4px 0; }
-  .ledger-plat{ display:flex; align-items:baseline; justify-content:space-between; padding: 12px 0; border-bottom: 1px dashed var(--line); }
-  .ledger-plat h3{ font-family: var(--display); font-style: italic; font-size: 1.15rem; font-weight: 500; }
-  .ledger-plat span{ font-family: var(--mono); font-size: 0.74rem; color: var(--ink-faint); }
-  .ledger-rows{ display:grid; grid-template-columns: repeat(2,1fr); }
-  .ledger-row{ padding: 12px 0; border-bottom: 1px dashed var(--line); }
-  .ledger-row:nth-child(odd){ padding-right: 14px; border-right: 1px dashed var(--line); }
-  .ledger-row:nth-child(odd):last-child, .ledger-row:nth-last-child(-n+2){ border-bottom: none; }
-  .ledger-row b{ display:block; font-family: var(--mono); font-size: clamp(1.3rem,2.4vw,1.55rem); font-weight:600; color: var(--ink); }
-  .ledger-row span{ font-size: 0.76rem; color: var(--ink-soft); }
-  .ledger + .ledger{ margin-top: 20px; }
-
-  .geo-list{ margin-top: 24px; display:flex; flex-direction:column; gap: 9px; }
-  .geo-row{ display:grid; grid-template-columns: 76px 1fr 48px; align-items:center; gap: 10px; font-size: 0.8rem; font-family: var(--mono); }
-  .geo-row .country{ color: var(--ink-soft); }
-  .geo-row .bar-track{ display:block; height: 6px; background: var(--paper-sunken); }
-  .geo-row .bar-fill{ display:block; height:100%; background: var(--jade); }
-  .geo-row .pct{ text-align:right; font-weight:600; color: var(--ink); }
-
-  /* ============ APOTHEKA — interactive pillar index ============ */
-  .apotheka-head{ margin-top: clamp(44px,6vw,64px); display:flex; align-items:baseline; justify-content:space-between; gap: 12px; flex-wrap:wrap; }
-  .apotheka-head h3{ font-family: var(--display); font-weight: 600; font-size: 1.4rem; }
-  .apotheka-head p{ color: var(--ink-faint); font-size: 0.85rem; max-width: 34ch; }
-  .apotheka{ margin-top: 20px; display:flex; flex-wrap:wrap; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-  .apotheka-tab{
-    flex: 1 1 auto; display:flex; align-items:center; gap: 10px;
-    padding: 16px 14px; background: none; border: none; border-right: 1px solid var(--line);
-    cursor:pointer; font-family: var(--sans); font-weight:600; font-size: 0.9rem; color: var(--ink-faint);
-    transition: background .15s ease, color .15s ease;
-  }
-  .apotheka-tab:last-child{ border-right:none; }
-  .apotheka-tab .apotheka-glyph{ font-family: var(--display-cjk); color: var(--seal); font-size: 1.1rem; }
-  .apotheka-tab[aria-expanded="true"]{ background: var(--ink); color: var(--paper); }
-  .apotheka-tab[aria-expanded="true"] .apotheka-glyph{ color: var(--seal-on-dark); }
-  .apotheka-tab:not([aria-expanded="true"]):hover{ background: var(--paper-sunken); }
-  @media (max-width: 760px){
-    .apotheka{ flex-direction:column; }
-    .apotheka-tab{ border-right:none; border-bottom: 1px solid var(--line); justify-content:space-between; }
-    .apotheka-tab:last-child{ border-bottom:none; }
+  /* ---------- hero ---------- */
+  .hero{ position:relative; overflow:hidden; margin-top:calc(-1 * var(--bar-h)); padding-top:var(--bar-h); background:linear-gradient(180deg, var(--mist) 0%, var(--paper) 82%); }
+  .guides i{ position:absolute; pointer-events:none; }
+  .guides .gv{ top:0; bottom:0; border-left:1px dotted var(--line); }
+  .guides .gh{ left:0; right:0; border-top:1px dotted var(--line); }
+  .gv1{ left:57%; } .gv2{ left:91%; } .gh1{ top:calc(var(--bar-h) + 78px); } .gh2{ bottom:clamp(36px,5vw,68px); }
+  .hero-grid{ position:relative; display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); column-gap:clamp(32px,7vw,110px); padding-block:clamp(40px,6vw,72px) clamp(72px,10vw,136px); }
+  .hero-top{ grid-column:1 / -1; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:clamp(56px,8vw,104px); }
+  .wordmark img{ width:min(500px,100%); height:auto; }
+  .hero-strap{ margin-top:clamp(36px,5vw,60px); max-width:15ch; font:italic 300 clamp(2rem,4vw,3.2rem)/1.12 var(--display); font-synthesis:none; color:var(--ink); }
+  .hero-bio{ margin-top:26px; max-width:44ch; }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+  .hero-facts{ margin-top:clamp(32px,4vw,48px); display:flex; flex-direction:column; gap:4px; text-align:right; }
+  .hero-col{ align-self:start; justify-self:center; width:min(340px,100%); margin-top:8px; }
+  .hero-side{ position:relative; }
+  .arch{ position:relative; aspect-ratio:3/4; max-width:100%; border-radius:50% 50% 0 0 / 37.5% 37.5% 0 0; overflow:hidden; background:var(--mist); }
+  .arch img{ width:100%; height:100%; object-fit:cover; }
+  .arch canvas{ position:absolute; inset:0; width:100%; height:100%; touch-action:pan-y; cursor:grab; }
+  .hero-side figcaption{ margin-top:18px; display:flex; gap:12px; align-items:flex-start; justify-content:flex-end; text-align:right; }
+  .hero-side figcaption strong{ display:block; font:italic 400 1.3rem/1.2 var(--display); color:var(--ink); }
+  .hero-side figcaption span{ font-size:.78rem; line-height:1.5; color:var(--ink-faint); }
+  .hero-side figcaption .seal{ color:var(--porcelain); font-size:.95rem; line-height:1; }
+  .seal{ flex:none; width:28px; height:28px; display:grid; place-items:center; background:var(--seal); color:var(--porcelain); font:500 .95rem/1 var(--cjk); border-radius:3px; }
+  .mist-hint{ position:absolute; top:6%; right:-8px; transform:translateX(100%); writing-mode:vertical-rl; white-space:nowrap; }
+  .hero-cup{ position:absolute; left:-52px; bottom:64px; display:flex; align-items:flex-end; gap:14px; }
+  .hero-cup .note{ max-width:17ch; position:absolute; right:calc(100% + 16px); bottom:8px; width:max-content; text-align:right; }
+  @media (max-width:899px){
+    .hero-grid{ grid-template-columns:minmax(0,1fr); }
+    .hero-col{ margin-top:64px; width:min(300px,82%); justify-self:end; }
+    .hero-facts{ margin-top:72px; }
+    .mist-hint{ position:static; transform:none; writing-mode:horizontal-tb; margin-top:10px; text-align:right; display:block; }
+    .hero-cup{ left:-58px; bottom:96px; --cup:68px; }
+    .hero-cup .note{ position:absolute; right:auto; left:0; bottom:auto; top:calc(100% + 12px); text-align:left; max-width:13ch; }
+    .gv1{ left:74%; } .gv2{ display:none; }
   }
 
-  .apotheka-panel{ display:grid; grid-template-columns: 0.8fr 1.2fr; gap: 0; margin-top: 0; border: 1px solid var(--line); border-top:none; }
-  @media (max-width: 760px){ .apotheka-panel{ grid-template-columns: 1fr; } }
-  .apotheka-panel-media{ aspect-ratio: 4/3; overflow:hidden; background: var(--paper-sunken); }
-  .apotheka-panel-media img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .apotheka-panel-text{ padding: clamp(24px,4vw,40px); display:flex; flex-direction:column; justify-content:center; }
-  .apotheka-panel-glyph{ font-family: var(--display-cjk); font-size: 2.2rem; color: var(--seal); line-height:1; }
-  .apotheka-panel-text h4{ font-family: var(--display); font-weight:600; font-size: 1.5rem; margin-top: 10px; }
-  .apotheka-panel-text p{ margin-top: 10px; color: var(--ink-soft); font-size: 0.98rem; }
-
-  /* ============ LANGUAGE SECTION ============ */
-  .lang-list{ list-style:none; margin: 26px 0 0; padding:0; display:grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; max-width: 68ch; }
-  @media (max-width: 640px){ .lang-list{ grid-template-columns: 1fr; } }
-  .lang-list li{ font-size: 0.94rem; color: var(--ink-soft); padding-left: 20px; position:relative; }
-  .lang-list li::before{ content:"印"; position:absolute; left:0; top:0.1em; color: var(--seal); font-weight:700; font-size: 0.72em; font-family: var(--display-cjk); }
-  .lang-note{ margin-top: 24px; font-family: var(--display); font-style: italic; font-weight:500; color: var(--seal-deep); font-size: 1.1rem; }
-
-  /* ============ REEL GALLERY — contact-sheet style ============ */
-  .gallery-tag{ display:inline-flex; align-items:center; gap:6px; font-family: var(--mono); font-size: 0.72rem; font-weight:500; letter-spacing: 0.04em; padding: 4px 0; margin-bottom: 8px; color: var(--ink-faint); }
-  .tag-creative{ color: var(--seal-deep); }
-  .reel-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 16px; }
-  .reel-link-card{ display:flex; flex-direction:column; text-decoration:none; color:inherit; }
-  .reel-link-thumb{
-    position: relative; overflow:hidden; aspect-ratio: 9/16; border: 1px solid var(--ink);
-    background: var(--paper-sunken);
-    transition: transform .2s ease;
+  /* ---------- chapter heads ---------- */
+  .head{ position:relative; display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:clamp(24px,5vw,80px); align-items:end; margin-bottom:clamp(48px,7vw,92px); padding-bottom:26px; }
+  .head::after{ content:""; position:absolute; left:-100vw; right:-100vw; bottom:0; border-top:1px dotted var(--line); }
+  .head-glyph{ font:200 clamp(5rem,13vw,10.5rem)/.92 var(--cjk); color:var(--moss); user-select:none; }
+  .head-text{ max-width:58ch; padding-bottom:10px; }
+  .head h2{ font:300 clamp(2.2rem,5vw,4rem)/1.08 var(--display); margin-top:14px; letter-spacing:-.005em; }
+  .head .lede{ margin-top:20px; max-width:52ch; }
+  .head.flip{ grid-template-columns:minmax(0,1fr) auto; } .head.flip .head-glyph{ order:2; }
+  @media (max-width:719px){
+    .head, .head.flip{ grid-template-columns:minmax(0,1fr); row-gap:22px; }
+    .head.flip .head-glyph{ order:0; justify-self:end; }
   }
-  .reel-link-thumb::before, .reel-link-thumb::after{
-    content:""; position:absolute; width:8px; height:8px; border: 1px solid var(--ink); background: var(--paper); z-index:2;
+
+  /* ---------- about ---------- */
+  .story{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:24px; row-gap:clamp(40px,6vw,72px); }
+  .story-step{ grid-column:var(--c) / span 6; }
+  .story-step .note{ display:block; margin-bottom:10px; color:var(--moss); }
+  .story-step p{ font:300 clamp(1.3rem,2.1vw,1.62rem)/1.5 var(--display); color:var(--ink); }
+  html[data-lang="zh"] .story-step p{ font-size:clamp(1.1rem,1.7vw,1.3rem); line-height:1.9; }
+  .craft{ margin-top:clamp(72px,10vw,136px); }
+  .craft-list{ margin-top:26px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:clamp(24px,4vw,56px); row-gap:36px; }
+  .craft-list li{ border-top:1px dotted var(--line); padding-top:20px; font-size:.95rem; }
+  .craft-list .glyph{ display:block; font:200 2.7rem/1 var(--cjk); color:var(--moss); margin-bottom:16px; }
+  .craft-list strong{ display:block; font:400 1.3rem/1.3 var(--display); color:var(--ink); margin-bottom:6px; }
+  @media (max-width:859px){
+    .story-step{ grid-column:1 / -1; } .story-step:nth-child(2){ padding-left:10%; } .story-step:nth-child(3){ padding-left:20%; }
+    .craft-list{ grid-template-columns:minmax(0,1fr); }
   }
-  .reel-link-thumb::before{ top:6px; left:6px; }
-  .reel-link-thumb::after{ top:6px; right:6px; }
-  .reel-link-card:hover .reel-link-thumb{ transform: translateY(-4px); }
-  .reel-link-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .play-badge{
-    position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);
-    width: 42px; height: 42px; border-radius: 50%;
-    background: color-mix(in srgb, var(--panel-bg) 74%, transparent); color: var(--panel-ink);
-    display:flex; align-items:center; justify-content:center; font-size: 0.9rem; opacity: 0; transition: opacity .2s ease;
+
+  /* ---------- pillars: the tray ---------- */
+  .tray{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(40px,7vw,112px); align-items:center; }
+  .wheel{ --w:min(430px,78vw); --b:62px; --rot:0deg; position:relative; width:var(--w); aspect-ratio:1; max-width:100%; margin-inline:auto; }
+  .wheel-ring{ position:absolute; inset:calc(var(--b) / 2); border:1px dotted var(--moss); border-radius:50%; transform:rotate(var(--rot)); transition:transform 1.1s cubic-bezier(.3,.7,.2,1); }
+  .wheel-btn{
+    position:absolute; left:50%; top:50%; width:var(--b); height:var(--b); margin:calc(var(--b) / -2) 0 0 calc(var(--b) / -2);
+    border-radius:50%; border:1px solid var(--line); background:var(--mist); color:var(--moss); cursor:pointer; padding:0;
+    font:300 1.5rem/1 var(--cjk);
+    transform:rotate(calc(var(--i) * 72deg)) translateY(calc((var(--w) - var(--b)) / -2)) rotate(calc(var(--i) * -72deg - var(--rot)));
+    transition:transform 1.1s cubic-bezier(.3,.7,.2,1), background .35s ease, color .35s ease, border-color .35s ease;
   }
-  .reel-link-card:hover .play-badge{ opacity: 1; }
-  .reel-link-meta{ margin-top: 9px; display:flex; flex-direction:column; gap: 1px; }
-  .reel-link-idx{ font-family: var(--sans); font-weight: 600; font-size: 0.85rem; }
-  .reel-link-handle{ font-family: var(--mono); font-size: 0.64rem; color: var(--ink-faint); }
+  .wheel-btn:hover{ border-color:var(--moss); }
+  .wheel-btn[aria-pressed="true"]{ background:var(--moss-deep); border-color:var(--moss-deep); color:var(--porcelain); }
+  .wheel-center{ position:absolute; inset:23%; border-radius:50%; overflow:hidden; background:var(--paper); box-shadow:0 22px 34px -26px var(--shade); }
+  .wheel-center img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .8s ease; }
+  .wheel-center img.on{ opacity:1; }
+  @media (prefers-reduced-motion: reduce){ .wheel-ring, .wheel-btn{ transition:none; } }
+  .pillar-glyph{ font:200 clamp(5rem,10vw,8rem)/1 var(--cjk); color:var(--moss); }
+  .pillar-item h3{ font:300 clamp(2rem,3.4vw,2.8rem)/1.1 var(--display); margin-top:14px; }
+  .pillar-item p{ margin-top:12px; max-width:32ch; }
+  .tray-foot{ margin-top:34px; display:flex; align-items:center; gap:18px; }
+  .tray-arrow{ width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:none; cursor:pointer; font-size:1rem; color:var(--ink); transition:border-color .2s, background .2s; }
+  .tray-arrow:hover{ border-color:var(--ink); }
+  .tray-count{ font:400 .8rem/1 var(--text); letter-spacing:.18em; color:var(--ink-faint); min-width:5ch; text-align:center; }
+  @media (max-width:859px){ .tray{ grid-template-columns:minmax(0,1fr); } .tray-detail{ text-align:center; } .pillar-item p{ margin-inline:auto; } .tray-foot{ justify-content:center; } .wheel{ --b:54px; } }
 
-  .gallery-foot{ margin-top: 26px; display:flex; align-items:center; gap: 14px; flex-wrap: wrap; }
-  .gallery-foot p{ font-size: 0.84rem; color: var(--ink-faint); }
+  /* ---------- language ---------- */
+  .lang-list{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(32px,6vw,96px); max-width:920px; margin-left:auto; }
+  .lang-list li{ border-top:1px dotted var(--line); padding:22px 0 26px; font:300 1.3rem/1.45 var(--display); color:var(--ink); }
+  html[data-lang="zh"] .lang-list li{ font-size:1.08rem; line-height:1.8; }
+  .lang-note{ margin-top:clamp(48px,7vw,88px); text-align:right; font:italic 300 clamp(1.7rem,3.4vw,2.7rem)/1.2 var(--display); font-synthesis:none; color:var(--moss); }
+  @media (max-width:719px){ .lang-list{ grid-template-columns:minmax(0,1fr); } }
 
-  /* ============ PORTFOLIO — "Also Her Hand" editorial grid ============ */
-  .portfolio-grid{
-    display:grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: auto auto;
-    gap: 16px; margin-top: 8px;
-    grid-template-areas: "big mid1" "big mid2";
+  /* ---------- pause ---------- */
+  .pause{ text-align:center; padding-block:clamp(110px,17vw,230px); overflow:hidden; }
+  .pause::before{ content:""; position:absolute; left:50%; top:50%; width:min(360px,74vw); aspect-ratio:1; margin:calc(min(360px,74vw) / -2) 0 0 calc(min(360px,74vw) / -2); border:1px dotted var(--moss); border-radius:50%; animation:breathe 9s ease-in-out infinite; }
+  @keyframes breathe{ 0%,100%{ transform:scale(.8); opacity:.45; } 50%{ transform:scale(1.12); opacity:1; } }
+  @media (prefers-reduced-motion: reduce){ .pause::before{ animation:none; } }
+  .pause .wrap{ position:relative; }
+  .pause-zh{ font:200 clamp(3rem,11vw,8rem)/1 var(--cjk); letter-spacing:.18em; text-indent:.18em; color:var(--moss); }
+  .pause .note{ position:relative; display:block; margin-top:30px; }
+
+  /* ---------- work: postcards on a table ---------- */
+  .set + .set{ margin-top:clamp(64px,9vw,120px); }
+  .set-head{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); column-gap:24px; align-items:baseline; }
+  .set-head h3{ font:400 clamp(1.5rem,2.6vw,2rem)/1.2 var(--display); }
+  .set-head p{ max-width:46ch; font-size:.98rem; }
+  .set.flip .set-head h3{ order:2; text-align:right; }
+  .table{ position:relative; height:452px; margin-top:34px; }
+  .postcard{
+    position:absolute; left:var(--x); top:var(--y); width:188px; padding:8px 8px 14px;
+    background:var(--porcelain); color:inherit; text-decoration:none; cursor:grab; user-select:none; -webkit-user-drag:none;
+    box-shadow:0 22px 30px -24px var(--shade), 0 0 0 1px rgba(32,40,28,.05);
+    translate:var(--dx,0px) var(--dy,0px); rotate:var(--r,0deg); scale:1;
+    transition:scale .3s ease, box-shadow .3s ease;
   }
-  @media (max-width: 760px){ .portfolio-grid{ grid-template-columns: 1fr; grid-template-areas: "big" "mid1" "mid2"; } }
-  .pf-tile{ margin:0; position:relative; min-width: 0; }
-  .pf-big{ grid-area: big; aspect-ratio: 4/5; }
-  .pf-mid1{ grid-area: mid1; aspect-ratio: 16/9; }
-  .pf-mid2{ grid-area: mid2; aspect-ratio: 16/9; }
-  .pf-tile img{ width:100%; height:100%; object-fit:cover; border: 1px solid var(--ink); display:block; }
-  .pf-tile figcaption{ margin-top: 9px; display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .pf-client{ font-family: var(--sans); font-weight:600; font-size: 0.88rem; }
-  .pf-sector{ font-family: var(--mono); font-size: 0.68rem; color: var(--ink-faint); text-transform:uppercase; letter-spacing:0.04em; }
-  .portfolio-foot{ margin-top: 28px; }
-
-  /* ============ OFFER / ROUTE CARDS — ledger entries ============ */
-  .route-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-  @media (max-width: 900px){ .route-grid{ grid-template-columns: 1fr; } }
-  .route-card{ background: var(--paper-raised); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: clamp(24px,3vw,30px); display:flex; flex-direction:column; }
-  .route-index{ font-family: var(--mono); font-weight:600; color: var(--seal); font-size: 0.82rem; border:1px solid var(--seal); display:inline-block; padding: 2px 7px; width:fit-content; }
-  .route-card h3{ font-family: var(--display); font-weight:600; font-size: 1.3rem; margin-top: 12px; }
-  .route-tag{ font-size: 0.8rem; color: var(--seal-deep); font-weight:600; margin-top: 4px; font-family: var(--mono); }
-  .route-card ul{ list-style:none; margin: 20px 0 0; padding:0; display:flex; flex-direction:column; gap: 10px; flex: 1; }
-  .route-card ul li{ font-size: 0.86rem; color: var(--ink-soft); padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
-  .route-card ul li:last-child{ border-bottom:none; padding-bottom:0; }
-  .route-best{ margin-top: 18px; font-size: 0.76rem; color: var(--ink-faint); font-family: var(--mono); }
-  .route-best span:first-child{ text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color: var(--ink-soft); margin-right: 6px; }
-  .route-cta{ margin-top: 20px; width: 100%; justify-content: center; }
-  .open-note{ margin-top: 24px; font-family: var(--display); font-style: italic; font-weight:500; color: var(--seal-deep); font-size: 1.1rem; }
-
-  /* ============ USAGE RIGHTS TABLE ============ */
-  .rights-table{ margin-top: 8px; border-top: 1px solid var(--ink); }
-  .rights-row{ display:grid; grid-template-columns: 1.1fr 1.3fr 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items:center; }
-  @media (max-width: 640px){ .rights-row{ grid-template-columns: 1fr; gap: 4px; padding: 14px 0; } }
-  .rights-row.rights-head{ font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform:uppercase; color: var(--ink-faint); }
-  .rights-level{ font-weight:600; color: var(--ink); font-family: var(--mono); }
-  .rights-row:not(.rights-head) span:not(.rights-level){ font-size: 0.92rem; color: var(--ink-soft); }
-  .rights-addons{ margin-top: 24px; font-size: 0.86rem; color: var(--ink-soft); }
-  .rights-addons strong{ color: var(--ink); margin-right: 8px; }
-
-  /* ============ WHY ME ============ */
-  .why-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ink); border: 1px solid var(--ink); }
-  @media (max-width: 720px){ .why-grid{ grid-template-columns: 1fr; } }
-  .why-card{ background: var(--paper-raised); padding: clamp(22px,3vw,28px); }
-  .why-card h3{ font-family: var(--display); font-weight: 600; font-size: 1.2rem; }
-  .why-card p{ margin-top: 10px; color: var(--ink-soft); font-size: 0.94rem; }
-
-  /* ============ PROCESS TIMELINE ============ */
-  .process-timeline{ margin-top: 12px; position:relative; }
-  .process-track{ position:relative; height:2px; background: var(--line); margin: 36px 0 18px; }
-  .process-track-fill{ position:absolute; left:0; top:0; height:100%; background: var(--seal); width: 100%; }
-  .process-steps{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
-  .process-steps li{ position:relative; text-align:center; font-family: var(--sans); font-weight:600; font-size: 0.86rem; color: var(--ink); }
-  .process-steps li::before{
-    content:""; position:absolute; top:-42px; left:50%; transform:translateX(-50%);
-    width:14px; height:14px; border-radius:50%; background: var(--seal); border: 3px solid var(--paper);
-    box-shadow: 0 0 0 1px var(--seal);
+  .postcard:hover{ scale:1.035; box-shadow:0 30px 36px -24px var(--shade), 0 0 0 1px rgba(32,40,28,.05); }
+  .postcard.is-held{ cursor:grabbing; scale:1.06; }
+  .postcard img{ width:100%; aspect-ratio:9/16; object-fit:cover; pointer-events:none; }
+  .postcard span{ display:block; margin-top:11px; font-size:.78rem; line-height:1.4; color:var(--ink-soft); min-height:2.8em; }
+  .hint-touch{ display:none; }
+  .work-foot{ margin-top:clamp(40px,6vw,64px); display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px; }
+  @media (max-width:899px), (pointer:coarse){
+    .table{ height:auto; display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;
+      margin-inline:calc(-1 * max(var(--gut), env(safe-area-inset-left,0px))); padding:14px max(var(--gut), env(safe-area-inset-left,0px)) 34px; scrollbar-width:none; }
+    .table::-webkit-scrollbar{ display:none; }
+    .postcard{ position:static; flex:none; width:172px; scroll-snap-align:center; cursor:pointer; translate:none; rotate:calc(var(--r,0deg) * .4); }
+    .hint-fine{ display:none; } .hint-touch{ display:inline; }
   }
-  @media (max-width: 640px){
-    .process-steps{ grid-template-columns: 1fr; gap: 28px; text-align:left; padding-left: 28px; }
-    .process-track{ display:none; }
-    .process-steps li::before{ top:3px; left:-28px; transform:none; }
+  @media (max-width:719px){ .set-head{ grid-template-columns:minmax(0,1fr); row-gap:8px; } .set.flip .set-head h3{ order:0; text-align:left; } }
+
+  /* ---------- portfolio collage ---------- */
+  .collage{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:24px; align-items:start; }
+  .collage figure{ min-width:0; }
+  .collage img{ width:100%; height:auto; }
+  .collage .blend{ mix-blend-mode:multiply; }
+  .collage figcaption{ margin-top:14px; }
+  .collage figcaption strong{ display:block; font:italic 400 1.3rem/1.25 var(--display); color:var(--ink); }
+  .pf-a{ grid-column:1 / span 7; grid-row:1 / span 2; }
+  .pf-b{ grid-column:9 / span 4; grid-row:1; margin-top:clamp(40px,7vw,96px); }
+  .pf-c{ grid-column:8 / span 3; grid-row:2; margin-top:clamp(40px,6vw,72px); }
+  .pf-cta{ grid-column:11 / span 2; grid-row:2; align-self:end; justify-self:end; text-align:right; padding-bottom:6px; }
+  @media (max-width:859px){
+    .collage{ grid-template-columns:minmax(0,1fr); row-gap:48px; }
+    .pf-a,.pf-b,.pf-c,.pf-cta{ grid-column:1; grid-row:auto; margin-top:0; }
+    .pf-b{ width:82%; justify-self:end; } .pf-c{ width:58%; } .pf-cta{ justify-self:start; text-align:left; }
   }
-  .process-note{ margin-top: 28px; color: var(--ink-faint); font-size: 0.86rem; }
 
-  /* ============ CLOSING CTA ============ */
-  .closing{ background: var(--panel-bg); color: var(--panel-ink); padding: clamp(40px,7vw,72px) clamp(24px,6vw,64px); }
-  .closing .eyebrow{ color: var(--seal-on-dark); }
-  .closing .eyebrow::before{ background: var(--seal-on-dark); }
-  .closing h2{ font-family: var(--display); font-weight: 600; font-size: clamp(1.9rem,4.2vw,2.8rem); margin-top:10px; max-width: 16ch; }
-  .closing > p{ margin-top: 16px; max-width: 52ch; color: var(--panel-ink-soft); font-size: 1.02rem; }
-  .closing-cta{ display:flex; gap:12px; margin-top: 28px; flex-wrap:wrap; }
-  .closing .btn-primary{ border-color: var(--seal-on-dark); background: var(--seal-on-dark); color: var(--panel-bg); }
-  .closing .btn-primary:hover{ background: var(--panel-ink); border-color: var(--panel-ink); }
+  /* ---------- numbers ---------- */
+  .plats{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(48px,8vw,128px); }
+  .plat-top{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; border-bottom:1px dotted var(--line); padding-bottom:14px; }
+  .plat-top h3{ font:italic 400 1.6rem/1.2 var(--display); font-synthesis:none; }
+  .plat-top span{ font-size:.76rem; letter-spacing:.08em; color:var(--ink-faint); }
+  .plat-nums{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(30px,4vw,48px) 24px; margin-top:clamp(28px,4vw,44px); }
+  .num{ display:block; font:300 clamp(2.6rem,5vw,4rem)/1 var(--display); font-variant-numeric:lining-nums tabular-nums; color:var(--ink); }
+  .num-label{ display:block; margin-top:10px; font-size:.82rem; color:var(--ink-faint); }
+  .aud{ margin-top:clamp(72px,10vw,128px); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(48px,8vw,128px); align-items:start; }
+  .age{ margin-top:26px; display:flex; flex-direction:column; gap:20px; }
+  .age-row{ display:grid; grid-template-columns:58px minmax(0,1fr) 56px; align-items:center; gap:14px; font-size:.84rem; font-variant-numeric:tabular-nums; }
+  .age-track{ position:relative; height:1px; border-top:1px dotted var(--line); }
+  .age-track i{ position:absolute; left:0; top:-2px; height:3px; width:var(--v); background:var(--moss); border-radius:2px; }
+  .age-row b{ text-align:right; font-weight:500; color:var(--ink); }
+  .geo{ margin-top:26px; display:flex; align-items:flex-end; gap:clamp(16px,3vw,36px); }
+  .geo-item{ display:flex; flex-direction:column; align-items:center; gap:12px; font-size:.84rem; text-align:center; }
+  .geo-item i{ width:var(--d); aspect-ratio:1; border-radius:50%; border:1px solid var(--moss); background:color-mix(in srgb, var(--moss) 10%, transparent); }
+  .geo-item b{ display:block; font-weight:500; color:var(--ink); font-variant-numeric:tabular-nums; }
+  @media (max-width:859px){ .plats, .aud{ grid-template-columns:minmax(0,1fr); } }
 
-  .contact-grid{ margin-top: clamp(32px,5vw,48px); display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; border-top: 1px solid color-mix(in srgb, var(--panel-ink) 24%, transparent); padding-top: 24px; }
-  @media (max-width: 760px){ .contact-grid{ grid-template-columns: repeat(2,1fr); } }
-  @media (max-width: 480px){ .contact-grid{ grid-template-columns: 1fr; } }
-  .contact-grid dt{ font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform:uppercase; color: var(--panel-ink-soft); }
-  .contact-grid dd{ margin: 6px 0 0; font-size: 0.96rem; }
-  .contact-grid a{ text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--panel-ink-soft) 55%, transparent); text-underline-offset: 3px; }
-  .contact-grid a:hover{ color: var(--seal-on-dark); text-decoration-color: var(--seal-on-dark); }
+  /* ---------- offer: three routes ---------- */
+  .routes{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); grid-template-rows:auto auto auto 1fr; column-gap:clamp(32px,6vw,96px); }
+  .route-tab{ grid-column:1; display:block; width:100%; text-align:left; background:none; border:none; border-top:1px dotted var(--line); padding:26px 0 28px; cursor:pointer; color:var(--ink-faint); transition:color .3s ease; }
+  .route-tab .route-no{ font:500 .7rem/1 var(--text); letter-spacing:.2em; }
+  .route-tab .route-name{ display:block; margin-top:10px; font:300 clamp(1.9rem,3.2vw,2.7rem)/1.1 var(--display); }
+  .route-tab .route-tag{ display:block; margin-top:8px; font-family:var(--hand); font-style:italic; font-synthesis:none; font-size:1.08rem; }
+  .route-tab:hover{ color:var(--ink-soft); }
+  .route-tab[aria-expanded="true"]{ color:var(--ink); }
+  .route-tab[aria-expanded="true"] .route-no::after{ content:""; display:inline-block; width:7px; height:7px; margin-left:10px; border-radius:50%; background:var(--seal); vertical-align:middle; }
+  .route-panel{ grid-column:2; grid-row:1 / span 4; border-top:1px dotted var(--line); padding-top:30px; }
+  .route-panel ul{ columns:2; column-gap:clamp(24px,4vw,56px); }
+  .route-panel li{ break-inside:avoid; padding:11px 0; border-bottom:1px dotted var(--line); font-size:.95rem; }
+  .route-best{ margin-top:28px; font-size:.86rem; color:var(--ink-faint); }
+  .route-best .label{ margin-right:10px; }
+  .route-panel .btn{ margin-top:30px; }
+  .offer-open{ margin-top:clamp(48px,7vw,80px); }
+  @media (max-width:859px){
+    .routes{ grid-template-columns:minmax(0,1fr); grid-template-rows:none; }
+    .route-panel{ grid-column:1; grid-row:auto; border-top:none; padding:0 0 36px; }
+    .route-panel ul{ columns:1; }
+  }
 
-  /* ============ FOOTER ============ */
-  footer{ padding: 36px clamp(20px,5vw,56px) 56px; display:flex; flex-direction:column; gap: 14px; border-top: 1px solid var(--line); }
-  footer .foot-top{ display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap: wrap; }
-  footer .foot-mark{ display:flex; align-items:center; gap: 11px; }
-  footer .foot-mark .icon-stamp{ width: 32px; height:32px; overflow:hidden; border: 1px solid var(--ink); flex:none; }
-  footer .foot-mark .icon-stamp img{ width:100%; height:100%; object-fit:cover; }
-  footer .foot-mark .brand-text{ display:flex; flex-direction:column; gap: 4px; line-height:1.18; }
-  footer .foot-mark .brand-name{ font-family: var(--sans); font-weight:600; font-size: 0.85rem; color: var(--ink); }
-  footer .foot-mark .brand-sub{ font-family: var(--mono); font-size: 0.7rem; color: var(--ink-faint); }
-  footer .foot-links{ display:flex; gap: 18px; font-family: var(--mono); font-size: 0.78rem; }
-  footer .foot-links a{ text-decoration:none; color: var(--ink-faint); }
-  footer .foot-links a:hover{ color: var(--seal-deep); }
+  /* ---------- rights: how far it travels ---------- */
+  .rights-stage{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(40px,7vw,112px); align-items:center; }
+  .ripple{ position:relative; width:min(340px,64vw); max-width:100%; aspect-ratio:1; margin-inline:auto; }
+  .ripple i{ position:absolute; inset:calc(50% - var(--k) * 12.5%); border-radius:50%; border:1px dotted var(--line); transition:border-color .6s ease, background .6s ease; }
+  .ripple::after{ content:""; position:absolute; left:50%; top:50%; width:8px; height:8px; margin:-4px 0 0 -4px; border-radius:50%; background:var(--seal); }
+  .rights[data-level="1"] .ripple i:nth-child(-n+1), .rights[data-level="2"] .ripple i:nth-child(-n+2),
+  .rights[data-level="3"] .ripple i:nth-child(-n+3), .rights[data-level="4"] .ripple i:nth-child(-n+4){ border:1px solid var(--moss); background:color-mix(in srgb, var(--moss) 9%, transparent); }
+  .rights-read .route-no{ font:500 .7rem/1 var(--text); letter-spacing:.2em; color:var(--ink-faint); }
+  .rights-name{ display:block; font:300 clamp(2.4rem,5vw,3.8rem)/1.05 var(--display); margin-top:12px; }
+  .rights-read dl{ margin-top:26px; display:grid; grid-template-columns:auto minmax(0,1fr); gap:12px 28px; align-items:baseline; }
+  .rights-read dd{ font:300 1.35rem/1.35 var(--display); color:var(--ink); }
+  .rights-slider{ margin-top:clamp(48px,7vw,80px); }
+  .rights-slider input{ -webkit-appearance:none; appearance:none; display:block; width:calc(75% + 26px); margin:0 0 0 calc(12.5% - 13px); height:26px; background:transparent; cursor:pointer; }
+  .rights-slider input::-webkit-slider-runnable-track{ height:1px; background:var(--ink-faint); }
+  .rights-slider input::-moz-range-track{ height:1px; background:var(--ink-faint); }
+  .rights-slider input::-webkit-slider-thumb{ -webkit-appearance:none; width:26px; height:26px; margin-top:-13px; border-radius:50%; background:var(--moss-deep); border:6px solid var(--paper); box-shadow:0 0 0 1px var(--moss-deep); }
+  .rights-slider input::-moz-range-thumb{ width:14px; height:14px; border-radius:50%; background:var(--moss-deep); border:6px solid var(--paper); box-shadow:0 0 0 1px var(--moss-deep); }
+  .rights-stops{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:12px; }
+  .rights-stop{ background:none; border:none; padding:8px 4px; cursor:pointer; text-align:center; color:var(--ink-faint); min-width:0; }
+  .rights-stop b{ display:block; font:400 clamp(1rem,1.9vw,1.4rem)/1.2 var(--display); overflow-wrap:anywhere; }
+  .rights-stop span{ display:block; margin-top:6px; font-size:.74rem; line-height:1.4; }
+  .rights-stop[aria-pressed="true"]{ color:var(--ink); }
+  .rights-hint{ display:block; text-align:center; margin-bottom:8px; }
+  .addons{ margin-top:clamp(56px,8vw,96px); display:grid; grid-template-columns:auto minmax(0,1fr); gap:10px 32px; align-items:baseline; border-top:1px dotted var(--line); padding-top:24px; }
+  .addons p{ font-size:.92rem; }
+  @media (max-width:859px){ .rights-stage{ grid-template-columns:minmax(0,1fr); } .rights-read{ text-align:center; } .rights-read dl{ display:inline-grid; text-align:left; } .addons{ grid-template-columns:minmax(0,1fr); } }
 
-  /* ============ STICKY MOBILE CTA ============ */
+  /* ---------- why ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(48px,7vw,96px) clamp(40px,9vw,144px); }
+  .why-item{ border-top:1px dotted var(--line); padding-top:24px; }
+  .why-item:nth-child(even){ margin-top:clamp(32px,6vw,88px); }
+  .why-item h3{ font:400 clamp(1.5rem,2.4vw,1.95rem)/1.2 var(--display); }
+  .why-item p{ margin-top:12px; font-size:.98rem; max-width:44ch; }
+  @media (max-width:719px){ .why-grid{ grid-template-columns:minmax(0,1fr); } .why-item:nth-child(even){ margin-top:0; } }
+
+  /* ---------- process ---------- */
+  .flow{ position:relative; height:210px; }
+  .flow-line{ position:absolute; inset:0 0 auto 0; height:120px; transition:clip-path 2.2s ease .2s; clip-path:inset(0 0 0 0); }
+  .rev.pre .flow-line{ clip-path:inset(0 100% 0 0); }
+  .flow-line svg{ width:100%; height:100%; display:block; overflow:visible; }
+  .flow-line path{ fill:none; stroke:var(--moss); stroke-width:1; vector-effect:non-scaling-stroke; }
+  .flow-step{ position:absolute; left:calc(var(--x) * 1%); top:calc(var(--y) * 1px); transform:translate(-50%,-6px); display:flex; flex-direction:column; align-items:center; gap:16px; white-space:nowrap; }
+  .flow-step::before{ content:""; width:12px; height:12px; border-radius:50%; background:var(--paper); border:1px solid var(--moss); }
+  .flow-step:last-child::before{ background:var(--moss); }
+  .flow-step b{ font:400 clamp(1.2rem,2vw,1.6rem)/1.2 var(--display); color:var(--ink); }
+  .flow-step span{ font:500 .66rem/1 var(--text); letter-spacing:.2em; color:var(--ink-faint); }
+  .flow-note{ margin-top:36px; max-width:50ch; }
+  @media (max-width:719px){
+    .flow{ height:auto; display:flex; flex-direction:column; gap:26px; padding-left:6px; border-left:1px dotted var(--moss); margin-left:6px; }
+    .flow-line{ display:none; }
+    .flow-step{ position:relative; left:auto; top:auto; transform:none; flex-direction:row; align-items:baseline; margin-left:-13px; }
+    .flow-step::before{ align-self:center; flex:none; }
+  }
+
+  /* ---------- closing ---------- */
+  .closing{ background:var(--moss-deep); color:var(--on-deep-soft); overflow:hidden; }
+  .closing .guides .gv, .closing .guides .gh{ border-color:var(--line-deep); }
+  .closing .gv1{ left:64%; } .closing .gh1{ top:auto; bottom:31%; }
+  .closing-grid{ position:relative; display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(40px,7vw,104px); align-items:center; }
+  .closing .label{ color:var(--leaf); }
+  .closing h2 span{ display:inline-block; }
+  .closing h2{ margin-top:22px; font:200 clamp(2.5rem,6.6vw,5.4rem)/1.2 var(--cjk); color:var(--on-deep); }
+  .closing-body{ margin-top:26px; max-width:44ch; }
+  .closing .btn-primary{ background:var(--porcelain); border-color:var(--porcelain); color:var(--moss-deep); margin-top:34px; }
+  .closing .btn-primary:hover{ background:var(--leaf); border-color:var(--leaf); }
+  .mail{ margin-top:22px; display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px; }
+  .mail-addr{ font:300 clamp(1.15rem,2.2vw,1.5rem)/1.3 var(--display); color:var(--on-deep); user-select:all; overflow-wrap:anywhere; }
+  .mail-copy{ background:none; border:none; padding:0 0 3px; cursor:pointer; font:500 .7rem/1.4 var(--text); letter-spacing:.14em; text-transform:uppercase; color:var(--leaf); border-bottom:1px dotted var(--leaf); }
+  .closing-cup{ justify-self:center; text-align:center; --cup:min(230px,56vw); }
+  .closing-cup .cup{ margin-inline:auto; box-shadow:0 30px 44px -26px rgba(0,0,0,.6); }
+  .closing-cup .note{ display:block; margin-top:24px; color:var(--leaf); }
+  .contacts{ position:relative; margin-top:clamp(64px,9vw,120px); display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; border-top:1px dotted var(--line-deep); padding-top:28px; }
+  .contacts dt{ font:500 .68rem/1.4 var(--text); letter-spacing:.2em; text-transform:uppercase; color:var(--on-deep-soft); }
+  .contacts dd{ margin-top:8px; font:300 1.3rem/1.3 var(--display); overflow-wrap:anywhere; }
+  .contacts a{ color:var(--on-deep); text-decoration:none; border-bottom:1px dotted var(--line-deep); transition:color .2s, border-color .2s; }
+  .contacts a:hover{ color:var(--leaf); border-color:var(--leaf); }
+  @media (max-width:859px){ .closing-grid{ grid-template-columns:minmax(0,1fr); } .closing-cup{ order:-1; --cup:150px; } .contacts{ grid-template-columns:minmax(0,1fr); } }
+
+  footer{ background:var(--moss-deep); color:var(--on-deep-soft); border-top:1px dotted var(--line-deep); }
+  .foot{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px 28px; padding-block:30px calc(34px + env(safe-area-inset-bottom,0px)); font-size:.8rem; }
+  .foot-mark{ display:flex; align-items:center; gap:12px; }
+  .foot-mark img{ width:30px; height:30px; object-fit:cover; }
+  .foot-links{ display:flex; flex-wrap:wrap; gap:10px 24px; }
+  .foot-links a{ text-decoration:none; letter-spacing:.06em; } .foot-links a:hover{ color:var(--leaf); }
+  @media (max-width:859px){ .foot{ padding-bottom:calc(96px + env(safe-area-inset-bottom,0px)); } }
+
+  /* ---------- fixed companions ---------- */
+  .steep{ position:fixed; z-index:35; left:max(22px, env(safe-area-inset-left,0px)); bottom:max(22px, env(safe-area-inset-bottom,0px)); display:flex; flex-direction:column-reverse; align-items:center; gap:14px; --cup:42px; opacity:0; transform:translateY(8px); pointer-events:none; transition:opacity .5s ease, transform .5s ease; }
+  .steep.show{ opacity:1; transform:none; }
+  .steep .note{ font-size:.98rem; writing-mode:vertical-rl; white-space:nowrap; }
+  @media (max-width:1279px){ .steep{ display:none; } }
   .sticky-cta{
-    display:none; position: fixed; left:0; right:0; bottom:0; z-index: 38;
-    align-items:center; justify-content:space-between; gap:12px;
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
-    background: color-mix(in srgb, var(--paper-raised) 96%, transparent);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid var(--ink);
-    transform: translateY(100%);
-    transition: transform .25s ease;
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:38; align-items:center; justify-content:space-between; gap:12px;
+    padding:12px max(16px, env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));
+    background:color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    box-shadow:0 -1px 0 var(--line); transform:translateY(105%); transition:transform .3s ease;
   }
-  .sticky-cta-text{ font-family: var(--sans); font-size: 0.82rem; font-weight:600; color: var(--ink); margin:0; line-height:1.3; }
-  .sticky-cta .btn{ flex: none; }
-  .sticky-cta.show{ transform: translateY(0); }
-  @media (max-width: 719px){ .sticky-cta{ display:flex; } }
-  @media (prefers-reduced-motion: reduce){ .sticky-cta{ transition:none; } }
+  .sticky-cta p{ font:italic 400 1.1rem/1.2 var(--display); font-synthesis:none; color:var(--ink); }
+  .sticky-cta.show{ transform:none; }
+  @media (max-width:859px){ .sticky-cta{ display:flex; } }
+  @media (prefers-reduced-motion: reduce){ .sticky-cta, .steep{ transition:none; } }
 </style>
 </head>
 <body>
 <div class="topbar" id="topbar">
-  <a href="#top" class="topbar-brand">
-    <span class="stamp-mini"><img src="assets/icon.jpg" alt=""></span>
-    <span class="brand-text">
-      <span class="brand-name">your asian granny</span>
-      <span class="brand-handle">@your.asiangranny</span>
-    </span>
+  <a href="#top" class="brand">
+    <img src="assets/icon.jpg" alt="">
+    <span class="brand-text"><span class="brand-name">your asian granny</span><span class="brand-handle">@your.asiangranny</span></span>
   </a>
-  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="topbarNav">
-    <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
-  </button>
-  <nav class="topbar-nav" id="topbarNav">
+  <span class="cup bar-cup" aria-hidden="true"></span>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="topbarNav"><i></i><i></i></button>
+  <nav class="nav" id="topbarNav">
     <a href="#about" class="nav-link" data-i18n="nav.who">About</a>
     <a href="#work" class="nav-link" data-i18n="nav.reels">Work</a>
     <a href="#offer" class="nav-link" data-i18n="nav.offer">Offer</a>
     <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
-    <div class="topbar-lang" role="group" aria-label="Language">
+    <div class="langs" role="group" aria-label="Language">
       <button type="button" class="lang-chip" data-lang="en">EN</button>
       <button type="button" class="lang-chip" data-lang="zh">中文</button>
       <button type="button" class="lang-chip" data-lang="fr">FR</button>
     </div>
     <a href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a>
   </nav>
-  <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
 </div>
 
-<div id="top"></div>
-
-<header class="hero wrap">
-  <div class="hero-grid">
-    <div>
-      <div class="masthead">
-        <div class="wordmark"><img src="assets/wordmark-transparent.png" alt="阿嬤日記 · Your Asian Granny"></div>
-        <svg class="seal-stamp" viewBox="0 0 100 100" role="img" aria-label="Seal stamp, reading A-Ma, grandmother">
-          <circle cx="50" cy="50" r="44" fill="none" stroke="#B5301B" stroke-width="5"/>
-          <text x="50" y="40" text-anchor="middle" font-family="'Noto Serif TC', serif" font-size="26" font-weight="700" fill="#B5301B">阿</text>
-          <text x="50" y="72" text-anchor="middle" font-family="'Noto Serif TC', serif" font-size="26" font-weight="700" fill="#B5301B">嬤</text>
-        </svg>
-      </div>
-
-      <p class="hero-strapline" data-i18n="hero.strapline">Her grandmother's wisdom. Her own camera.</p>
-
-      <p class="hero-tagline"><span class="cjk">養生</span><span data-i18n="hero.tagline.gloss">· slow living, with a touch of tradition</span></p>
-
+<header class="hero" id="top">
+  <div class="guides" aria-hidden="true"><i class="gv gv1"></i><i class="gv gv2"></i><i class="gh gh1"></i><i class="gh gh2"></i></div>
+  <div class="wrap hero-grid">
+    <div class="hero-top">
+      <p class="label" data-i18n="hero.kicker">A diary of slow living, kept in Paris</p>
+      <p class="label">養生 · 中醫 · 慢生活</p>
+    </div>
+    <div class="hero-main">
+      <h1 class="wordmark"><img src="assets/wordmark-clean.png" alt="阿嬤日記 · Your Asian Granny" width="572" height="194"></h1>
+      <p class="hero-strap" data-i18n="hero.strapline">Slow living, as grandmothers meant it.</p>
       <p class="hero-bio" data-i18n="hero.bio">A third-generation Chinese-French creator in her mid-20s, documenting the slow, herbal, grandmother-taught way of caring for a body, filmed between Paris and the kitchens that raised her.</p>
-
-      <ul class="hero-facts">
-        <li data-i18n="hero.fact1">Paris, France</li>
-        <li data-i18n="hero.fact2">Captions in English &amp; Traditional Chinese</li>
-        <li data-i18n="hero.fact3">Instagram @your.asiangranny · RedNote @iris_you</li>
-        <li data-i18n="hero.fact4">Tea · TCM · slow design · heritage · slow travel</li>
-      </ul>
-
       <div class="cta-row">
-        <a class="btn btn-ghost" href="#work" data-i18n="hero.cta.see">See the work →</a>
         <a class="btn btn-primary" href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="hero.cta.work">Work with me →</a>
+        <a class="btn btn-ghost" href="#work" data-i18n="hero.cta.see">See the work →</a>
       </div>
     </div>
-
-    <div class="hero-portrait">
-      <div class="frame"><img src="assets/portrait.jpg" alt="Iris Lin, creator behind Your Asian Granny"></div>
-      <div class="badge"><strong>Iris Lin</strong><span data-i18n="hero.badge.role">Creator · 中醫 &amp; slow-living content, Paris</span></div>
+    <div class="hero-col">
+    <figure class="hero-side">
+      <div class="arch">
+        <img src="assets/portrait.jpg" alt="Iris Lin, creator behind Your Asian Granny, standing in a courtyard">
+        <canvas id="mist" aria-hidden="true"></canvas>
+      </div>
+      <span class="note paren mist-hint" data-i18n="hero.mist">wipe the mist away</span>
+      <div class="hero-cup">
+        <span class="note" data-i18n="hero.cup">Scroll slowly. The tea steeps as you read.</span>
+        <span class="cup" aria-hidden="true"></span>
+      </div>
+      <figcaption>
+        <div><strong>Iris Lin</strong><span data-i18n="hero.badge.role">Creator · 中醫 &amp; slow-living content, Paris</span></div>
+        <span class="seal" aria-hidden="true">嬤</span>
+      </figcaption>
+    </figure>
+      <ul class="hero-facts">
+        <li class="note paren" data-i18n="hero.fact1">Paris, France</li>
+        <li class="note paren" data-i18n="hero.fact2">Captions in English &amp; Traditional Chinese</li>
+        <li class="note paren" data-i18n="hero.fact3">Instagram @your.asiangranny · RedNote @iris_you</li>
+        <li class="note paren" data-i18n="hero.fact4">Tea · TCM · slow design · heritage · slow travel</li>
+      </ul>
     </div>
   </div>
 </header>
 
 <main>
-  <section id="about" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">01</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="who.eyebrow">About</p>
-      <h2 data-i18n="who.h2">Granddaughter first<span class="cjk-h">我是誰</span></h2>
-      <p data-i18n="who.intro">Chinese at home, French everywhere else, she grew up between both. Now she makes content about slow living, Traditional Chinese Medicine and family tradition. She's not a doctor: she shares what she's learning, sourced and labelled.</p>
-    </div>
-    </div>
-
-    <div class="who-layout">
-      <div>
-        <div class="diary">
-          <div class="diary-entry">
-            <p class="diary-label" data-i18n="who.bio.label1">Origin</p>
-            <p data-i18n="who.bio.p1">I was born and raised in France, into a Chinese family, third generation. I grew up holding two cultures at once, and for a long time the thing I understood least was my own body: skin that wouldn't settle, periods that ran my month.</p>
-          </div>
-          <div class="diary-entry">
-            <p class="diary-label" data-i18n="who.bio.label2">The turn</p>
-            <p data-i18n="who.bio.p2">Looking for a gentler way to live is what led me to Traditional Chinese Medicine, slow rituals and the Chinese habit of slowing down. I started reading, cooking differently, changing how I rest, and filming it as I went.</p>
-          </div>
-          <div class="diary-entry">
-            <p class="diary-label" data-i18n="who.bio.label3">The work</p>
-            <p data-i18n="who.bio.p3">I make this so people going through the same thing know they aren't alone in it, and so Asian tradition gets shown as something beautiful and worth learning, rather than something unfamiliar and hard to understand.</p>
-          </div>
+  <section id="about">
+    <div class="wrap">
+      <header class="head rev">
+        <span class="head-glyph" aria-hidden="true">我</span>
+        <div class="head-text">
+          <p class="label" data-i18n="who.eyebrow">About</p>
+          <h2 data-i18n="who.h2">Granddaughter first</h2>
+          <p class="lede" data-i18n="who.intro">Chinese at home, French everywhere else, she grew up between both. Now she makes content about slow living, Traditional Chinese Medicine and family tradition. She's not a doctor: she shares what she's learning, sourced and labelled.</p>
         </div>
-
-        <ul class="bg-list">
-          <li><span class="mark">社</span><span data-i18n="who.bg.social"><strong>Social &amp; community:</strong> influencer marketing and community management in hospitality, across Switzerland and Japan.</span></li>
-          <li><span class="mark">設</span><span data-i18n="who.bg.design"><strong>Graphic design &amp; branding:</strong> visual identity, illustration and packaging for cafés, hospitality brands, fashion labels and engineering studios — full range at S.W.shop portfolio.</span></li>
-          <li><span class="mark">醫</span><span data-i18n="who.bg.tcm"><strong>TCM study:</strong> working through Fundamentals of Chinese Medicine (Pan Yi) and continued reading; writes from her own health journey, not secondhand research.</span></li>
+      </header>
+      <div class="story">
+        <div class="story-step rev" style="--c:1"><span class="note paren" data-i18n="who.bio.label1">Origin</span><p data-i18n="who.bio.p1">I was born and raised in France, into a Chinese family, third generation. I grew up holding two cultures at once, and for a long time the thing I understood least was my own body: skin that wouldn't settle, periods that ran my month.</p></div>
+        <div class="story-step rev" style="--c:4"><span class="note paren" data-i18n="who.bio.label2">The turn</span><p data-i18n="who.bio.p2">Looking for a gentler way to live is what led me to Traditional Chinese Medicine, slow rituals and the Chinese habit of slowing down. I started reading, cooking differently, changing how I rest, and filming it as I went.</p></div>
+        <div class="story-step rev" style="--c:7"><span class="note paren" data-i18n="who.bio.label3">The work</span><p data-i18n="who.bio.p3">I make this so people going through the same thing know they aren't alone in it, and so Asian tradition gets shown as something beautiful and worth learning, rather than something unfamiliar and hard to understand.</p></div>
+      </div>
+      <div class="craft rev">
+        <p class="label" data-i18n="who.bg.label">Behind the camera</p>
+        <ul class="craft-list">
+          <li><span class="glyph" aria-hidden="true">社</span><span data-i18n="who.bg.social"><strong>Social &amp; community:</strong> influencer marketing and community management in hospitality, across Switzerland and Japan.</span></li>
+          <li><span class="glyph" aria-hidden="true">設</span><span data-i18n="who.bg.design"><strong>Graphic design &amp; branding:</strong> visual identity, illustration and packaging for cafés, hospitality brands, fashion labels and engineering studios — full range at S.W.shop portfolio.</span></li>
+          <li><span class="glyph" aria-hidden="true">醫</span><span data-i18n="who.bg.tcm"><strong>TCM study:</strong> working through Fundamentals of Chinese Medicine (Pan Yi) and continued reading; writes from her own health journey, not secondhand research.</span></li>
         </ul>
       </div>
+    </div>
+  </section>
 
-      <div>
-        <p class="eyebrow" style="margin-bottom:14px;" data-i18n="stats.eyebrow">Real engagement, not just reach</p>
-        <div class="ledger">
-          <div class="ledger-plat"><h3>Instagram</h3><span data-i18n="stats.ig.handle">@your.asiangranny</span></div>
-          <div class="ledger-rows">
-            <div class="ledger-row"><b>13,849</b><span data-i18n="stats.ig.l1">views, last 30 days</span></div>
-            <div class="ledger-row"><b>7,220</b><span data-i18n="stats.ig.l2">accounts reached</span></div>
-            <div class="ledger-row"><b>890</b><span data-i18n="stats.ig.l3">interactions</span></div>
-            <div class="ledger-row"><b>83.1%</b><span data-i18n="stats.ig.l4">views from non-followers</span></div>
+  <section id="pillars" class="band">
+    <div class="wrap">
+      <header class="head flip rev">
+        <span class="head-glyph" aria-hidden="true">養</span>
+        <div class="head-text">
+          <p class="label paren" data-i18n="pillars.hint">turn the tray, pick a pillar</p>
+          <h2 data-i18n="pillars.h3">Five content pillars</h2>
+          <p class="lede" data-i18n="pillars.desc">What the account already runs on, week to week.</p>
+        </div>
+      </header>
+      <div class="tray rev">
+        <div class="wheel" id="wheel">
+          <div class="wheel-ring">
+            <button type="button" class="wheel-btn" style="--i:0" aria-pressed="true" aria-label="Body">養</button>
+            <button type="button" class="wheel-btn" style="--i:1" aria-pressed="false" aria-label="Mind">靜</button>
+            <button type="button" class="wheel-btn" style="--i:2" aria-pressed="false" aria-label="Art">藝</button>
+            <button type="button" class="wheel-btn" style="--i:3" aria-pressed="false" aria-label="Roots">根</button>
+            <button type="button" class="wheel-btn" style="--i:4" aria-pressed="false" aria-label="Open air">野</button>
+          </div>
+          <div class="wheel-center">
+            <img class="on" src="assets/pillar-body.jpg" alt="Herbal tea, sliced fruit and a teapot from a skin-care tea reel">
+            <img src="assets/pillar-mind.jpg" alt="Iris stretching under trees in a garden" loading="lazy">
+            <img src="assets/pillar-art.jpg" alt="Iris holding up a Chinese medicine book" loading="lazy">
+            <img src="assets/pillar-roots.jpg" alt="Iris talking to camera about learning Chinese" loading="lazy">
+            <img src="assets/pillar-openair.jpg" alt="Iris with arms raised in a meadow under a pine" loading="lazy">
           </div>
         </div>
-        <div class="ledger">
-          <div class="ledger-plat"><h3>小紅書 · RedNote</h3><span>@iris_you</span></div>
-          <div class="ledger-rows">
-            <div class="ledger-row"><b>95</b><span data-i18n="stats.rn.l1">notes published</span></div>
-            <div class="ledger-row"><b>2.3K</b><span data-i18n="stats.rn.l2">likes &amp; saves</span></div>
-            <div class="ledger-row"><b>~8%</b><span data-i18n="stats.rn.l3">engagement rate</span></div>
-            <div class="ledger-row"><b>2–3×</b><span data-i18n="stats.rn.l4">posts per week</span></div>
+        <div class="tray-detail" aria-live="polite">
+          <div class="pillar-item"><span class="pillar-glyph" aria-hidden="true">養</span><h3 data-i18n="pillar.body.name">Body</h3><p data-i18n="pillar.body.desc">Herbal kitchen, skin, women's health</p></div>
+          <div class="pillar-item" hidden><span class="pillar-glyph" aria-hidden="true">靜</span><h3 data-i18n="pillar.mind.name">Mind</h3><p data-i18n="pillar.mind.desc">Rest, slowing down, less noise</p></div>
+          <div class="pillar-item" hidden><span class="pillar-glyph" aria-hidden="true">藝</span><h3 data-i18n="pillar.art.name">Art</h3><p data-i18n="pillar.art.desc">Book sharing, tea time, workshops</p></div>
+          <div class="pillar-item" hidden><span class="pillar-glyph" aria-hidden="true">根</span><h3 data-i18n="pillar.roots.name">Roots</h3><p data-i18n="pillar.roots.desc">Heritage, kitchen, family</p></div>
+          <div class="pillar-item" hidden><span class="pillar-glyph" aria-hidden="true">野</span><h3 data-i18n="pillar.openair.name">Open air</h3><p data-i18n="pillar.openair.desc">Walking, TCM exercise, outdoors</p></div>
+          <div class="tray-foot">
+            <button type="button" class="tray-arrow" id="trayPrev" aria-label="Previous pillar">←</button>
+            <span class="tray-count" id="trayCount">1 / 5</span>
+            <button type="button" class="tray-arrow" id="trayNext" aria-label="Next pillar">→</button>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="geo-list">
-          <p class="eyebrow" style="margin-bottom:2px;" data-i18n="audience.eyebrow">Audience, by age</p>
-          <div class="geo-row"><span class="country">25–34</span><span class="bar-track"><span class="bar-fill" style="width:100%;"></span></span><span class="pct">46.3%</span></div>
-          <div class="geo-row"><span class="country">18–24</span><span class="bar-track"><span class="bar-fill" style="width:57.9%;"></span></span><span class="pct">26.8%</span></div>
-          <div class="geo-row"><span class="country">35–44</span><span class="bar-track"><span class="bar-fill" style="width:42.1%;"></span></span><span class="pct">19.5%</span></div>
+  <section id="language">
+    <div class="wrap">
+      <header class="head rev">
+        <span class="head-glyph" aria-hidden="true">語</span>
+        <div class="head-text">
+          <p class="label" data-i18n="lang.eyebrow">Language</p>
+          <h2 data-i18n="lang.h2">One shoot, two languages</h2>
+          <p class="lede" data-i18n="lang.intro">Every video is filmed in Chinese, then captioned in Traditional Chinese or English from the same shoot, so the same footage reaches Chinese-reading and Western audiences without filming twice.</p>
         </div>
+      </header>
+      <ul class="lang-list rev">
+        <li data-i18n="lang.item1">Captions land natively for Chinese-reading audiences</li>
+        <li data-i18n="lang.item2">Stays clear and readable for Western audiences</li>
+        <li data-i18n="lang.item3">Same footage, two caption sets, one shoot</li>
+        <li data-i18n="lang.item4">French-language cut available on request</li>
+      </ul>
+      <p class="lang-note rev" data-i18n="lang.note">One shoot pays for both markets.</p>
+    </div>
+  </section>
 
-        <div class="geo-list" style="margin-top:26px;">
-          <p class="eyebrow" style="margin-bottom:2px;" data-i18n="geo.eyebrow">Where they're watching from</p>
-          <div class="geo-row"><span class="country" data-i18n="geo.france">France</span><span class="bar-track"><span class="bar-fill" style="width:100%;"></span></span><span class="pct">33.3%</span></div>
-          <div class="geo-row"><span class="country" data-i18n="geo.taiwan">Taiwan</span><span class="bar-track"><span class="bar-fill" style="width:42.0%;"></span></span><span class="pct">14.0%</span></div>
-          <div class="geo-row"><span class="country" data-i18n="geo.us">United States</span><span class="bar-track"><span class="bar-fill" style="width:27.9%;"></span></span><span class="pct">9.3%</span></div>
+  <section class="pause band" aria-label="Pause">
+    <div class="wrap">
+      <p class="pause-zh" lang="zh-Hant">慢慢來</p>
+      <span class="note" data-i18n="pause.gloss">màn màn lái. Take your time. Nothing here is in a hurry.</span>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <header class="head flip rev">
+        <span class="head-glyph" aria-hidden="true">影</span>
+        <div class="head-text">
+          <p class="label" data-i18n="reels.eyebrow">Selected Work</p>
+          <h2 data-i18n="reels.h2">Two ways I tell a story</h2>
+          <p class="lede" data-i18n="reels.intro">Every brief gets one of two treatments, sometimes both. Pick a lane, or mix them across a campaign.</p>
+          <p class="note paren" style="margin-top:18px"><span class="hint-fine" data-i18n="work.hint">They're yours to move around. Click one to watch it on Instagram.</span><span class="hint-touch" data-i18n="work.hint.touch">Swipe through. Tap one to watch it on Instagram.</span></p>
+        </div>
+      </header>
+
+      <div class="set rev">
+        <div class="set-head">
+          <h3 data-i18n="gallery.tag1">01 · Scripted, slow-designed &amp; straightforward</h3>
+          <p data-i18n="gallery.desc1">Clear information, on camera, built to teach and to convert.</p>
+        </div>
+        <div class="table">
+          <a class="postcard" style="--x:1%;--y:30px;--r:-4deg" href="https://www.instagram.com/reel/DbAvKJBufju/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-01.jpg" alt="Reel cover: period care, slow living" draggable="false"><span data-i18n="reel1.title">Period care · slow living</span></a>
+          <a class="postcard" style="--x:20.5%;--y:0px;--r:2.5deg" href="https://www.instagram.com/reel/Dbwy3zQMuvt/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-02.jpg" alt="Reel cover: mundane yet beautiful" draggable="false"><span data-i18n="reel2.title">Mundane yet beautiful</span></a>
+          <a class="postcard" style="--x:40.5%;--y:44px;--r:-1.5deg" href="https://www.instagram.com/reel/DcGIyhFsaGF/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-03.jpg" alt="Reel cover: Eastern's Slow Design" draggable="false"><span data-i18n="reel3.title">Eastern's Slow Design</span></a>
+          <a class="postcard" style="--x:60.5%;--y:8px;--r:3.5deg" href="https://www.instagram.com/reel/DaxDCCUMgx_/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-04.jpg" alt="Reel cover: my bad-skin rescue remedy" draggable="false"><span data-i18n="reel4.title">My bad-skin rescue remedy</span></a>
+          <a class="postcard" style="--x:80.5%;--y:36px;--r:-3deg" href="https://www.instagram.com/reel/DbqDZ3GseXh/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-07.jpg" alt="Reel cover: let's talk, what to do about dampness" draggable="false"><span data-i18n="reel7.title">Let's talk: what to do about dampness</span></a>
+        </div>
+      </div>
+
+      <div class="set flip rev">
+        <div class="set-head">
+          <h3 data-i18n="gallery.tag2">02 · 中醫, lifestyle &amp; playful</h3>
+          <p data-i18n="gallery.desc2">Slower, personal, true to her own voice: the clips that build real connection, not just views.</p>
+        </div>
+        <div class="table">
+          <a class="postcard" style="--x:2%;--y:10px;--r:3deg" href="https://www.instagram.com/reel/DaIqO77ow7_/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-05.jpg" alt="Reel cover: just lie to yourself?" draggable="false"><span data-i18n="reel5.title">Just lie to yourself?</span></a>
+          <a class="postcard" style="--x:21.5%;--y:42px;--r:-2.5deg" href="https://www.instagram.com/reel/DbftGlpohfN/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-06.jpg" alt="Reel cover: does pineapple cure period pain?" draggable="false"><span data-i18n="reel6.title">Does pineapple cure period pain?</span></a>
+          <a class="postcard" style="--x:41%;--y:0px;--r:4deg" href="https://www.instagram.com/reel/Db5szoGMAgu/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-08.jpg" alt="Reel cover: France, but slower" draggable="false"><span data-i18n="reel8.title">France, but slower</span></a>
+          <a class="postcard" style="--x:60.5%;--y:34px;--r:-3.5deg" href="https://www.instagram.com/reel/DX-OZ4sONkk/" target="_blank" rel="noopener" draggable="false"><img src="assets/pillar-body.jpg" alt="Reel cover: celebrity glass skin tea" draggable="false"><span data-i18n="reel9.title">Celebrity glass skin</span></a>
+          <a class="postcard" style="--x:80.5%;--y:12px;--r:2deg" href="https://www.instagram.com/reel/DaUyUMFsba4/" target="_blank" rel="noopener" draggable="false"><img src="assets/reel-10.jpg" alt="Reel cover: Grandma, Chinese is so hard" draggable="false"><span data-i18n="reel10.title">Grandma, Chinese is so hard…</span></a>
+        </div>
+      </div>
+
+      <div class="work-foot rev">
+        <a class="link" href="https://www.instagram.com/your.asiangranny?igsi=enlicHI1MXF4NGZr&amp;utm_source=qr" target="_blank" rel="noopener" data-i18n="gallery.foot.link">See more ↗</a>
+        <span class="note paren" data-i18n="gallery.foot.note">Each card opens the real reel on Instagram, with sound.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="band">
+    <div class="wrap">
+      <header class="head rev">
+        <span class="head-glyph" aria-hidden="true">手</span>
+        <div class="head-text">
+          <p class="label" data-i18n="portfolio.eyebrow">Also Her Hand</p>
+          <h2 data-i18n="portfolio.h2">The eye behind the camera is a trained one</h2>
+          <p class="lede" data-i18n="portfolio.intro">Before the content, there was the craft: visual identity, illustration and packaging for cafés, hospitality brands and fashion labels, under her own studio, S.W.shop.</p>
+        </div>
+      </header>
+      <div class="collage">
+        <figure class="pf-a rev">
+          <img class="blend" src="assets/portfolio/arabica.jpg" alt="Hand-drawn illustration of the % Arabica coffee stand in Arashiyama with two customers" width="1000" height="800" loading="lazy">
+          <figcaption><strong>% Arabica, Arashiyama</strong><span class="note paren" data-i18n="portfolio.cap1.sector">Café, illustration</span></figcaption>
+        </figure>
+        <figure class="pf-b rev">
+          <img class="blend" src="assets/portfolio/cottonp.jpg" alt="Cotton.p. homeware logo in two colourways" width="1000" height="503" loading="lazy">
+          <figcaption><strong>Cotton.p.</strong><span class="note paren" data-i18n="portfolio.cap2.sector">Her own homeware brand</span></figcaption>
+        </figure>
+        <figure class="pf-c rev">
+          <img src="assets/portfolio/by-oceane.jpg" alt="Line illustration of a hat, basket bag and scarf for By Oceane" width="900" height="867" loading="lazy">
+          <figcaption><strong>By Oceane</strong><span class="note paren" data-i18n="portfolio.cap3.sector">Fashion accessories, branding</span></figcaption>
+        </figure>
+        <p class="pf-cta rev"><a class="link" href="https://soobakworkshop.myportfolio.com" target="_blank" rel="noopener" data-i18n="portfolio.cta">See the full portfolio ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="numbers">
+    <div class="wrap">
+      <header class="head flip rev">
+        <span class="head-glyph" aria-hidden="true">數</span>
+        <div class="head-text">
+          <p class="label" data-i18n="stats.label">In numbers</p>
+          <h2 data-i18n="stats.eyebrow">Real engagement, not just reach</h2>
+        </div>
+      </header>
+      <div class="plats rev">
+        <div class="plat">
+          <div class="plat-top"><h3>Instagram</h3><span>@your.asiangranny</span></div>
+          <div class="plat-nums">
+            <div><b class="num" data-to="13849">13,849</b><span class="num-label" data-i18n="stats.ig.l1">views, last 30 days</span></div>
+            <div><b class="num" data-to="7220">7,220</b><span class="num-label" data-i18n="stats.ig.l2">accounts reached</span></div>
+            <div><b class="num" data-to="890">890</b><span class="num-label" data-i18n="stats.ig.l3">interactions</span></div>
+            <div><b class="num" data-to="83.1" data-dec="1" data-suffix="%">83.1%</b><span class="num-label" data-i18n="stats.ig.l4">views from non-followers</span></div>
+          </div>
+        </div>
+        <div class="plat">
+          <div class="plat-top"><h3>小紅書 · RedNote</h3><span>@iris_you</span></div>
+          <div class="plat-nums">
+            <div><b class="num" data-to="95">95</b><span class="num-label" data-i18n="stats.rn.l1">notes published</span></div>
+            <div><b class="num" data-to="2.3" data-dec="1" data-suffix="K">2.3K</b><span class="num-label" data-i18n="stats.rn.l2">likes &amp; saves</span></div>
+            <div><b class="num" data-to="8" data-prefix="~" data-suffix="%">~8%</b><span class="num-label" data-i18n="stats.rn.l3">engagement rate</span></div>
+            <div><b class="num">2–3×</b><span class="num-label" data-i18n="stats.rn.l4">posts per week</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="aud rev">
+        <div>
+          <p class="label" data-i18n="audience.eyebrow">Audience, by age</p>
+          <div class="age">
+            <div class="age-row"><span>25–34</span><span class="age-track"><i style="--v:46.3%"></i></span><b>46.3%</b></div>
+            <div class="age-row"><span>18–24</span><span class="age-track"><i style="--v:26.8%"></i></span><b>26.8%</b></div>
+            <div class="age-row"><span>35–44</span><span class="age-track"><i style="--v:19.5%"></i></span><b>19.5%</b></div>
+          </div>
+        </div>
+        <div>
+          <p class="label" data-i18n="geo.eyebrow">Where they're watching from</p>
+          <div class="geo">
+            <div class="geo-item"><i style="--d:127px"></i><span><span data-i18n="geo.france">France</span><b>33.3%</b></span></div>
+            <div class="geo-item"><i style="--d:82px"></i><span><span data-i18n="geo.taiwan">Taiwan</span><b>14.0%</b></span></div>
+            <div class="geo-item"><i style="--d:67px"></i><span><span data-i18n="geo.us">United States</span><b>9.3%</b></span></div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="apotheka-head">
-      <h3 data-i18n="pillars.h3">Five content pillars</h3>
-      <p data-i18n="pillars.desc">What the account already runs on, week to week.</p>
+  <section id="offer" class="band">
+    <div class="wrap">
+      <header class="head rev">
+        <span class="head-glyph" aria-hidden="true">作</span>
+        <div class="head-text">
+          <p class="label" data-i18n="offer.eyebrow">What I Make</p>
+          <h2 data-i18n="offer.h2">Three ways to work together</h2>
+          <p class="lede" data-i18n="offer.intro">Pick a route, or combine them across a campaign.</p>
+        </div>
+      </header>
+      <div class="routes rev">
+        <button type="button" class="route-tab" id="routeTab1" aria-expanded="true" aria-controls="routePanel1"><span class="route-no">01</span><span class="route-name" data-i18n="route1.h3">UGC &amp; licensing</span><span class="route-tag" data-i18n="route1.tag">I create. You post.</span></button>
+        <div class="route-panel" id="routePanel1" role="region" aria-labelledby="routeTab1">
+          <ul>
+            <li data-i18n="route1.i1">Product showcase &amp; unboxing</li><li data-i18n="route1.i2">Testimonial &amp; review</li><li data-i18n="route1.i3">Demo &amp; tutorial</li><li data-i18n="route1.i4">Tips &amp; tricks explainer</li>
+            <li data-i18n="route1.i5">Before &amp; after</li><li data-i18n="route1.i6">Script-read &amp; voiceover</li><li data-i18n="route1.i7">Lifestyle photography</li><li data-i18n="route1.i8">Hooks, CTAs &amp; raw footage</li>
+          </ul>
+          <p class="route-best"><span class="label" data-i18n="route.best">Best for</span><span data-i18n="route1.best">ad testing · product pages · email marketing</span></p>
+          <a class="btn btn-ghost btn-sm" href="mailto:soobakworkshop@gmail.com?subject=UGC%20%26%20licensing%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
+        </div>
+        <button type="button" class="route-tab" id="routeTab2" aria-expanded="false" aria-controls="routePanel2"><span class="route-no">02</span><span class="route-name" data-i18n="route2.h3">Influencer partnerships</span><span class="route-tag" data-i18n="route2.tag">I create. I post.</span></button>
+        <div class="route-panel" id="routePanel2" role="region" aria-labelledby="routeTab2" hidden>
+          <ul>
+            <li data-i18n="route2.i1">Dedicated or integrated reel</li><li data-i18n="route2.i2">Educational carousel</li><li data-i18n="route2.i3">Story sequence</li><li data-i18n="route2.i4">Collab post, both grids</li>
+            <li data-i18n="route2.i5">Image + text post</li><li data-i18n="route2.i6">Native video post</li><li data-i18n="route2.i7">Giveaway hosting</li><li data-i18n="route2.i8">Multi-platform bundle</li>
+          </ul>
+          <p class="route-best"><span class="label" data-i18n="route.best">Best for</span><span data-i18n="route2.best">launches · niche trust · bilingual reach</span></p>
+          <a class="btn btn-ghost btn-sm" href="mailto:soobakworkshop@gmail.com?subject=Influencer%20partnership%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
+        </div>
+        <button type="button" class="route-tab" id="routeTab3" aria-expanded="false" aria-controls="routePanel3"><span class="route-no">03</span><span class="route-name" data-i18n="route3.h3">Long-term</span><span class="route-tag" data-i18n="route3.tag">Ongoing, not one post.</span></button>
+        <div class="route-panel" id="routePanel3" role="region" aria-labelledby="routeTab3" hidden>
+          <ul>
+            <li data-i18n="route3.i1">Ambassador, 3 / 6 / 12 months</li><li data-i18n="route3.i2">Monthly retainer</li><li data-i18n="route3.i3">Affiliate link or code</li><li data-i18n="route3.i4">Hosted stay or retreat</li>
+            <li data-i18n="route3.i5">Store &amp; event coverage</li><li data-i18n="route3.i6">Founder interview</li><li data-i18n="route3.i7">Workshop or tea ceremony</li><li data-i18n="route3.i8">Brand consulting</li>
+          </ul>
+          <p class="route-best"><span class="label" data-i18n="route.best">Best for</span><span data-i18n="route3.best">repeat presence · exclusivity · long-term trust</span></p>
+          <a class="btn btn-ghost btn-sm" href="mailto:soobakworkshop@gmail.com?subject=Long-term%20collaboration%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
+        </div>
+      </div>
+      <p class="note offer-open rev" data-i18n="offer.open">Open to other formats, on request.</p>
     </div>
-    <div class="apotheka" id="apotheka" role="tablist">
-      <button type="button" class="apotheka-tab" data-pillar="0" role="tab" aria-expanded="true"><span class="apotheka-glyph">養</span><span data-i18n="pillar.body.name">Body</span></button>
-      <button type="button" class="apotheka-tab" data-pillar="1" role="tab" aria-expanded="false"><span class="apotheka-glyph">靜</span><span data-i18n="pillar.mind.name">Mind</span></button>
-      <button type="button" class="apotheka-tab" data-pillar="2" role="tab" aria-expanded="false"><span class="apotheka-glyph">藝</span><span data-i18n="pillar.art.name">Art</span></button>
-      <button type="button" class="apotheka-tab" data-pillar="3" role="tab" aria-expanded="false"><span class="apotheka-glyph">根</span><span data-i18n="pillar.roots.name">Roots</span></button>
-      <button type="button" class="apotheka-tab" data-pillar="4" role="tab" aria-expanded="false"><span class="apotheka-glyph">野</span><span data-i18n="pillar.openair.name">Open air</span></button>
-    </div>
-    <div class="apotheka-panel" id="apothekaPanel">
-      <div class="apotheka-panel-media"><img id="apothekaImg" src="assets/pillar-body.jpg" alt="Body pillar: herbal kitchen and skin"></div>
-      <div class="apotheka-panel-text">
-        <span class="apotheka-panel-glyph" id="apothekaGlyph">養</span>
-        <h4 id="apothekaName" data-i18n="pillar.body.name">Body</h4>
-        <p id="apothekaDesc" data-i18n="pillar.body.desc">Herbal kitchen, skin, women's health</p>
+  </section>
+
+  <section id="rights">
+    <div class="wrap">
+      <header class="head flip rev">
+        <span class="head-glyph" aria-hidden="true">權</span>
+        <div class="head-text">
+          <p class="label" data-i18n="rights.eyebrow">Usage Rights</p>
+          <h2 data-i18n="rights.h2">Four licence levels</h2>
+          <p class="lede" data-i18n="rights.intro">Production and licensing are quoted separately, so you always know what you're paying for. Every licence has an end date.</p>
+        </div>
+      </header>
+      <div class="rights rev" id="rightsBox" data-level="1">
+        <div class="rights-stage">
+          <div class="ripple" aria-hidden="true"><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i></div>
+          <div aria-live="polite">
+            <div class="rights-read" data-level="1"><span class="route-no">01</span><h3 class="rights-name" data-i18n="rights.r1.name">Organic</h3><dl><dt class="label" data-i18n="rights.col.where">Where</dt><dd data-i18n="rights.r1.where">Your channels</dd><dt class="label" data-i18n="rights.col.term">Term</dt><dd data-i18n="rights.r1.term">3 / 6 / 12 months</dd></dl></div>
+            <div class="rights-read" data-level="2" hidden><span class="route-no">02</span><h3 class="rights-name" data-i18n="rights.r2.name">Paid ads</h3><dl><dt class="label" data-i18n="rights.col.where">Where</dt><dd data-i18n="rights.r2.where">Your ad account</dd><dt class="label" data-i18n="rights.col.term">Term</dt><dd data-i18n="rights.r2.term">30 / 60 / 90 days</dd></dl></div>
+            <div class="rights-read" data-level="3" hidden><span class="route-no">03</span><h3 class="rights-name" data-i18n="rights.r3.name">Whitelisting</h3><dl><dt class="label" data-i18n="rights.col.where">Where</dt><dd data-i18n="rights.r3.where">Run from my handle</dd><dt class="label" data-i18n="rights.col.term">Term</dt><dd data-i18n="rights.r3.term">30 / 60 / 90 days</dd></dl></div>
+            <div class="rights-read" data-level="4" hidden><span class="route-no">04</span><h3 class="rights-name" data-i18n="rights.r4.name">Full buyout</h3><dl><dt class="label" data-i18n="rights.col.where">Where</dt><dd data-i18n="rights.r4.where">All media, all territories</dd><dt class="label" data-i18n="rights.col.term">Term</dt><dd data-i18n="rights.r4.term">Perpetual</dd></dl></div>
+          </div>
+        </div>
+        <div class="rights-slider">
+          <span class="note paren rights-hint" data-i18n="rights.hint">slide to see how far the content travels</span>
+          <input type="range" id="rightsRange" min="1" max="4" step="1" value="1" aria-label="Licence level">
+          <div class="rights-stops">
+            <button type="button" class="rights-stop" data-level="1" aria-pressed="true"><b data-i18n="rights.r1.name">Organic</b><span data-i18n="rights.r1.term">3 / 6 / 12 months</span></button>
+            <button type="button" class="rights-stop" data-level="2" aria-pressed="false"><b data-i18n="rights.r2.name">Paid ads</b><span data-i18n="rights.r2.term">30 / 60 / 90 days</span></button>
+            <button type="button" class="rights-stop" data-level="3" aria-pressed="false"><b data-i18n="rights.r3.name">Whitelisting</b><span data-i18n="rights.r3.term">30 / 60 / 90 days</span></button>
+            <button type="button" class="rights-stop" data-level="4" aria-pressed="false"><b data-i18n="rights.r4.name">Full buyout</b><span data-i18n="rights.r4.term">Perpetual</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="addons rev">
+        <p class="label" data-i18n="rights.addons.label">Add-ons</p>
+        <p data-i18n="rights.addons.list">Extra hooks &amp; CTAs · Restructured edits · Aspect-ratio resizing · Raw footage · Extra language · Rush delivery · Refilms · Category exclusivity · Performance report</p>
       </div>
     </div>
   </section>
 
-  <section id="language" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">02</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="lang.eyebrow">Language</p>
-      <h2 data-i18n="lang.h2">One shoot, two languages</h2>
-      <p data-i18n="lang.intro">Every video is filmed in Chinese, then captioned in Traditional Chinese or English from the same shoot, so the same footage reaches Chinese-reading and Western audiences without filming twice.</p>
-    </div>
-    </div>
-    <ul class="lang-list">
-      <li data-i18n="lang.item1">Captions land natively for Chinese-reading audiences</li>
-      <li data-i18n="lang.item2">Stays clear and readable for Western audiences</li>
-      <li data-i18n="lang.item3">Same footage, two caption sets, one shoot</li>
-      <li data-i18n="lang.item4">French-language cut available on request</li>
-    </ul>
-    <p class="lang-note" data-i18n="lang.note">One shoot pays for both markets.</p>
-  </section>
-
-  <section id="work" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">03</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="reels.eyebrow">Selected Work</p>
-      <h2 data-i18n="reels.h2">Two ways I tell a story</h2>
-      <p data-i18n="reels.intro">Every brief gets one of two treatments, sometimes both. Pick a lane, or mix them across a campaign.</p>
-    </div>
-    </div>
-
-    <span class="gallery-tag" data-i18n="gallery.tag1">01 · Scripted, slow-designed &amp; straightforward</span>
-    <p style="color:var(--ink-soft); max-width:56ch; margin-bottom:24px;" data-i18n="gallery.desc1">Clear information, on camera, built to teach and to convert.</p>
-    <div class="reel-grid">
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DbAvKJBufju/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-01.jpg" alt="經期養生 · 慢生活 reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel1.title">經期養生 · 慢生活</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/Dbwy3zQMuvt/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-02.jpg" alt="不起眼卻很美 · mundane yet beautiful reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel2.title">Mundane yet beautiful</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DcGIyhFsaGF/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-03.jpg" alt="療癒的東方設計 · Eastern's Slow Design reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel3.title">Eastern's Slow Design</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DaxDCCUMgx_/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-04.jpg" alt="我的爛皮膚急救藥 reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel4.title">我的爛皮膚急救藥</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DbqDZ3GseXh/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-07.jpg" alt="Let's Talk 濕氣重怎麼辦 reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel7.title">濕氣重怎麼辦</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-    </div>
-
-    <hr class="rule">
-
-    <span class="gallery-tag tag-creative" data-i18n="gallery.tag2">02 · 中醫, lifestyle &amp; playful</span>
-    <p style="color:var(--ink-soft); max-width:56ch; margin-bottom:24px;" data-i18n="gallery.desc2">Slower, personal, true to her own voice: the clips that build real connection, not just views.</p>
-    <div class="reel-grid">
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DaIqO77ow7_/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-05.jpg" alt="Just lie to yourself? 大人成長秘密 reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel5.title">Just lie to yourself?</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DbftGlpohfN/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-06.jpg" alt="菠蘿治經痛? reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel6.title">菠蘿治經痛?</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/Db5szoGMAgu/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-08.jpg" alt="France, but slower reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel8.title">France, but slower</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DX-OZ4sONkk/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/pillar-body.jpg" alt="Celebrity Glass Skin 明星养颜茶 reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel9.title">Celebrity Glass Skin</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-      <a class="reel-link-card" href="https://www.instagram.com/reel/DaUyUMFsba4/" target="_blank" rel="noopener">
-        <div class="reel-link-thumb"><img src="assets/reel-10.jpg" alt="阿媽，中文好難啊… reel cover"><span class="play-badge">▶</span></div>
-        <div class="reel-link-meta"><span class="reel-link-idx" data-i18n="reel10.title">阿媽，中文好難啊…</span><span class="reel-link-handle">@your.asiangranny</span></div>
-      </a>
-    </div>
-
-    <div class="gallery-foot">
-      <a class="btn btn-ghost" href="https://www.instagram.com/your.asiangranny?igsi=enlicHI1MXF4NGZr&amp;utm_source=qr" target="_blank" rel="noopener" data-i18n="gallery.foot.link">See more ↗</a>
-      <p data-i18n="gallery.foot.note">Each card opens the real reel on Instagram, with sound.</p>
-    </div>
-  </section>
-
-  <section id="portfolio" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">04</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="portfolio.eyebrow">Also Her Hand</p>
-      <h2 data-i18n="portfolio.h2">The eye behind the camera is a trained one</h2>
-      <p data-i18n="portfolio.intro">Before the content, there was the craft: visual identity, illustration and packaging for cafés, hospitality brands and fashion labels, under her own studio, S.W.shop.</p>
-    </div>
-    </div>
-
-    <div class="portfolio-grid">
-      <figure class="pf-tile pf-big">
-        <img src="assets/portfolio/arabica.jpg" alt="Hand-illustrated scene for % Arabica coffee shop, Arashiyama">
-        <figcaption>
-          <span class="pf-client">% Arabica — Arashiyama</span>
-          <span class="pf-sector" data-i18n="portfolio.cap1.sector">Café, illustration</span>
-        </figcaption>
-      </figure>
-      <figure class="pf-tile pf-mid1">
-        <img src="assets/portfolio/cottonp.jpg" alt="Cotton.p. homeware brand logo, two colourways">
-        <figcaption>
-          <span class="pf-client">Cotton.p.</span>
-          <span class="pf-sector" data-i18n="portfolio.cap2.sector">Her own homeware brand</span>
-        </figcaption>
-      </figure>
-      <figure class="pf-tile pf-mid2">
-        <img src="assets/portfolio/by-oceane.jpg" alt="By Oceane fashion accessories branding illustration">
-        <figcaption>
-          <span class="pf-client">By Oceane</span>
-          <span class="pf-sector" data-i18n="portfolio.cap3.sector">Fashion accessories, branding</span>
-        </figcaption>
-      </figure>
-    </div>
-    <div class="portfolio-foot">
-      <a class="btn btn-ghost" href="https://soobakworkshop.myportfolio.com" target="_blank" rel="noopener" data-i18n="portfolio.cta">See the full portfolio ↗</a>
-    </div>
-  </section>
-
-  <section id="offer" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">05</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="offer.eyebrow">What I Make</p>
-      <h2 data-i18n="offer.h2">Three ways to work together</h2>
-      <p data-i18n="offer.intro">Pick a route, or combine them across a campaign.</p>
-    </div>
-    </div>
-    <div class="route-grid">
-      <div class="route-card">
-        <p class="route-index">01</p>
-        <h3 data-i18n="route1.h3">UGC &amp; licensing</h3>
-        <p class="route-tag" data-i18n="route1.tag">I create. You post.</p>
-        <ul>
-          <li data-i18n="route1.i1">Product showcase &amp; unboxing</li>
-          <li data-i18n="route1.i2">Testimonial &amp; review</li>
-          <li data-i18n="route1.i3">Demo &amp; tutorial</li>
-          <li data-i18n="route1.i4">Tips &amp; tricks explainer</li>
-          <li data-i18n="route1.i5">Before &amp; after</li>
-          <li data-i18n="route1.i6">Script-read &amp; voiceover</li>
-          <li data-i18n="route1.i7">Lifestyle photography</li>
-          <li data-i18n="route1.i8">Hooks, CTAs &amp; raw footage</li>
-        </ul>
-        <p class="route-best"><span data-i18n="route.best">Best for</span> <span data-i18n="route1.best">ad testing · product pages · email marketing</span></p>
-        <a class="btn btn-ghost btn-sm route-cta" href="mailto:soobakworkshop@gmail.com?subject=UGC%20%26%20licensing%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
-      </div>
-      <div class="route-card">
-        <p class="route-index">02</p>
-        <h3 data-i18n="route2.h3">Influencer partnerships</h3>
-        <p class="route-tag" data-i18n="route2.tag">I create. I post.</p>
-        <ul>
-          <li data-i18n="route2.i1">Dedicated or integrated reel</li>
-          <li data-i18n="route2.i2">Educational carousel</li>
-          <li data-i18n="route2.i3">Story sequence</li>
-          <li data-i18n="route2.i4">Collab post, both grids</li>
-          <li data-i18n="route2.i5">Image + text post</li>
-          <li data-i18n="route2.i6">Native video post</li>
-          <li data-i18n="route2.i7">Giveaway hosting</li>
-          <li data-i18n="route2.i8">Multi-platform bundle</li>
-        </ul>
-        <p class="route-best"><span data-i18n="route.best">Best for</span> <span data-i18n="route2.best">launches · niche trust · bilingual reach</span></p>
-        <a class="btn btn-ghost btn-sm route-cta" href="mailto:soobakworkshop@gmail.com?subject=Influencer%20partnership%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
-      </div>
-      <div class="route-card">
-        <p class="route-index">03</p>
-        <h3 data-i18n="route3.h3">Long-term</h3>
-        <p class="route-tag" data-i18n="route3.tag">Ongoing, not one post.</p>
-        <ul>
-          <li data-i18n="route3.i1">Ambassador, 3 / 6 / 12 months</li>
-          <li data-i18n="route3.i2">Monthly retainer</li>
-          <li data-i18n="route3.i3">Affiliate link or code</li>
-          <li data-i18n="route3.i4">Hosted stay or retreat</li>
-          <li data-i18n="route3.i5">Store &amp; event coverage</li>
-          <li data-i18n="route3.i6">Founder interview</li>
-          <li data-i18n="route3.i7">Workshop or tea ceremony</li>
-          <li data-i18n="route3.i8">Brand consulting</li>
-        </ul>
-        <p class="route-best"><span data-i18n="route.best">Best for</span> <span data-i18n="route3.best">repeat presence · exclusivity · long-term trust</span></p>
-        <a class="btn btn-ghost btn-sm route-cta" href="mailto:soobakworkshop@gmail.com?subject=Long-term%20collaboration%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
-      </div>
-    </div>
-    <p class="open-note" data-i18n="offer.open">Open to other formats, on request.</p>
-  </section>
-
-  <section id="rights" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">06</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="rights.eyebrow">Usage Rights</p>
-      <h2 data-i18n="rights.h2">Four licence levels</h2>
-      <p data-i18n="rights.intro">Production and licensing are quoted separately, so you always know what you're paying for. Every licence has an end date.</p>
-    </div>
-    </div>
-    <div class="rights-table">
-      <div class="rights-row rights-head">
-        <span data-i18n="rights.col.level">Level</span>
-        <span data-i18n="rights.col.where">Where</span>
-        <span data-i18n="rights.col.term">Term</span>
-      </div>
-      <div class="rights-row">
-        <span class="rights-level">01 · <span data-i18n="rights.r1.name">Organic</span></span>
-        <span data-i18n="rights.r1.where">Your channels</span>
-        <span data-i18n="rights.r1.term">3 / 6 / 12 months</span>
-      </div>
-      <div class="rights-row">
-        <span class="rights-level">02 · <span data-i18n="rights.r2.name">Paid ads</span></span>
-        <span data-i18n="rights.r2.where">Your ad account</span>
-        <span data-i18n="rights.r2.term">30 / 60 / 90 days</span>
-      </div>
-      <div class="rights-row">
-        <span class="rights-level">03 · <span data-i18n="rights.r3.name">Whitelisting</span></span>
-        <span data-i18n="rights.r3.where">Run from my handle</span>
-        <span data-i18n="rights.r3.term">30 / 60 / 90 days</span>
-      </div>
-      <div class="rights-row">
-        <span class="rights-level">04 · <span data-i18n="rights.r4.name">Full buyout</span></span>
-        <span data-i18n="rights.r4.where">All media, all territories</span>
-        <span data-i18n="rights.r4.term">Perpetual</span>
-      </div>
-    </div>
-    <p class="rights-addons"><strong data-i18n="rights.addons.label">Add-ons</strong> <span data-i18n="rights.addons.list">Extra hooks &amp; CTAs · Restructured edits · Aspect-ratio resizing · Raw footage · Extra language · Rush delivery · Refilms · Category exclusivity · Performance report</span></p>
-  </section>
-
-  <section id="why" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">07</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="why.eyebrow">Why Me</p>
-      <h2 data-i18n="why.h2">What this means for your brand</h2>
-    </div>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <h3 data-i18n="why1.h3">Two languages, one shoot</h3>
-        <p data-i18n="why1.p">Filmed in Chinese, then captioned in Traditional Chinese or English from a single shoot, reaching Chinese-reading and Western audiences with the same asset.</p>
-      </div>
-      <div class="why-card">
-        <h3 data-i18n="why2.h3">Real roots, not a theme</h3>
-        <p data-i18n="why2.p">Her content covers slow living broadly, not only grandmother's kitchen, but the Chinese heritage running through it is real, not a trend borrowed for the camera.</p>
-      </div>
-      <div class="why-card">
-        <h3 data-i18n="why3.h3">Curious, not clinical</h3>
-        <p data-i18n="why3.p">TCM explored out of personal curiosity and her own health journey, not professional practice or medical advice.</p>
-      </div>
-      <div class="why-card">
-        <h3 data-i18n="why4.h3">An audience already looking for this</h3>
-        <p data-i18n="why4.p">Tea, TCM, slow design, heritage, slow travel: brands in these categories reach people who already care, not a broad audience left to convince.</p>
+  <section id="why" class="band">
+    <div class="wrap">
+      <header class="head rev">
+        <span class="head-glyph" aria-hidden="true">為</span>
+        <div class="head-text">
+          <p class="label" data-i18n="why.eyebrow">Why Me</p>
+          <h2 data-i18n="why.h2">What this means for your brand</h2>
+        </div>
+      </header>
+      <div class="why-grid">
+        <div class="why-item rev"><h3 data-i18n="why1.h3">Two languages, one shoot</h3><p data-i18n="why1.p">Filmed in Chinese, then captioned in Traditional Chinese or English from a single shoot, reaching Chinese-reading and Western audiences with the same asset.</p></div>
+        <div class="why-item rev"><h3 data-i18n="why2.h3">Real roots, not a theme</h3><p data-i18n="why2.p">Her content covers slow living broadly, not only grandmother's kitchen, but the Chinese heritage running through it is real, not a trend borrowed for the camera.</p></div>
+        <div class="why-item rev"><h3 data-i18n="why3.h3">Curious, not clinical</h3><p data-i18n="why3.p">TCM explored out of personal curiosity and her own health journey, not professional practice or medical advice.</p></div>
+        <div class="why-item rev"><h3 data-i18n="why4.h3">An audience already looking for this</h3><p data-i18n="why4.p">Tea, TCM, slow design, heritage, slow travel: brands in these categories reach people who already care, not a broad audience left to convince.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="process" class="wrap rev">
-    <div class="section-head-row">
-    <span class="section-index">08</span>
-    <div class="section-head">
-      <p class="eyebrow" data-i18n="process.eyebrow">How It Runs</p>
-      <h2 data-i18n="process.h2">Brief to delivery</h2>
+  <section id="process">
+    <div class="wrap">
+      <header class="head flip rev">
+        <span class="head-glyph" aria-hidden="true">程</span>
+        <div class="head-text">
+          <p class="label" data-i18n="process.eyebrow">How It Runs</p>
+          <h2 data-i18n="process.h2">Brief to delivery</h2>
+        </div>
+      </header>
+      <div class="rev">
+        <ol class="flow" id="flow">
+          <li class="flow-line" aria-hidden="true"><svg viewBox="0 0 1000 120" preserveAspectRatio="none"><path id="flowPath" d="M0 78 C 60 30, 150 24, 230 58 S 400 112, 500 62 S 660 14, 760 52 S 930 104, 1000 46"/></svg></li>
+          <li class="flow-step" data-x="8"><span>01</span><b data-i18n="process.s1">Brief</b></li>
+          <li class="flow-step" data-x="29"><span>02</span><b data-i18n="process.s2">Quote</b></li>
+          <li class="flow-step" data-x="50"><span>03</span><b data-i18n="process.s3">Concept</b></li>
+          <li class="flow-step" data-x="71"><span>04</span><b data-i18n="process.s4">Film &amp; edit</b></li>
+          <li class="flow-step" data-x="92"><span>05</span><b data-i18n="process.s5">Deliver</b></li>
+        </ol>
+        <p class="flow-note" data-i18n="process.note">Turnaround and revisions confirmed upfront, so there are no surprises after the shoot.</p>
+      </div>
     </div>
-    </div>
-    <div class="process-timeline">
-      <div class="process-track"><div class="process-track-fill"></div></div>
-      <ol class="process-steps">
-        <li data-i18n="process.s1">Brief</li>
-        <li data-i18n="process.s2">Quote</li>
-        <li data-i18n="process.s3">Concept</li>
-        <li data-i18n="process.s4">Film &amp; edit</li>
-        <li data-i18n="process.s5">Deliver</li>
-      </ol>
-    </div>
-    <p class="process-note" data-i18n="process.note">Turnaround and revisions confirmed upfront, so there are no surprises after the shoot.</p>
   </section>
 
-  <section id="contact" class="wrap rev">
-    <div class="closing">
-      <div style="display:flex; align-items:baseline; gap:14px;">
-        <span class="section-index" style="border-color: var(--panel-ink-soft); color: var(--panel-ink-soft);">09</span>
-        <p class="eyebrow" data-i18n="closing.eyebrow">Let's Work Together</p>
+  <section id="contact" class="closing">
+    <div class="guides" aria-hidden="true"><i class="gv gv1"></i><i class="gh gh1"></i></div>
+    <div class="wrap">
+      <div class="closing-grid">
+        <div>
+          <p class="label" data-i18n="closing.eyebrow">Let's Work Together</p>
+          <h2 lang="zh-Hant"><span>一起合作，</span><span>慢慢來</span></h2>
+          <p class="closing-body" data-i18n="closing.body">Send a brief, timeline, product and the usage rights you need.</p>
+          <a class="btn btn-primary" href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="closing.cta.email">Get in touch</a>
+          <p class="mail"><span class="mail-addr" id="mailAddr">soobakworkshop@gmail.com</span><button type="button" class="mail-copy" id="mailCopy" data-i18n="contact.copy">Copy address</button></p>
+        </div>
+        <div class="closing-cup">
+          <span class="cup" aria-hidden="true"></span>
+          <span class="note paren" data-i18n="cup.ready">the tea's ready</span>
+        </div>
       </div>
-      <h2 class="cjk" data-i18n="closing.h2">一起合作，慢慢來</h2>
-      <p data-i18n="closing.body">Send a brief, timeline, product and the usage rights you need.</p>
-      <div class="closing-cta">
-        <a class="btn btn-primary" href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="closing.cta.email">Get in touch</a>
-      </div>
-
-      <dl class="contact-grid">
+      <dl class="contacts">
         <div><dt>Instagram</dt><dd><a href="https://instagram.com/your.asiangranny" target="_blank" rel="noopener">@your.asiangranny</a></dd></div>
         <div><dt>小紅書 · RedNote</dt><dd><a href="https://www.rednote.com/user/profile/5ec6587b0000000001005192" target="_blank" rel="noopener">@iris_you</a></dd></div>
         <div><dt data-i18n="contact.portfolio">Design portfolio</dt><dd><a href="https://soobakworkshop.myportfolio.com" target="_blank" rel="noopener">soobakworkshop.myportfolio.com</a></dd></div>
@@ -910,14 +855,8 @@
 </main>
 
 <footer>
-  <div class="foot-top">
-    <div class="foot-mark">
-      <span class="icon-stamp"><img src="assets/icon.jpg" alt=""></span>
-      <span class="brand-text">
-        <span class="brand-name">your asian granny</span>
-        <span class="brand-sub" data-i18n="footer.sub">阿嬤日記 · 2026</span>
-      </span>
-    </div>
+  <div class="wrap foot">
+    <div class="foot-mark"><img src="assets/icon.jpg" alt=""><span data-i18n="footer.sub">阿嬤日記 · 2026</span></div>
     <div class="foot-links">
       <a href="mailto:soobakworkshop@gmail.com" target="_blank" rel="noopener" data-i18n="footer.email">Email</a>
       <a href="https://instagram.com/your.asiangranny" target="_blank" rel="noopener">Instagram</a>
@@ -927,322 +866,423 @@
   </div>
 </footer>
 
+<div class="steep" id="steep" aria-hidden="true"><span class="cup"></span><span class="note paren" id="steepLabel">steeping · 0%</span></div>
+
 <div class="sticky-cta" id="stickyCta">
-  <p class="sticky-cta-text" data-i18n="sticky.text">Got a brand to pitch?</p>
+  <p data-i18n="sticky.text">Got a brand to pitch?</p>
   <a class="btn btn-primary btn-sm" href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a>
 </div>
 
 <script>
-  (function(){
-    var bar = document.getElementById('topbar');
-    var progressFill = document.getElementById('progressFill');
-    var onScroll = function(){
-      if(window.scrollY > 40){ bar.classList.add('is-scrolled'); }
-      else{ bar.classList.remove('is-scrolled'); }
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      var pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
-      progressFill.style.width = pct + '%';
+(function(){
+  var T = {
+    "nav.who": {"en":"About","fr":"À propos","zh":"關於我"},
+    "nav.reels": {"en":"Work","fr":"Travail","zh":"作品"},
+    "nav.offer": {"en":"Offer","fr":"Offre","zh":"服務"},
+    "nav.contact": {"en":"Contact","fr":"Contact","zh":"聯絡方式"},
+    "nav.cta": {"en":"Get in touch","fr":"Me contacter","zh":"與我聯繫"},
+    "sticky.text": {"en":"Got a brand to pitch?","fr":"Une marque à proposer ?","zh":"有品牌合作想法嗎？"},
+    "hero.strapline": {"en":"Slow living, as grandmothers meant it.","fr":"Vivre lentement, comme nos grands-mères l’entendaient.","zh":"慢慢生活，像阿嬤教的那樣。"},
+    "hero.tagline.gloss": {"en":"· slow living, with a touch of tradition","fr":"· vivre lentement, avec une touche de tradition","zh":"· 慢生活，帶點傳統味"},
+    "hero.bio": {"en":"A third-generation Chinese-French creator in her mid-20s, documenting the slow, herbal, grandmother-taught way of caring for a body, filmed between Paris and the kitchens that raised her.","fr":"Créatrice franco-chinoise de troisième génération, au début de la vingtaine, qui documente la manière lente et herbale de prendre soin du corps, transmise par sa grand-mère, filmée entre Paris et les cuisines qui l'ont vue grandir.","zh":"第三代法籍華人創作者，二十多歲，記錄阿嬤傳下來、用藥草慢慢調養身體的方式，取景於巴黎與她成長的廚房之間。"},
+    "hero.fact1": {"en":"Paris, France","fr":"Paris, France","zh":"法國巴黎"},
+    "hero.fact2": {"en":"Captions in English &amp; Traditional Chinese","fr":"Sous-titres en anglais et chinois traditionnel","zh":"英文與繁體中文字幕"},
+    "hero.fact3": {"en":"Instagram @your.asiangranny · RedNote @iris_you","fr":"Instagram @your.asiangranny · RedNote @iris_you","zh":"Instagram @your.asiangranny · 小紅書 @iris_you"},
+    "hero.fact4": {"en":"Tea · TCM · slow design · heritage · slow travel","fr":"Thé · MTC · design lent · héritage · voyage lent","zh":"茶 · 中醫 · 慢設計 · 傳承 · 慢旅行"},
+    "hero.cta.see": {"en":"See the work →","fr":"Voir le travail →","zh":"看作品 →"},
+    "hero.cta.work": {"en":"Work with me →","fr":"Travailler avec moi →","zh":"與我合作 →"},
+    "hero.badge.role": {"en":"Creator · 中醫 &amp; slow-living content, Paris","fr":"Créatrice · contenu MTC &amp; slow-living, Paris","zh":"創作者 · 中醫與慢生活內容，巴黎"},
+    "who.eyebrow": {"en":"About","fr":"À propos","zh":"關於我"},
+    "who.h2": {"en":"Granddaughter first","fr":"D'abord petite-fille","zh":"我是誰"},
+    "who.intro": {"en":"Chinese at home, French everywhere else, she grew up between both. Now she makes content about slow living, Traditional Chinese Medicine and family tradition. She's not a doctor: she shares what she's learning, sourced and labelled.","fr":"Chinoise à la maison, française partout ailleurs, elle a grandi entre les deux. Elle crée aujourd'hui du contenu sur le slow-living, la médecine traditionnelle chinoise et les traditions familiales. Elle n'est pas médecin : elle partage ce qu'elle apprend, sourcé et indiqué comme tel.","zh":"在家說中文，在外說法文，她在兩種文化之間長大。如今她創作關於慢生活、中醫與家族傳統的內容。她不是醫生：她分享自己學到的東西，並標明出處。"},
+    "who.bio.label1": {"en":"Origin","fr":"Origine","zh":"起點"},
+    "who.bio.label2": {"en":"The turn","fr":"Le tournant","zh":"轉折"},
+    "who.bio.label3": {"en":"The work","fr":"Le travail","zh":"如今"},
+    "who.bio.p1": {"en":"I was born and raised in France, into a Chinese family, third generation. I grew up holding two cultures at once, and for a long time the thing I understood least was my own body: skin that wouldn't settle, periods that ran my month.","fr":"Je suis née et j'ai grandi en France, dans une famille chinoise, troisième génération. J'ai grandi en portant deux cultures à la fois, et pendant longtemps, ce que je comprenais le moins, c'était mon propre corps : une peau qui ne se stabilisait jamais, des règles qui rythmaient mes mois.","zh":"我在法國出生長大，來自第三代華人家庭。我從小同時擁有兩種文化，但有很長一段時間，我最不了解的是自己的身體：怎麼都穩不下來的皮膚，主宰整個月的經期。"},
+    "who.bio.p2": {"en":"Looking for a gentler way to live is what led me to Traditional Chinese Medicine, slow rituals and the Chinese habit of slowing down. I started reading, cooking differently, changing how I rest, and filming it as I went.","fr":"C'est la recherche d'une façon plus douce de vivre qui m'a menée à la médecine traditionnelle chinoise, aux rituels lents et à cette habitude chinoise de ralentir. J'ai commencé à lire, à cuisiner différemment, à changer ma façon de me reposer, et à filmer tout ça en chemin.","zh":"想找一種更溫柔的生活方式，讓我走向中醫、慢儀式，以及華人「慢下來」的習慣。我開始閱讀、換個方式煮飯、改變休息的方式，並一路拍下來。"},
+    "who.bio.p3": {"en":"I make this so people going through the same thing know they aren't alone in it, and so Asian tradition gets shown as something beautiful and worth learning, rather than something unfamiliar and hard to understand.","fr":"Je fais ça pour que les personnes qui vivent la même chose sachent qu'elles ne sont pas seules, et pour que la tradition asiatique soit montrée comme quelque chose de beau et digne d'être appris, plutôt que comme quelque chose d'étranger et difficile à comprendre.","zh":"我做這些，是希望正經歷同樣事情的人知道自己並不孤單，也希望亞洲傳統被呈現成美麗、值得學習的事，而不是陌生難懂的東西。"},
+    "who.bg.social": {"en":"<strong>Social &amp; community:</strong> influencer marketing and community management in hospitality, across Switzerland and Japan.","fr":"<strong>Social &amp; communauté :</strong> marketing d'influence et gestion de communauté dans l'hôtellerie, en Suisse et au Japon.","zh":"<strong>社群與公關：</strong>曾在瑞士與日本的飯店業從事網紅行銷與社群經營。"},
+    "who.bg.design": {"en":"<strong>Graphic design &amp; branding:</strong> visual identity, illustration and packaging for cafés, hospitality brands, fashion labels and engineering studios, under her own studio, S.W.shop.","fr":"<strong>Design graphique &amp; identité :</strong> identité visuelle, illustration et packaging pour des cafés, marques hôtelières, labels de mode et studios d’ingénierie, sous son propre studio, S.W.shop.","zh":"<strong>平面設計與品牌：</strong>以自己的工作室 S.W.shop，為咖啡館、飯店品牌、時尚品牌與工程工作室打造視覺識別、插畫與包裝設計。"},
+    "who.bg.tcm": {"en":"<strong>TCM study:</strong> working through Fundamentals of Chinese Medicine (Pan Yi) and continued reading; writes from her own health journey, not secondhand research.","fr":"<strong>Études de MTC :</strong> étudie Fundamentals of Chinese Medicine (Pan Yi) et poursuit ses lectures ; écrit à partir de son propre parcours de santé, pas d'une recherche de seconde main.","zh":"<strong>中醫自學：</strong>正在研讀潘毅的《中醫基礎理論》並持續閱讀，書寫內容來自她自己的健康歷程，而非二手資料。"},
+    "stats.eyebrow": {"en":"Real engagement, not just reach","fr":"Un vrai engagement, pas seulement de la portée","zh":"真實互動，不只是觸及"},
+    "stats.ig.handle": {"en":"@your.asiangranny","fr":"@your.asiangranny","zh":"@your.asiangranny"},
+    "stats.ig.l1": {"en":"views, last 30 days","fr":"vues, 30 derniers jours","zh":"過去30天觀看次數"},
+    "stats.ig.l2": {"en":"accounts reached","fr":"comptes touchés","zh":"觸及帳號數"},
+    "stats.ig.l3": {"en":"interactions","fr":"interactions","zh":"互動次數"},
+    "stats.ig.l4": {"en":"views from non-followers","fr":"vues hors abonnés","zh":"非粉絲觀看比例"},
+    "stats.rn.l1": {"en":"notes published","fr":"notes publiées","zh":"已發布筆記數"},
+    "stats.rn.l2": {"en":"likes &amp; saves","fr":"likes &amp; sauvegardes","zh":"按讚與收藏"},
+    "stats.rn.l3": {"en":"engagement rate","fr":"taux d'engagement","zh":"互動率"},
+    "stats.rn.l4": {"en":"posts per week","fr":"publications par semaine","zh":"每週發文數"},
+    "audience.eyebrow": {"en":"Audience, by age","fr":"Audience, par âge","zh":"受眾年齡分布"},
+    "geo.eyebrow": {"en":"Where they're watching from","fr":"D'où ils regardent","zh":"觀眾所在地"},
+    "geo.france": {"en":"France","fr":"France","zh":"法國"},
+    "geo.taiwan": {"en":"Taiwan","fr":"Taïwan","zh":"台灣"},
+    "geo.us": {"en":"United States","fr":"États-Unis","zh":"美國"},
+    "pillars.h3": {"en":"Five content pillars","fr":"Cinq piliers de contenu","zh":"五大內容支柱"},
+    "pillars.desc": {"en":"What the account already runs on, week to week.","fr":"Ce sur quoi le compte tourne déjà, semaine après semaine.","zh":"帳號目前每週運作的內容方向。"},
+    "pillar.body.name": {"en":"Body","fr":"Corps","zh":"養"},
+    "pillar.body.desc": {"en":"Herbal kitchen, skin, women's health","fr":"Cuisine aux plantes, peau, santé féminine","zh":"藥膳廚房、肌膚、婦女健康"},
+    "pillar.mind.name": {"en":"Mind","fr":"Esprit","zh":"靜"},
+    "pillar.mind.desc": {"en":"Rest, slowing down, less noise","fr":"Repos, ralentir, moins de bruit","zh":"休息、放慢步調、減少噪音"},
+    "pillar.art.name": {"en":"Art","fr":"Art","zh":"藝"},
+    "pillar.art.desc": {"en":"Book sharing, tea time, workshops","fr":"Partage de livres, l'heure du thé, ateliers","zh":"分享書籍、茶時光、工作坊"},
+    "pillar.roots.name": {"en":"Roots","fr":"Racines","zh":"根"},
+    "pillar.roots.desc": {"en":"Heritage, kitchen, family","fr":"Héritage, cuisine, famille","zh":"傳承、廚房、家庭"},
+    "pillar.openair.name": {"en":"Open air","fr":"Plein air","zh":"野"},
+    "pillar.openair.desc": {"en":"Walking, TCM exercise, outdoors","fr":"Marche, exercices de MTC, plein air","zh":"散步、中醫導引、戶外活動"},
+    "lang.eyebrow": {"en":"Language","fr":"Langue","zh":"語言"},
+    "lang.h2": {"en":"One shoot, two languages","fr":"Un tournage, deux langues","zh":"一次拍攝，兩種語言"},
+    "lang.intro": {"en":"Every video is filmed in Chinese, then captioned in Traditional Chinese or English from the same shoot, so the same footage reaches Chinese-reading and Western audiences without filming twice.","fr":"Chaque vidéo est tournée en chinois, puis sous-titrée en chinois traditionnel ou en anglais à partir du même tournage, pour atteindre les publics sinophones et occidentaux sans tourner deux fois.","zh":"每支影片都以中文拍攝，再從同一次拍攝製作繁體中文或英文字幕，讓同樣的素材觸及華語與西方觀眾，不必拍兩次。"},
+    "lang.item1": {"en":"Captions land natively for Chinese-reading audiences","fr":"Les sous-titres résonnent naturellement auprès du public sinophone","zh":"字幕對華語觀眾來說自然道地"},
+    "lang.item2": {"en":"Stays clear and readable for Western audiences","fr":"Reste clair et lisible pour le public occidental","zh":"對西方觀眾來說依然清楚易懂"},
+    "lang.item3": {"en":"Same footage, two caption sets, one shoot","fr":"Même tournage, deux jeux de sous-titres, un seul shooting","zh":"同一素材、兩套字幕、一次拍攝"},
+    "lang.item4": {"en":"French-language cut available on request","fr":"Version en français disponible sur demande","zh":"可依需求提供法文版本"},
+    "lang.note": {"en":"One shoot pays for both markets.","fr":"Un seul tournage rentabilisé sur deux marchés.","zh":"一次拍攝，同時打入兩個市場。"},
+    "reels.eyebrow": {"en":"Selected Work","fr":"Travaux sélectionnés","zh":"精選作品"},
+    "reels.h2": {"en":"Two ways I tell a story","fr":"Deux façons de raconter une histoire","zh":"說故事的兩種方式"},
+    "reels.intro": {"en":"Every brief gets one of two treatments, sometimes both. Pick a lane, or mix them across a campaign.","fr":"Chaque brief reçoit l'un de ces deux traitements, parfois les deux. Choisissez une voie, ou combinez-les sur une campagne.","zh":"每個企劃都會用到這兩種方式之一，有時兩者並用。可以選一種，也可以在同一檔活動中混合使用。"},
+    "gallery.tag1": {"en":"01 · Scripted, slow-designed &amp; straightforward","fr":"01 · Scénarisé, pensé slow &amp; direct","zh":"01・腳本化、慢設計、直接明瞭"},
+    "gallery.desc1": {"en":"Clear information, on camera, built to teach and to convert.","fr":"Une information claire, face caméra, pensée pour enseigner et convertir.","zh":"清楚的資訊、面對鏡頭直說，專為教學與轉換而設計。"},
+    "gallery.tag2": {"en":"02 · 中醫, lifestyle &amp; playful","fr":"02 · MTC, lifestyle &amp; ludique","zh":"02・中醫、生活風格與趣味"},
+    "gallery.desc2": {"en":"Slower, personal, true to her own voice: the clips that build real connection, not just views.","fr":"Plus lent, personnel, fidèle à sa propre voix : les vidéos qui créent un vrai lien, pas seulement des vues.","zh":"步調更慢、更個人、忠於自己的聲音：這些影片建立的是真實連結，而不只是觀看數。"},
+    "gallery.foot.link": {"en":"See more ↗","fr":"Voir plus ↗","zh":"查看更多 ↗"},
+    "gallery.foot.note": {"en":"Each card opens the real reel on Instagram, with sound.","fr":"Chaque carte ouvre le vrai reel sur Instagram, avec le son.","zh":"每張卡片都會開啟 Instagram 上的真實影片，並附有聲音。"},
+    "reel1.title": {"en":"Period care · slow living","fr":"Soin des règles · slow living","zh":"經期養生 · 慢生活"},
+    "reel2.title": {"en":"Mundane yet beautiful","fr":"Banal mais beau","zh":"不起眼卻很美"},
+    "reel3.title": {"en":"Eastern's Slow Design","fr":"Le design lent de l'Orient","zh":"療癒的東方設計"},
+    "reel4.title": {"en":"My bad-skin rescue remedy","fr":"Mon remède de secours pour la peau","zh":"我的爛皮膚急救藥"},
+    "reel7.title": {"en":"Let's talk: what to do about dampness","fr":"Parlons-en : que faire contre l'humidité","zh":"Let's Talk：濕氣重怎麼辦"},
+    "reel5.title": {"en":"Just lie to yourself?","fr":"Juste se mentir à soi-même ?","zh":"Just lie to yourself? 大人成長秘密"},
+    "reel6.title": {"en":"Does pineapple cure period pain?","fr":"L'ananas soigne-t-il les règles douloureuses ?","zh":"菠蘿治經痛?"},
+    "reel8.title": {"en":"France, but slower","fr":"La France, mais plus lente","zh":"France, but slower"},
+    "reel9.title": {"en":"Celebrity glass skin","fr":"La peau de verre des stars","zh":"明星养颜茶"},
+    "reel10.title": {"en":"Grandma, Chinese is so hard…","fr":"Mamie, le chinois c'est trop dur…","zh":"阿媽，中文好難啊…"},
+    "portfolio.eyebrow": {"en":"Also Her Hand","fr":"Aussi son travail","zh":"另一雙手"},
+    "portfolio.h2": {"en":"The eye behind the camera is a trained one","fr":"L'œil derrière la caméra est un œil formé","zh":"鏡頭背後，也是一雙受過訓練的手"},
+    "portfolio.intro": {"en":"Before the content, there was the craft: visual identity, illustration and packaging for cafés, hospitality brands and fashion labels, under her own studio, S.W.shop.","fr":"Avant le contenu, il y avait le métier : identité visuelle, illustration et packaging pour des cafés, marques hôtelières et labels de mode, sous son propre studio, S.W.shop.","zh":"在內容創作之前，是扎實的手藝：為咖啡館、飯店品牌與時尚品牌打造視覺識別、插畫與包裝設計，皆出自她自己的工作室 S.W.shop。"},
+    "portfolio.cap1.sector": {"en":"Café, illustration","fr":"Café, illustration","zh":"咖啡館・插畫"},
+    "portfolio.cap2.sector": {"en":"Her own homeware brand","fr":"Sa propre marque de linge de maison","zh":"她自己的居家品牌"},
+    "portfolio.cap3.sector": {"en":"Fashion accessories, branding","fr":"Accessoires de mode, identité","zh":"時尚配件・品牌識別"},
+    "portfolio.cta": {"en":"See the full portfolio ↗","fr":"Voir le portfolio complet ↗","zh":"查看完整作品集 ↗"},
+    "offer.eyebrow": {"en":"What I Make","fr":"Ce que je crée","zh":"我能製作的內容"},
+    "offer.h2": {"en":"Three ways to work together","fr":"Trois façons de collaborer","zh":"三種合作方式"},
+    "offer.intro": {"en":"Pick a route, or combine them across a campaign.","fr":"Choisissez une voie, ou combinez-les sur une campagne.","zh":"可以選一種方式，也可以在同一檔活動中組合使用。"},
+    "route.best": {"en":"Best for","fr":"Idéal pour","zh":"適合用於"},
+    "route.cta": {"en":"Ask about this →","fr":"En discuter →","zh":"詢問這項方案 →"},
+    "route1.h3": {"en":"UGC &amp; licensing","fr":"UGC &amp; licence","zh":"UGC 與授權"},
+    "route1.tag": {"en":"I create. You post.","fr":"Je crée. Vous publiez.","zh":"我製作，你發布。"},
+    "route1.i1": {"en":"Product showcase &amp; unboxing","fr":"Mise en avant produit &amp; unboxing","zh":"產品展示與開箱"},
+    "route1.i2": {"en":"Testimonial &amp; review","fr":"Témoignage &amp; avis","zh":"見證與評論"},
+    "route1.i3": {"en":"Demo &amp; tutorial","fr":"Démo &amp; tutoriel","zh":"示範與教學"},
+    "route1.i4": {"en":"Tips &amp; tricks explainer","fr":"Conseils &amp; astuces explicatifs","zh":"技巧與訣竅說明"},
+    "route1.i5": {"en":"Before &amp; after","fr":"Avant &amp; après","zh":"前後對比"},
+    "route1.i6": {"en":"Script-read &amp; voiceover","fr":"Lecture de script &amp; voix off","zh":"口白與配音"},
+    "route1.i7": {"en":"Lifestyle photography","fr":"Photographie lifestyle","zh":"生活風格攝影"},
+    "route1.i8": {"en":"Hooks, CTAs &amp; raw footage","fr":"Accroches, CTA &amp; rushs","zh":"開場鉤子、CTA與原始素材"},
+    "route1.best": {"en":"ad testing · product pages · email marketing","fr":"tests publicitaires · pages produit · emailing","zh":"廣告測試・產品頁面・電子郵件行銷"},
+    "route2.h3": {"en":"Influencer partnerships","fr":"Partenariats d'influence","zh":"網紅合作"},
+    "route2.tag": {"en":"I create. I post.","fr":"Je crée. Je publie.","zh":"我製作，也由我發布。"},
+    "route2.i1": {"en":"Dedicated or integrated reel","fr":"Reel dédié ou intégré","zh":"專屬或整合式短片"},
+    "route2.i2": {"en":"Educational carousel","fr":"Carrousel éducatif","zh":"教育性輪播貼文"},
+    "route2.i3": {"en":"Story sequence","fr":"Séquence de stories","zh":"限時動態系列"},
+    "route2.i4": {"en":"Collab post, both grids","fr":"Post collaboratif, double grille","zh":"合作貼文（雙方版面）"},
+    "route2.i5": {"en":"Image + text post","fr":"Post image + texte","zh":"圖文貼文"},
+    "route2.i6": {"en":"Native video post","fr":"Post vidéo natif","zh":"原生影片貼文"},
+    "route2.i7": {"en":"Giveaway hosting","fr":"Organisation de jeu-concours","zh":"抽獎活動主持"},
+    "route2.i8": {"en":"Multi-platform bundle","fr":"Pack multi-plateformes","zh":"多平台套組"},
+    "route2.best": {"en":"launches · niche trust · bilingual reach","fr":"lancements · confiance de niche · portée bilingue","zh":"新品上市・利基信任感・雙語觸及"},
+    "route3.h3": {"en":"Long-term","fr":"Long terme","zh":"長期合作"},
+    "route3.tag": {"en":"Ongoing, not one post.","fr":"Continu, pas un simple post.","zh":"持續性合作，不只一篇貼文。"},
+    "route3.i1": {"en":"Ambassador, 3 / 6 / 12 months","fr":"Ambassadrice, 3 / 6 / 12 mois","zh":"品牌大使，3／6／12個月"},
+    "route3.i2": {"en":"Monthly retainer","fr":"Forfait mensuel","zh":"月費合作"},
+    "route3.i3": {"en":"Affiliate link or code","fr":"Lien ou code affilié","zh":"聯盟連結或代碼"},
+    "route3.i4": {"en":"Hosted stay or retreat","fr":"Séjour ou retraite offerts","zh":"招待住宿或靜修體驗"},
+    "route3.i5": {"en":"Store &amp; event coverage","fr":"Couverture boutique &amp; événement","zh":"門市與活動報導"},
+    "route3.i6": {"en":"Founder interview","fr":"Interview du fondateur","zh":"創辦人專訪"},
+    "route3.i7": {"en":"Workshop or tea ceremony","fr":"Atelier ou cérémonie du thé","zh":"工作坊或茶道體驗"},
+    "route3.i8": {"en":"Brand consulting","fr":"Conseil de marque","zh":"品牌顧問"},
+    "route3.best": {"en":"repeat presence · exclusivity · long-term trust","fr":"présence répétée · exclusivité · confiance durable","zh":"持續曝光・獨家合作・長期信任"},
+    "offer.open": {"en":"Open to other formats, on request.","fr":"Ouverte à d'autres formats, sur demande.","zh":"其他格式，歡迎洽詢。"},
+    "rights.eyebrow": {"en":"Usage Rights","fr":"Droits d'usage","zh":"使用權限"},
+    "rights.h2": {"en":"Four licence levels","fr":"Quatre niveaux de licence","zh":"四種授權等級"},
+    "rights.intro": {"en":"Production and licensing are quoted separately, so you always know what you're paying for. Every licence has an end date.","fr":"La production et la licence sont chiffrées séparément, pour que vous sachiez toujours ce que vous payez. Chaque licence a une date de fin.","zh":"製作費與授權費分開報價，讓你清楚知道每一筆費用的用途。每種授權都有到期日。"},
+    "rights.col.level": {"en":"Level","fr":"Niveau","zh":"等級"},
+    "rights.col.where": {"en":"Where","fr":"Où","zh":"使用範圍"},
+    "rights.col.term": {"en":"Term","fr":"Durée","zh":"期限"},
+    "rights.r1.name": {"en":"Organic","fr":"Organique","zh":"自然流量"},
+    "rights.r1.where": {"en":"Your channels","fr":"Vos canaux","zh":"你的自有通路"},
+    "rights.r1.term": {"en":"3 / 6 / 12 months","fr":"3 / 6 / 12 mois","zh":"3／6／12個月"},
+    "rights.r2.name": {"en":"Paid ads","fr":"Publicité payante","zh":"付費廣告"},
+    "rights.r2.where": {"en":"Your ad account","fr":"Votre compte publicitaire","zh":"你的廣告帳戶"},
+    "rights.r2.term": {"en":"30 / 60 / 90 days","fr":"30 / 60 / 90 jours","zh":"30／60／90天"},
+    "rights.r3.name": {"en":"Whitelisting","fr":"Whitelisting","zh":"白名單投放"},
+    "rights.r3.where": {"en":"Run from my handle","fr":"Diffusé depuis mon compte","zh":"從我的帳號投放"},
+    "rights.r3.term": {"en":"30 / 60 / 90 days","fr":"30 / 60 / 90 jours","zh":"30／60／90天"},
+    "rights.r4.name": {"en":"Full buyout","fr":"Rachat complet","zh":"完整買斷"},
+    "rights.r4.where": {"en":"All media, all territories","fr":"Tous médias, tous territoires","zh":"所有媒體與地區"},
+    "rights.r4.term": {"en":"Perpetual","fr":"Perpétuel","zh":"永久"},
+    "rights.addons.label": {"en":"Add-ons","fr":"Options","zh":"附加選項"},
+    "rights.addons.list": {"en":"Extra hooks &amp; CTAs · Restructured edits · Aspect-ratio resizing · Raw footage · Extra language · Rush delivery · Refilms · Category exclusivity · Performance report","fr":"Accroches &amp; CTA supplémentaires · Montages restructurés · Redimensionnement de format · Rushs bruts · Langue supplémentaire · Livraison rapide · Retournages · Exclusivité de catégorie · Rapport de performance","zh":"額外鉤子與CTA・重新剪輯・比例調整・原始素材・額外語言版本・加急交付・重拍・類別獨家・成效報告"},
+    "why.eyebrow": {"en":"Why Me","fr":"Pourquoi moi","zh":"為什麼是我"},
+    "why.h2": {"en":"What this means for your brand","fr":"Ce que cela signifie pour votre marque","zh":"這對你的品牌意味著什麼"},
+    "why1.h3": {"en":"Two languages, one shoot","fr":"Deux langues, un tournage","zh":"兩種語言，一次拍攝"},
+    "why1.p": {"en":"Filmed in Chinese, then captioned in Traditional Chinese or English from a single shoot, reaching Chinese-reading and Western audiences with the same asset.","fr":"Tourné en chinois, puis sous-titré en chinois traditionnel ou en anglais à partir d'un seul tournage, touchant les publics sinophones et occidentaux avec le même contenu.","zh":"以中文拍攝，再從同一次拍攝製作繁體中文或英文字幕，用同一支素材觸及華語與西方觀眾。"},
+    "why2.h3": {"en":"Real roots, not a theme","fr":"De vraies racines, pas un thème","zh":"真實的根，不是一個主題"},
+    "why2.p": {"en":"Her content covers slow living broadly, not only grandmother's kitchen, but the Chinese heritage running through it is real, not a trend borrowed for the camera.","fr":"Son contenu couvre le slow-living de façon large, pas seulement la cuisine de grand-mère, mais l'héritage chinois qui le traverse est réel, pas une tendance empruntée pour la caméra.","zh":"她的內容涵蓋廣泛的慢生活題材，不只是阿嬤的廚房，但貫穿其中的華人傳承是真實的，不是為了鏡頭而借用的潮流。"},
+    "why3.h3": {"en":"Curious, not clinical","fr":"Curieuse, pas clinique","zh":"出於好奇，而非臨床"},
+    "why3.p": {"en":"TCM explored out of personal curiosity and her own health journey, not professional practice or medical advice.","fr":"La MTC explorée par curiosité personnelle et à travers son propre parcours de santé, pas par pratique professionnelle ou conseil médical.","zh":"中醫的探索出於個人好奇與自身健康歷程，並非專業執業或醫療建議。"},
+    "why4.h3": {"en":"An audience already looking for this","fr":"Une audience qui cherche déjà cela","zh":"本來就在尋找這些內容的觀眾"},
+    "why4.p": {"en":"Tea, TCM, slow design, heritage, slow travel: brands in these categories reach people who already care, not a broad audience left to convince.","fr":"Thé, MTC, design lent, héritage, voyage lent : les marques de ces catégories touchent des gens déjà concernés, pas une audience large à convaincre.","zh":"茶、中醫、慢設計、傳承、慢旅行：這些類別的品牌觸及的是本來就在乎的人，而不是需要說服的廣泛受眾。"},
+    "process.eyebrow": {"en":"How It Runs","fr":"Comment ça se passe","zh":"合作流程"},
+    "process.h2": {"en":"Brief to delivery","fr":"Du brief à la livraison","zh":"從企劃到交付"},
+    "process.s1": {"en":"Brief","fr":"Brief","zh":"企劃"},
+    "process.s2": {"en":"Quote","fr":"Devis","zh":"報價"},
+    "process.s3": {"en":"Concept","fr":"Concept","zh":"概念發想"},
+    "process.s4": {"en":"Film &amp; edit","fr":"Tournage &amp; montage","zh":"拍攝與剪輯"},
+    "process.s5": {"en":"Deliver","fr":"Livraison","zh":"交付"},
+    "process.note": {"en":"Turnaround and revisions confirmed upfront, so there are no surprises after the shoot.","fr":"Délais et révisions confirmés à l'avance, pour qu'il n'y ait aucune surprise après le tournage.","zh":"交付時間與修改次數會事先確認，拍攝後不會有意外。"},
+    "closing.eyebrow": {"en":"Let's Work Together","fr":"Travaillons ensemble","zh":"一起合作吧"},
+    "closing.h2": {"en":"一起合作，慢慢來","fr":"一起合作，慢慢來","zh":"一起合作，慢慢來"},
+    "closing.body": {"en":"Send a brief, timeline, product and the usage rights you need.","fr":"Envoyez un brief, un calendrier, le produit et les droits d'usage dont vous avez besoin.","zh":"請提供企劃簡報、時程、產品與所需的使用權範圍。"},
+    "closing.cta.email": {"en":"Get in touch","fr":"Me contacter","zh":"與我聯繫"},
+    "contact.portfolio": {"en":"Design portfolio","fr":"Portfolio design","zh":"設計作品集"},
+    "footer.sub": {"en":"阿嬤日記 · 2026","fr":"阿嬤日記 · 2026","zh":"阿嬤日記 · 2026"},
+    "footer.email": {"en":"Email","fr":"E-mail","zh":"電子郵件"},
+    "footer.top": {"en":"Back to top ↑","fr":"Haut de page ↑","zh":"回到頂端 ↑"},
+    "hero.kicker": {"en":"A diary of slow living, kept in Paris","fr":"Un journal du slow living, tenu à Paris","zh":"一本在巴黎寫下的慢生活日記"},
+    "hero.mist": {"en":"wipe the mist away","fr":"effacez la brume","zh":"把霧氣抹開看看"},
+    "hero.cup": {"en":"Scroll slowly. The tea steeps as you read.","fr":"Faites défiler doucement. Le thé infuse pendant votre lecture.","zh":"慢慢往下滑，茶會在你閱讀時泡好。"},
+    "cup.steeping": {"en":"steeping","fr":"infusion","zh":"浸泡中"},
+    "cup.ready": {"en":"the tea’s ready","fr":"le thé est prêt","zh":"茶泡好了"},
+    "who.bg.label": {"en":"Behind the camera","fr":"Derrière la caméra","zh":"鏡頭背後"},
+    "pillars.hint": {"en":"turn the tray, pick a pillar","fr":"tournez le plateau, choisissez un pilier","zh":"轉動茶盤，選一個主題"},
+    "pause.gloss": {"en":"màn màn lái. Take your time. Nothing here is in a hurry.","fr":"màn màn lái. Prenez votre temps. Ici, rien ne presse.","zh":"不急。這裡的一切，都不趕時間。"},
+    "work.hint": {"en":"They’re yours to move around. Click one to watch it on Instagram.","fr":"Déplacez-les à votre guise. Cliquez pour regarder sur Instagram.","zh":"可以隨意拖動。點一下就能在 Instagram 觀看。"},
+    "work.hint.touch": {"en":"Swipe through. Tap one to watch it on Instagram.","fr":"Faites défiler. Touchez pour regarder sur Instagram.","zh":"左右滑動，點一下即可在 Instagram 觀看。"},
+    "stats.label": {"en":"In numbers","fr":"En chiffres","zh":"數據"},
+    "rights.hint": {"en":"slide to see how far the content travels","fr":"glissez pour voir jusqu’où le contenu voyage","zh":"滑動看看內容能走多遠"},
+    "contact.copy": {"en":"Copy address","fr":"Copier l’adresse","zh":"複製信箱"},
+    "contact.copied": {"en":"Copied","fr":"Copié","zh":"已複製"}
+  };
+  var root = document.documentElement;
+  var bar = document.getElementById('topbar');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+  var lang = 'en';
+  function each(sel, fn, scope){ Array.prototype.forEach.call((scope || document).querySelectorAll(sel), fn); }
+  function tr(key){ var e = T[key]; return e ? (e[lang] !== undefined ? e[lang] : e.en) : ''; }
+
+  /* ---- tea steeps with scroll ---- */
+  var steepEl = document.getElementById('steep'), steepLabel = document.getElementById('steepLabel');
+  var pct = 0, endVisible = false;
+  function mix(a, b, t){ return Math.round(a + (b - a) * t); }
+  function steepText(){ steepLabel.textContent = pct >= 96 ? tr('cup.ready') : tr('cup.steeping') + ' · ' + pct + '%'; }
+  function onScroll(){
+    var y = window.scrollY, max = root.scrollHeight - window.innerHeight;
+    var t = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+    bar.classList.toggle('is-scrolled', y > 24);
+    pct = Math.round(t * 100);
+    root.style.setProperty('--tea', 'rgb(' + mix(239,184,t) + ',' + mix(235,120,t) + ',' + mix(194,44,t) + ')');
+    steepText();
+    steepEl.classList.toggle('show', y > 360 && !endVisible);
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+
+  /* ---- menu ---- */
+  var navToggle = document.getElementById('navToggle');
+  function closeMenu(){ bar.classList.remove('nav-open'); navToggle.setAttribute('aria-expanded', 'false'); }
+  navToggle.addEventListener('click', function(){
+    var open = bar.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  each('#topbarNav .nav-link', function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('click', function(e){ if(bar.classList.contains('nav-open') && !bar.contains(e.target)) closeMenu(); });
+
+  /* ---- counters ---- */
+  function countUp(el){
+    var to = parseFloat(el.getAttribute('data-to')), dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+    var pre = el.getAttribute('data-prefix') || '', suf = el.getAttribute('data-suffix') || '', final = el.textContent, t0 = null;
+    function fmt(v){ return pre + v.toLocaleString('en-US', { minimumFractionDigits:dec, maximumFractionDigits:dec }) + suf; }
+    function step(ts){
+      if(t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 1400), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = p < 1 ? fmt(to * e) : final;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---- reveal: content is visible by default; only below-the-fold blocks start hidden ---- */
+  if(!reduce && hasIO){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } });
+    }, { threshold:0.08, rootMargin:'0px 0px -6% 0px' });
+    each('.rev', function(el){ if(el.getBoundingClientRect().top > window.innerHeight * 0.92){ el.classList.add('pre'); io.observe(el); } });
+    var nio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); nio.unobserve(e.target); } });
+    }, { threshold:0.6 });
+    each('.num[data-to]', function(el){ nio.observe(el); });
+  }
+
+  /* ---- sticky CTA + companion cup visibility ---- */
+  var stickyCta = document.getElementById('stickyCta');
+  if(hasIO){
+    var seen = { hero:true, closing:false, footer:false };
+    var upd = function(){
+      endVisible = seen.closing || seen.footer;
+      stickyCta.classList.toggle('show', !seen.hero && !endVisible);
+      onScroll();
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    [['hero', document.querySelector('.hero')], ['closing', document.querySelector('.closing')], ['footer', document.querySelector('footer')]].forEach(function(pair){
+      new IntersectionObserver(function(en){ seen[pair[0]] = en[0].isIntersecting; upd(); }, { threshold:0 }).observe(pair[1]);
+    });
+  }
 
-    var navToggle = document.getElementById('navToggle');
-    if(navToggle){
-      var closeMenu = function(){
-        bar.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      };
-      navToggle.addEventListener('click', function(){
-        var open = bar.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      document.querySelectorAll('#topbarNav a.nav-link').forEach(function(a){
-        a.addEventListener('click', closeMenu);
-      });
-      document.addEventListener('click', function(e){
-        if(bar.classList.contains('nav-open') && !bar.contains(e.target)){ closeMenu(); }
-      });
-    }
-
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!reduce && 'IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.rev').forEach(function(el){ io.observe(el); });
-    } else {
-      document.querySelectorAll('.rev').forEach(function(el){ el.classList.add('in'); });
-    }
-
-    var stickyCta = document.getElementById('stickyCta');
-    var heroEl = document.querySelector('.hero');
-    var closingEl = document.querySelector('.closing');
-    var footerEl = document.querySelector('footer');
-    if(stickyCta && heroEl && closingEl && footerEl && 'IntersectionObserver' in window){
-      var heroVisible = true, closingVisible = false, footerVisible = false;
-      var updateSticky = function(){
-        if(!heroVisible && !closingVisible && !footerVisible){ stickyCta.classList.add('show'); }
-        else{ stickyCta.classList.remove('show'); }
-      };
-      new IntersectionObserver(function(entries){ heroVisible = entries[0].isIntersecting; updateSticky(); }, { threshold: 0 }).observe(heroEl);
-      new IntersectionObserver(function(entries){ closingVisible = entries[0].isIntersecting; updateSticky(); }, { threshold: 0 }).observe(closingEl);
-      new IntersectionObserver(function(entries){ footerVisible = entries[0].isIntersecting; updateSticky(); }, { threshold: 0 }).observe(footerEl);
-    }
-  })();
-</script>
-
-<script>
-  (function(){
-    var T = {
-      "nav.who": { en:"About", fr:"À propos", zh:"關於我" },
-      "nav.reels": { en:"Work", fr:"Travail", zh:"作品" },
-      "nav.offer": { en:"Offer", fr:"Offre", zh:"服務" },
-      "nav.contact": { en:"Contact", fr:"Contact", zh:"聯絡方式" },
-      "nav.cta": { en:"Get in touch", fr:"Me contacter", zh:"與我聯繫" },
-      "sticky.text": { en:"Got a brand to pitch?", fr:"Une marque à proposer ?", zh:"有品牌合作想法嗎？" },
-
-      "hero.strapline": { en:"Her grandmother's wisdom. Her own camera.", fr:"La sagesse d'une grand-mère. Racontée avec sa propre caméra.", zh:"阿嬤的智慧，她自己的鏡頭。" },
-      "hero.tagline.gloss": { en:"· slow living, with a touch of tradition", fr:"· vivre lentement, avec une touche de tradition", zh:"· 慢生活，帶點傳統味" },
-      "hero.bio": { en:"A third-generation Chinese-French creator in her mid-20s, documenting the slow, herbal, grandmother-taught way of caring for a body, filmed between Paris and the kitchens that raised her.", fr:"Créatrice franco-chinoise de troisième génération, au début de la vingtaine, qui documente la manière lente et herbale de prendre soin du corps, transmise par sa grand-mère, filmée entre Paris et les cuisines qui l'ont vue grandir.", zh:"第三代法籍華人創作者，二十多歲，記錄阿嬤傳下來、用藥草慢慢調養身體的方式，取景於巴黎與她成長的廚房之間。" },
-      "hero.fact1": { en:"Paris, France", fr:"Paris, France", zh:"法國巴黎" },
-      "hero.fact2": { en:"Captions in English &amp; Traditional Chinese", fr:"Sous-titres en anglais et chinois traditionnel", zh:"英文與繁體中文字幕" },
-      "hero.fact3": { en:"Instagram @your.asiangranny · RedNote @iris_you", fr:"Instagram @your.asiangranny · RedNote @iris_you", zh:"Instagram @your.asiangranny · 小紅書 @iris_you" },
-      "hero.fact4": { en:"Tea · TCM · slow design · heritage · slow travel", fr:"Thé · MTC · design lent · héritage · voyage lent", zh:"茶 · 中醫 · 慢設計 · 傳承 · 慢旅行" },
-      "hero.cta.see": { en:"See the work →", fr:"Voir le travail →", zh:"看作品 →" },
-      "hero.cta.work": { en:"Work with me →", fr:"Travailler avec moi →", zh:"與我合作 →" },
-      "hero.badge.role": { en:"Creator · 中醫 &amp; slow-living content, Paris", fr:"Créatrice · contenu MTC &amp; slow-living, Paris", zh:"創作者 · 中醫與慢生活內容，巴黎" },
-
-      "who.eyebrow": { en:"About", fr:"À propos", zh:"關於我" },
-      "who.h2": { en:"Granddaughter first", fr:"D'abord petite-fille", zh:"我是誰" },
-      "who.intro": { en:"Chinese at home, French everywhere else, she grew up between both. Now she makes content about slow living, Traditional Chinese Medicine and family tradition. She's not a doctor: she shares what she's learning, sourced and labelled.", fr:"Chinoise à la maison, française partout ailleurs, elle a grandi entre les deux. Elle crée aujourd'hui du contenu sur le slow-living, la médecine traditionnelle chinoise et les traditions familiales. Elle n'est pas médecin : elle partage ce qu'elle apprend, sourcé et indiqué comme tel.", zh:"在家說中文，在外說法文，她在兩種文化之間長大。如今她創作關於慢生活、中醫與家族傳統的內容。她不是醫生：她分享自己學到的東西，並標明出處。" },
-      "who.bio.label1": { en:"Origin", fr:"Origine", zh:"起點" },
-      "who.bio.label2": { en:"The turn", fr:"Le tournant", zh:"轉折" },
-      "who.bio.label3": { en:"The work", fr:"Le travail", zh:"如今" },
-      "who.bio.p1": { en:"I was born and raised in France, into a Chinese family, third generation. I grew up holding two cultures at once, and for a long time the thing I understood least was my own body: skin that wouldn't settle, periods that ran my month.", fr:"Je suis née et j'ai grandi en France, dans une famille chinoise, troisième génération. J'ai grandi en portant deux cultures à la fois, et pendant longtemps, ce que je comprenais le moins, c'était mon propre corps : une peau qui ne se stabilisait jamais, des règles qui rythmaient mes mois.", zh:"我在法國出生長大，來自第三代華人家庭。我從小同時擁有兩種文化，但有很長一段時間，我最不了解的是自己的身體：怎麼都穩不下來的皮膚，主宰整個月的經期。" },
-      "who.bio.p2": { en:"Looking for a gentler way to live is what led me to Traditional Chinese Medicine, slow rituals and the Chinese habit of slowing down. I started reading, cooking differently, changing how I rest, and filming it as I went.", fr:"C'est la recherche d'une façon plus douce de vivre qui m'a menée à la médecine traditionnelle chinoise, aux rituels lents et à cette habitude chinoise de ralentir. J'ai commencé à lire, à cuisiner différemment, à changer ma façon de me reposer, et à filmer tout ça en chemin.", zh:"想找一種更溫柔的生活方式，讓我走向中醫、慢儀式，以及華人「慢下來」的習慣。我開始閱讀、換個方式煮飯、改變休息的方式，並一路拍下來。" },
-      "who.bio.p3": { en:"I make this so people going through the same thing know they aren't alone in it, and so Asian tradition gets shown as something beautiful and worth learning, rather than something unfamiliar and hard to understand.", fr:"Je fais ça pour que les personnes qui vivent la même chose sachent qu'elles ne sont pas seules, et pour que la tradition asiatique soit montrée comme quelque chose de beau et digne d'être appris, plutôt que comme quelque chose d'étranger et difficile à comprendre.", zh:"我做這些，是希望正經歷同樣事情的人知道自己並不孤單，也希望亞洲傳統被呈現成美麗、值得學習的事，而不是陌生難懂的東西。" },
-      "who.bg.social": { en:"<strong>Social &amp; community:</strong> influencer marketing and community management in hospitality, across Switzerland and Japan.", fr:"<strong>Social &amp; communauté :</strong> marketing d'influence et gestion de communauté dans l'hôtellerie, en Suisse et au Japon.", zh:"<strong>社群與公關：</strong>曾在瑞士與日本的飯店業從事網紅行銷與社群經營。" },
-      "who.bg.design": { en:"<strong>Graphic design &amp; branding:</strong> visual identity, illustration and packaging for cafés, hospitality brands, fashion labels and engineering studios — full range at S.W.shop portfolio.", fr:"<strong>Design graphique &amp; identité :</strong> identité visuelle, illustration et packaging pour des cafés, marques hôtelières, labels de mode et studios d'ingénierie — portfolio complet sur S.W.shop.", zh:"<strong>平面設計與品牌：</strong>為咖啡館、飯店品牌、時尚品牌與工程工作室打造視覺識別、插畫與包裝設計，完整作品集見 S.W.shop。" },
-      "who.bg.tcm": { en:"<strong>TCM study:</strong> working through Fundamentals of Chinese Medicine (Pan Yi) and continued reading; writes from her own health journey, not secondhand research.", fr:"<strong>Études de MTC :</strong> étudie Fundamentals of Chinese Medicine (Pan Yi) et poursuit ses lectures ; écrit à partir de son propre parcours de santé, pas d'une recherche de seconde main.", zh:"<strong>中醫自學：</strong>正在研讀潘毅的《中醫基礎理論》並持續閱讀，書寫內容來自她自己的健康歷程，而非二手資料。" },
-
-      "stats.eyebrow": { en:"Real engagement, not just reach", fr:"Un vrai engagement, pas seulement de la portée", zh:"真實互動，不只是觸及" },
-      "stats.ig.handle": { en:"@your.asiangranny", fr:"@your.asiangranny", zh:"@your.asiangranny" },
-      "stats.ig.l1": { en:"views, last 30 days", fr:"vues, 30 derniers jours", zh:"過去30天觀看次數" },
-      "stats.ig.l2": { en:"accounts reached", fr:"comptes touchés", zh:"觸及帳號數" },
-      "stats.ig.l3": { en:"interactions", fr:"interactions", zh:"互動次數" },
-      "stats.ig.l4": { en:"views from non-followers", fr:"vues hors abonnés", zh:"非粉絲觀看比例" },
-      "stats.rn.l1": { en:"notes published", fr:"notes publiées", zh:"已發布筆記數" },
-      "stats.rn.l2": { en:"likes &amp; saves", fr:"likes &amp; sauvegardes", zh:"按讚與收藏" },
-      "stats.rn.l3": { en:"engagement rate", fr:"taux d'engagement", zh:"互動率" },
-      "stats.rn.l4": { en:"posts per week", fr:"publications par semaine", zh:"每週發文數" },
-      "audience.eyebrow": { en:"Audience, by age", fr:"Audience, par âge", zh:"受眾年齡分布" },
-      "geo.eyebrow": { en:"Where they're watching from", fr:"D'où ils regardent", zh:"觀眾所在地" },
-      "geo.france": { en:"France", fr:"France", zh:"法國" },
-      "geo.taiwan": { en:"Taiwan", fr:"Taïwan", zh:"台灣" },
-      "geo.us": { en:"United States", fr:"États-Unis", zh:"美國" },
-
-      "pillars.h3": { en:"Five content pillars", fr:"Cinq piliers de contenu", zh:"五大內容支柱" },
-      "pillars.desc": { en:"What the account already runs on, week to week.", fr:"Ce sur quoi le compte tourne déjà, semaine après semaine.", zh:"帳號目前每週運作的內容方向。" },
-      "pillar.body.name": { en:"Body", fr:"Corps", zh:"養" },
-      "pillar.body.desc": { en:"Herbal kitchen, skin, women's health", fr:"Cuisine aux plantes, peau, santé féminine", zh:"藥膳廚房、肌膚、婦女健康" },
-      "pillar.mind.name": { en:"Mind", fr:"Esprit", zh:"靜" },
-      "pillar.mind.desc": { en:"Rest, slowing down, less noise", fr:"Repos, ralentir, moins de bruit", zh:"休息、放慢步調、減少噪音" },
-      "pillar.art.name": { en:"Art", fr:"Art", zh:"藝" },
-      "pillar.art.desc": { en:"Book sharing, tea time, workshops", fr:"Partage de livres, l'heure du thé, ateliers", zh:"分享書籍、茶時光、工作坊" },
-      "pillar.roots.name": { en:"Roots", fr:"Racines", zh:"根" },
-      "pillar.roots.desc": { en:"Heritage, kitchen, family", fr:"Héritage, cuisine, famille", zh:"傳承、廚房、家庭" },
-      "pillar.openair.name": { en:"Open air", fr:"Plein air", zh:"野" },
-      "pillar.openair.desc": { en:"Walking, TCM exercise, outdoors", fr:"Marche, exercices de MTC, plein air", zh:"散步、中醫導引、戶外活動" },
-
-      "lang.eyebrow": { en:"Language", fr:"Langue", zh:"語言" },
-      "lang.h2": { en:"One shoot, two languages", fr:"Un tournage, deux langues", zh:"一次拍攝，兩種語言" },
-      "lang.intro": { en:"Every video is filmed in Chinese, then captioned in Traditional Chinese or English from the same shoot, so the same footage reaches Chinese-reading and Western audiences without filming twice.", fr:"Chaque vidéo est tournée en chinois, puis sous-titrée en chinois traditionnel ou en anglais à partir du même tournage, pour atteindre les publics sinophones et occidentaux sans tourner deux fois.", zh:"每支影片都以中文拍攝，再從同一次拍攝製作繁體中文或英文字幕，讓同樣的素材觸及華語與西方觀眾，不必拍兩次。" },
-      "lang.item1": { en:"Captions land natively for Chinese-reading audiences", fr:"Les sous-titres résonnent naturellement auprès du public sinophone", zh:"字幕對華語觀眾來說自然道地" },
-      "lang.item2": { en:"Stays clear and readable for Western audiences", fr:"Reste clair et lisible pour le public occidental", zh:"對西方觀眾來說依然清楚易懂" },
-      "lang.item3": { en:"Same footage, two caption sets, one shoot", fr:"Même tournage, deux jeux de sous-titres, un seul shooting", zh:"同一素材、兩套字幕、一次拍攝" },
-      "lang.item4": { en:"French-language cut available on request", fr:"Version en français disponible sur demande", zh:"可依需求提供法文版本" },
-      "lang.note": { en:"One shoot pays for both markets.", fr:"Un seul tournage rentabilisé sur deux marchés.", zh:"一次拍攝，同時打入兩個市場。" },
-
-      "reels.eyebrow": { en:"Selected Work", fr:"Travaux sélectionnés", zh:"精選作品" },
-      "reels.h2": { en:"Two ways I tell a story", fr:"Deux façons de raconter une histoire", zh:"說故事的兩種方式" },
-      "reels.intro": { en:"Every brief gets one of two treatments, sometimes both. Pick a lane, or mix them across a campaign.", fr:"Chaque brief reçoit l'un de ces deux traitements, parfois les deux. Choisissez une voie, ou combinez-les sur une campagne.", zh:"每個企劃都會用到這兩種方式之一，有時兩者並用。可以選一種，也可以在同一檔活動中混合使用。" },
-      "gallery.tag1": { en:"01 · Scripted, slow-designed &amp; straightforward", fr:"01 · Scénarisé, pensé slow &amp; direct", zh:"01・腳本化、慢設計、直接明瞭" },
-      "gallery.desc1": { en:"Clear information, on camera, built to teach and to convert.", fr:"Une information claire, face caméra, pensée pour enseigner et convertir.", zh:"清楚的資訊、面對鏡頭直說，專為教學與轉換而設計。" },
-      "gallery.tag2": { en:"02 · 中醫, lifestyle &amp; playful", fr:"02 · MTC, lifestyle &amp; ludique", zh:"02・中醫、生活風格與趣味" },
-      "gallery.desc2": { en:"Slower, personal, true to her own voice: the clips that build real connection, not just views.", fr:"Plus lent, personnel, fidèle à sa propre voix : les vidéos qui créent un vrai lien, pas seulement des vues.", zh:"步調更慢、更個人、忠於自己的聲音：這些影片建立的是真實連結，而不只是觀看數。" },
-      "gallery.foot.link": { en:"See more ↗", fr:"Voir plus ↗", zh:"查看更多 ↗" },
-      "gallery.foot.note": { en:"Each card opens the real reel on Instagram, with sound.", fr:"Chaque carte ouvre le vrai reel sur Instagram, avec le son.", zh:"每張卡片都會開啟 Instagram 上的真實影片，並附有聲音。" },
-      "reel1.title": { en:"Period care · slow living", fr:"Soin des règles · slow living", zh:"經期養生 · 慢生活" },
-      "reel2.title": { en:"Mundane yet beautiful", fr:"Banal mais beau", zh:"不起眼卻很美" },
-      "reel3.title": { en:"Eastern's Slow Design", fr:"Le design lent de l'Orient", zh:"療癒的東方設計" },
-      "reel4.title": { en:"My bad-skin rescue remedy", fr:"Mon remède de secours pour la peau", zh:"我的爛皮膚急救藥" },
-      "reel7.title": { en:"Let's talk: what to do about dampness", fr:"Parlons-en : que faire contre l'humidité", zh:"Let's Talk：濕氣重怎麼辦" },
-      "reel5.title": { en:"Just lie to yourself?", fr:"Juste se mentir à soi-même ?", zh:"Just lie to yourself? 大人成長秘密" },
-      "reel6.title": { en:"Does pineapple cure period pain?", fr:"L'ananas soigne-t-il les règles douloureuses ?", zh:"菠蘿治經痛?" },
-      "reel8.title": { en:"France, but slower", fr:"La France, mais plus lente", zh:"France, but slower" },
-      "reel9.title": { en:"Celebrity glass skin", fr:"La peau de verre des stars", zh:"明星养颜茶" },
-      "reel10.title": { en:"Grandma, Chinese is so hard…", fr:"Mamie, le chinois c'est trop dur…", zh:"阿媽，中文好難啊…" },
-
-      "portfolio.eyebrow": { en:"Also Her Hand", fr:"Aussi son travail", zh:"另一雙手" },
-      "portfolio.h2": { en:"The eye behind the camera is a trained one", fr:"L'œil derrière la caméra est un œil formé", zh:"鏡頭背後，也是一雙受過訓練的手" },
-      "portfolio.intro": { en:"Before the content, there was the craft: visual identity, illustration and packaging for cafés, hospitality brands and fashion labels, under her own studio, S.W.shop.", fr:"Avant le contenu, il y avait le métier : identité visuelle, illustration et packaging pour des cafés, marques hôtelières et labels de mode, sous son propre studio, S.W.shop.", zh:"在內容創作之前，是扎實的手藝：為咖啡館、飯店品牌與時尚品牌打造視覺識別、插畫與包裝設計，皆出自她自己的工作室 S.W.shop。" },
-      "portfolio.cap1.sector": { en:"Café, illustration", fr:"Café, illustration", zh:"咖啡館・插畫" },
-      "portfolio.cap2.sector": { en:"Her own homeware brand", fr:"Sa propre marque de linge de maison", zh:"她自己的居家品牌" },
-      "portfolio.cap3.sector": { en:"Fashion accessories, branding", fr:"Accessoires de mode, identité", zh:"時尚配件・品牌識別" },
-      "portfolio.cta": { en:"See the full portfolio ↗", fr:"Voir le portfolio complet ↗", zh:"查看完整作品集 ↗" },
-
-      "offer.eyebrow": { en:"What I Make", fr:"Ce que je crée", zh:"我能製作的內容" },
-      "offer.h2": { en:"Three ways to work together", fr:"Trois façons de collaborer", zh:"三種合作方式" },
-      "offer.intro": { en:"Pick a route, or combine them across a campaign.", fr:"Choisissez une voie, ou combinez-les sur une campagne.", zh:"可以選一種方式，也可以在同一檔活動中組合使用。" },
-      "route.best": { en:"Best for", fr:"Idéal pour", zh:"適合用於" },
-      "route.cta": { en:"Ask about this →", fr:"En discuter →", zh:"詢問這項方案 →" },
-      "route1.h3": { en:"UGC &amp; licensing", fr:"UGC &amp; licence", zh:"UGC 與授權" },
-      "route1.tag": { en:"I create. You post.", fr:"Je crée. Vous publiez.", zh:"我製作，你發布。" },
-      "route1.i1": { en:"Product showcase &amp; unboxing", fr:"Mise en avant produit &amp; unboxing", zh:"產品展示與開箱" },
-      "route1.i2": { en:"Testimonial &amp; review", fr:"Témoignage &amp; avis", zh:"見證與評論" },
-      "route1.i3": { en:"Demo &amp; tutorial", fr:"Démo &amp; tutoriel", zh:"示範與教學" },
-      "route1.i4": { en:"Tips &amp; tricks explainer", fr:"Conseils &amp; astuces explicatifs", zh:"技巧與訣竅說明" },
-      "route1.i5": { en:"Before &amp; after", fr:"Avant &amp; après", zh:"前後對比" },
-      "route1.i6": { en:"Script-read &amp; voiceover", fr:"Lecture de script &amp; voix off", zh:"口白與配音" },
-      "route1.i7": { en:"Lifestyle photography", fr:"Photographie lifestyle", zh:"生活風格攝影" },
-      "route1.i8": { en:"Hooks, CTAs &amp; raw footage", fr:"Accroches, CTA &amp; rushs", zh:"開場鉤子、CTA與原始素材" },
-      "route1.best": { en:"ad testing · product pages · email marketing", fr:"tests publicitaires · pages produit · emailing", zh:"廣告測試・產品頁面・電子郵件行銷" },
-      "route2.h3": { en:"Influencer partnerships", fr:"Partenariats d'influence", zh:"網紅合作" },
-      "route2.tag": { en:"I create. I post.", fr:"Je crée. Je publie.", zh:"我製作，也由我發布。" },
-      "route2.i1": { en:"Dedicated or integrated reel", fr:"Reel dédié ou intégré", zh:"專屬或整合式短片" },
-      "route2.i2": { en:"Educational carousel", fr:"Carrousel éducatif", zh:"教育性輪播貼文" },
-      "route2.i3": { en:"Story sequence", fr:"Séquence de stories", zh:"限時動態系列" },
-      "route2.i4": { en:"Collab post, both grids", fr:"Post collaboratif, double grille", zh:"合作貼文（雙方版面）" },
-      "route2.i5": { en:"Image + text post", fr:"Post image + texte", zh:"圖文貼文" },
-      "route2.i6": { en:"Native video post", fr:"Post vidéo natif", zh:"原生影片貼文" },
-      "route2.i7": { en:"Giveaway hosting", fr:"Organisation de jeu-concours", zh:"抽獎活動主持" },
-      "route2.i8": { en:"Multi-platform bundle", fr:"Pack multi-plateformes", zh:"多平台套組" },
-      "route2.best": { en:"launches · niche trust · bilingual reach", fr:"lancements · confiance de niche · portée bilingue", zh:"新品上市・利基信任感・雙語觸及" },
-      "route3.h3": { en:"Long-term", fr:"Long terme", zh:"長期合作" },
-      "route3.tag": { en:"Ongoing, not one post.", fr:"Continu, pas un simple post.", zh:"持續性合作，不只一篇貼文。" },
-      "route3.i1": { en:"Ambassador, 3 / 6 / 12 months", fr:"Ambassadrice, 3 / 6 / 12 mois", zh:"品牌大使，3／6／12個月" },
-      "route3.i2": { en:"Monthly retainer", fr:"Forfait mensuel", zh:"月費合作" },
-      "route3.i3": { en:"Affiliate link or code", fr:"Lien ou code affilié", zh:"聯盟連結或代碼" },
-      "route3.i4": { en:"Hosted stay or retreat", fr:"Séjour ou retraite offerts", zh:"招待住宿或靜修體驗" },
-      "route3.i5": { en:"Store &amp; event coverage", fr:"Couverture boutique &amp; événement", zh:"門市與活動報導" },
-      "route3.i6": { en:"Founder interview", fr:"Interview du fondateur", zh:"創辦人專訪" },
-      "route3.i7": { en:"Workshop or tea ceremony", fr:"Atelier ou cérémonie du thé", zh:"工作坊或茶道體驗" },
-      "route3.i8": { en:"Brand consulting", fr:"Conseil de marque", zh:"品牌顧問" },
-      "route3.best": { en:"repeat presence · exclusivity · long-term trust", fr:"présence répétée · exclusivité · confiance durable", zh:"持續曝光・獨家合作・長期信任" },
-      "offer.open": { en:"Open to other formats, on request.", fr:"Ouverte à d'autres formats, sur demande.", zh:"其他格式，歡迎洽詢。" },
-
-      "rights.eyebrow": { en:"Usage Rights", fr:"Droits d'usage", zh:"使用權限" },
-      "rights.h2": { en:"Four licence levels", fr:"Quatre niveaux de licence", zh:"四種授權等級" },
-      "rights.intro": { en:"Production and licensing are quoted separately, so you always know what you're paying for. Every licence has an end date.", fr:"La production et la licence sont chiffrées séparément, pour que vous sachiez toujours ce que vous payez. Chaque licence a une date de fin.", zh:"製作費與授權費分開報價，讓你清楚知道每一筆費用的用途。每種授權都有到期日。" },
-      "rights.col.level": { en:"Level", fr:"Niveau", zh:"等級" },
-      "rights.col.where": { en:"Where", fr:"Où", zh:"使用範圍" },
-      "rights.col.term": { en:"Term", fr:"Durée", zh:"期限" },
-      "rights.r1.name": { en:"Organic", fr:"Organique", zh:"自然流量" },
-      "rights.r1.where": { en:"Your channels", fr:"Vos canaux", zh:"你的自有通路" },
-      "rights.r1.term": { en:"3 / 6 / 12 months", fr:"3 / 6 / 12 mois", zh:"3／6／12個月" },
-      "rights.r2.name": { en:"Paid ads", fr:"Publicité payante", zh:"付費廣告" },
-      "rights.r2.where": { en:"Your ad account", fr:"Votre compte publicitaire", zh:"你的廣告帳戶" },
-      "rights.r2.term": { en:"30 / 60 / 90 days", fr:"30 / 60 / 90 jours", zh:"30／60／90天" },
-      "rights.r3.name": { en:"Whitelisting", fr:"Whitelisting", zh:"白名單投放" },
-      "rights.r3.where": { en:"Run from my handle", fr:"Diffusé depuis mon compte", zh:"從我的帳號投放" },
-      "rights.r3.term": { en:"30 / 60 / 90 days", fr:"30 / 60 / 90 jours", zh:"30／60／90天" },
-      "rights.r4.name": { en:"Full buyout", fr:"Rachat complet", zh:"完整買斷" },
-      "rights.r4.where": { en:"All media, all territories", fr:"Tous médias, tous territoires", zh:"所有媒體與地區" },
-      "rights.r4.term": { en:"Perpetual", fr:"Perpétuel", zh:"永久" },
-      "rights.addons.label": { en:"Add-ons", fr:"Options", zh:"附加選項" },
-      "rights.addons.list": { en:"Extra hooks &amp; CTAs · Restructured edits · Aspect-ratio resizing · Raw footage · Extra language · Rush delivery · Refilms · Category exclusivity · Performance report", fr:"Accroches &amp; CTA supplémentaires · Montages restructurés · Redimensionnement de format · Rushs bruts · Langue supplémentaire · Livraison rapide · Retournages · Exclusivité de catégorie · Rapport de performance", zh:"額外鉤子與CTA・重新剪輯・比例調整・原始素材・額外語言版本・加急交付・重拍・類別獨家・成效報告" },
-
-      "why.eyebrow": { en:"Why Me", fr:"Pourquoi moi", zh:"為什麼是我" },
-      "why.h2": { en:"What this means for your brand", fr:"Ce que cela signifie pour votre marque", zh:"這對你的品牌意味著什麼" },
-      "why1.h3": { en:"Two languages, one shoot", fr:"Deux langues, un tournage", zh:"兩種語言，一次拍攝" },
-      "why1.p": { en:"Filmed in Chinese, then captioned in Traditional Chinese or English from a single shoot, reaching Chinese-reading and Western audiences with the same asset.", fr:"Tourné en chinois, puis sous-titré en chinois traditionnel ou en anglais à partir d'un seul tournage, touchant les publics sinophones et occidentaux avec le même contenu.", zh:"以中文拍攝，再從同一次拍攝製作繁體中文或英文字幕，用同一支素材觸及華語與西方觀眾。" },
-      "why2.h3": { en:"Real roots, not a theme", fr:"De vraies racines, pas un thème", zh:"真實的根，不是一個主題" },
-      "why2.p": { en:"Her content covers slow living broadly, not only grandmother's kitchen, but the Chinese heritage running through it is real, not a trend borrowed for the camera.", fr:"Son contenu couvre le slow-living de façon large, pas seulement la cuisine de grand-mère, mais l'héritage chinois qui le traverse est réel, pas une tendance empruntée pour la caméra.", zh:"她的內容涵蓋廣泛的慢生活題材，不只是阿嬤的廚房，但貫穿其中的華人傳承是真實的，不是為了鏡頭而借用的潮流。" },
-      "why3.h3": { en:"Curious, not clinical", fr:"Curieuse, pas clinique", zh:"出於好奇，而非臨床" },
-      "why3.p": { en:"TCM explored out of personal curiosity and her own health journey, not professional practice or medical advice.", fr:"La MTC explorée par curiosité personnelle et à travers son propre parcours de santé, pas par pratique professionnelle ou conseil médical.", zh:"中醫的探索出於個人好奇與自身健康歷程，並非專業執業或醫療建議。" },
-      "why4.h3": { en:"An audience already looking for this", fr:"Une audience qui cherche déjà cela", zh:"本來就在尋找這些內容的觀眾" },
-      "why4.p": { en:"Tea, TCM, slow design, heritage, slow travel: brands in these categories reach people who already care, not a broad audience left to convince.", fr:"Thé, MTC, design lent, héritage, voyage lent : les marques de ces catégories touchent des gens déjà concernés, pas une audience large à convaincre.", zh:"茶、中醫、慢設計、傳承、慢旅行：這些類別的品牌觸及的是本來就在乎的人，而不是需要說服的廣泛受眾。" },
-
-      "process.eyebrow": { en:"How It Runs", fr:"Comment ça se passe", zh:"合作流程" },
-      "process.h2": { en:"Brief to delivery", fr:"Du brief à la livraison", zh:"從企劃到交付" },
-      "process.s1": { en:"Brief", fr:"Brief", zh:"企劃" },
-      "process.s2": { en:"Quote", fr:"Devis", zh:"報價" },
-      "process.s3": { en:"Concept", fr:"Concept", zh:"概念發想" },
-      "process.s4": { en:"Film &amp; edit", fr:"Tournage &amp; montage", zh:"拍攝與剪輯" },
-      "process.s5": { en:"Deliver", fr:"Livraison", zh:"交付" },
-      "process.note": { en:"Turnaround and revisions confirmed upfront, so there are no surprises after the shoot.", fr:"Délais et révisions confirmés à l'avance, pour qu'il n'y ait aucune surprise après le tournage.", zh:"交付時間與修改次數會事先確認，拍攝後不會有意外。" },
-
-      "closing.eyebrow": { en:"Let's Work Together", fr:"Travaillons ensemble", zh:"一起合作吧" },
-      "closing.h2": { en:"一起合作，慢慢來", fr:"一起合作，慢慢來", zh:"一起合作，慢慢來" },
-      "closing.body": { en:"Send a brief, timeline, product and the usage rights you need.", fr:"Envoyez un brief, un calendrier, le produit et les droits d'usage dont vous avez besoin.", zh:"請提供企劃簡報、時程、產品與所需的使用權範圍。" },
-      "closing.cta.email": { en:"Get in touch", fr:"Me contacter", zh:"與我聯繫" },
-      "contact.portfolio": { en:"Design portfolio", fr:"Portfolio design", zh:"設計作品集" },
-
-      "footer.sub": { en:"阿嬤日記 · 2026", fr:"阿嬤日記 · 2026", zh:"阿嬤日記 · 2026" },
-      "footer.email": { en:"Email", fr:"E-mail", zh:"電子郵件" },
-      "footer.top": { en:"Back to top ↑", fr:"Haut de page ↑", zh:"回到頂端 ↑" }
+  /* ---- mist over the portrait: wipe it like a fogged window ---- */
+  var mist = document.getElementById('mist');
+  if(mist && mist.getContext){
+    var mctx = mist.getContext('2d'), mw = 0, mh = 0, FOG = '233,238,221';
+    var wipe = function(x, y, rad, s){
+      mctx.globalCompositeOperation = 'destination-out';
+      var g = mctx.createRadialGradient(x, y, 0, x, y, rad);
+      g.addColorStop(0, 'rgba(0,0,0,' + s + ')'); g.addColorStop(0.55, 'rgba(0,0,0,' + (s * 0.55) + ')'); g.addColorStop(1, 'rgba(0,0,0,0)');
+      mctx.fillStyle = g; mctx.beginPath(); mctx.arc(x, y, rad, 0, Math.PI * 2); mctx.fill();
     };
+    var paintFog = function(){
+      var r = mist.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if(!r.width) return;
+      mw = mist.width = Math.round(r.width * dpr); mh = mist.height = Math.round(r.height * dpr);
+      mctx.globalCompositeOperation = 'source-over';
+      mctx.fillStyle = 'rgba(' + FOG + ',0.8)'; mctx.fillRect(0, 0, mw, mh);
+      var s = 11, rnd = function(){ s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+      for(var i = 0; i < 22; i++){
+        var x = rnd() * mw, y = rnd() * mh, rad = (0.2 + rnd() * 0.3) * mw, g = mctx.createRadialGradient(x, y, 0, x, y, rad);
+        g.addColorStop(0, 'rgba(' + FOG + ',0.4)'); g.addColorStop(1, 'rgba(' + FOG + ',0)');
+        mctx.fillStyle = g; mctx.fillRect(0, 0, mw, mh);
+      }
+      wipe(mw * 0.5, mh * 0.5, mw * 0.5, 0.95);
+    };
+    var at = function(e, rad, s){
+      var r = mist.getBoundingClientRect();
+      wipe((e.clientX - r.left) / r.width * mw, (e.clientY - r.top) / r.height * mh, mw * rad, s);
+    };
+    mist.addEventListener('pointermove', function(e){ at(e, 0.24, e.pointerType === 'mouse' ? 0.22 : 0.5); });
+    mist.addEventListener('pointerdown', function(e){ at(e, 0.34, 0.8); });
+    var mistW = 0;
+    window.addEventListener('resize', function(){ var w = mist.getBoundingClientRect().width; if(Math.abs(w - mistW) > 2){ mistW = w; paintFog(); } });
+    mistW = mist.getBoundingClientRect().width;
+    paintFog();
+  }
 
-    var chips = document.querySelectorAll('.lang-chip[data-lang]');
+  /* ---- pillars: the turning tray ---- */
+  var wheel = document.getElementById('wheel');
+  if(wheel){
+    var wbtns = wheel.querySelectorAll('.wheel-btn'), wimgs = wheel.querySelectorAll('.wheel-center img');
+    var pitems = document.querySelectorAll('.pillar-item'), trayCount = document.getElementById('trayCount');
+    var cur = 0, rot = 0, n = wbtns.length;
+    var setPillar = function(i){
+      i = ((i % n) + n) % n;
+      var d = i - cur; if(d > n / 2) d -= n; if(d < -n / 2) d += n;
+      rot -= d * 72; cur = i;
+      wheel.style.setProperty('--rot', rot + 'deg');
+      each('.wheel-btn', function(b, k){ b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); }, wheel);
+      Array.prototype.forEach.call(wimgs, function(im, k){ im.classList.toggle('on', k === i); });
+      Array.prototype.forEach.call(pitems, function(it, k){ it.hidden = k !== i; });
+      trayCount.textContent = (i + 1) + ' / ' + n;
+    };
+    Array.prototype.forEach.call(wbtns, function(b, k){ b.addEventListener('click', function(){ setPillar(k); }); });
+    document.getElementById('trayPrev').addEventListener('click', function(){ setPillar(cur - 1); });
+    document.getElementById('trayNext').addEventListener('click', function(){ setPillar(cur + 1); });
+  }
 
-    function setLang(lang){
-      document.querySelectorAll('[data-i18n]').forEach(function(el){
-        var key = el.getAttribute('data-i18n');
-        var entry = T[key];
-        if(entry && entry[lang] !== undefined){ el.innerHTML = entry[lang]; }
-      });
-      chips.forEach(function(c){
-        c.setAttribute('aria-pressed', c.getAttribute('data-lang') === lang ? 'true' : 'false');
-      });
-      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : lang);
-      document.documentElement.setAttribute('data-lang', lang);
-      try{ localStorage.setItem('yag_lang', lang); }catch(e){}
-      currentLang = lang;
-      renderPillar(currentPillar);
-    }
-
-    chips.forEach(function(c){
-      c.addEventListener('click', function(){ setLang(c.getAttribute('data-lang')); });
+  /* ---- postcards: pick them up and move them (desktop pointer only) ---- */
+  var fine = window.matchMedia('(min-width: 900px) and (pointer: fine)'), zTop = 5;
+  each('.postcard', function(card){
+    var sx = 0, sy = 0, ox = 0, oy = 0, held = false, moved = false;
+    card.addEventListener('pointerdown', function(e){
+      if(!fine.matches || e.button !== 0) return;
+      held = true; moved = false; sx = e.clientX; sy = e.clientY;
+      card.setPointerCapture(e.pointerId); card.style.zIndex = ++zTop; card.classList.add('is-held');
     });
-
-    /* ---- Apotheka: interactive pillar index ---- */
-    var PILLARS = [
-      { glyph:"養", nameKey:"pillar.body.name", descKey:"pillar.body.desc", img:"assets/pillar-body.jpg", alt:"Body pillar: herbal kitchen and skin" },
-      { glyph:"靜", nameKey:"pillar.mind.name", descKey:"pillar.mind.desc", img:"assets/pillar-mind.jpg", alt:"Mind pillar: rest and slowing down" },
-      { glyph:"藝", nameKey:"pillar.art.name", descKey:"pillar.art.desc", img:"assets/pillar-art.jpg", alt:"Art pillar: books and tea time" },
-      { glyph:"根", nameKey:"pillar.roots.name", descKey:"pillar.roots.desc", img:"assets/pillar-roots.jpg", alt:"Roots pillar: heritage and family" },
-      { glyph:"野", nameKey:"pillar.openair.name", descKey:"pillar.openair.desc", img:"assets/pillar-openair.jpg", alt:"Open air pillar: walking and TCM exercise" }
-    ];
-    var currentPillar = 0;
-    var currentLang = 'en';
-    var apothekaTabs = document.querySelectorAll('.apotheka-tab');
-    var apothekaImg = document.getElementById('apothekaImg');
-    var apothekaGlyph = document.getElementById('apothekaGlyph');
-    var apothekaName = document.getElementById('apothekaName');
-    var apothekaDesc = document.getElementById('apothekaDesc');
-
-    function renderPillar(idx){
-      var p = PILLARS[idx];
-      if(!p || !apothekaImg) return;
-      apothekaImg.src = p.img;
-      apothekaImg.alt = p.alt;
-      apothekaGlyph.textContent = p.glyph;
-      var nameEntry = T[p.nameKey], descEntry = T[p.descKey];
-      if(nameEntry) apothekaName.innerHTML = nameEntry[currentLang] || nameEntry.en;
-      if(descEntry) apothekaDesc.innerHTML = descEntry[currentLang] || descEntry.en;
-      apothekaTabs.forEach(function(t, i){ t.setAttribute('aria-expanded', i === idx ? 'true' : 'false'); });
-    }
-    apothekaTabs.forEach(function(tab, i){
-      tab.addEventListener('click', function(){ currentPillar = i; renderPillar(i); });
+    card.addEventListener('pointermove', function(e){
+      if(!held) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if(Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+      if(moved){ card.style.setProperty('--dx', (ox + dx) + 'px'); card.style.setProperty('--dy', (oy + dy) + 'px'); }
     });
+    var drop = function(e){
+      if(!held) return;
+      held = false; card.classList.remove('is-held');
+      if(moved){ ox += e.clientX - sx; oy += e.clientY - sy; }
+    };
+    card.addEventListener('pointerup', drop);
+    card.addEventListener('pointercancel', drop);
+    card.addEventListener('click', function(e){ if(moved){ e.preventDefault(); moved = false; } });
+    card.addEventListener('dragstart', function(e){ e.preventDefault(); });
+  });
 
-    var saved = 'en';
-    try{ saved = localStorage.getItem('yag_lang') || 'en'; }catch(e){}
-    setLang(saved);
-  })();
+  /* ---- routes ---- */
+  each('.route-tab', function(tab){
+    tab.addEventListener('click', function(){
+      each('.route-tab', function(t){
+        var on = t === tab;
+        t.setAttribute('aria-expanded', on ? 'true' : 'false');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    });
+  });
+
+  /* ---- rights ripple ---- */
+  var rightsBox = document.getElementById('rightsBox'), range = document.getElementById('rightsRange');
+  function setLevel(v){
+    v = String(v);
+    rightsBox.setAttribute('data-level', v); range.value = v;
+    each('.rights-read', function(r){ r.hidden = r.getAttribute('data-level') !== v; }, rightsBox);
+    each('.rights-stop', function(s){ s.setAttribute('aria-pressed', s.getAttribute('data-level') === v ? 'true' : 'false'); }, rightsBox);
+    var name = rightsBox.querySelector('.rights-read[data-level="' + v + '"] .rights-name');
+    range.setAttribute('aria-valuetext', name ? name.textContent : v);
+  }
+  range.addEventListener('input', function(){ setLevel(range.value); });
+  each('.rights-stop', function(s){ s.addEventListener('click', function(){ setLevel(s.getAttribute('data-level')); }); });
+
+  /* ---- process: sit each step on the drawn line ---- */
+  var flowPath = document.getElementById('flowPath');
+  if(flowPath && flowPath.getTotalLength){
+    var len = flowPath.getTotalLength();
+    each('.flow-step', function(step){
+      var x = parseFloat(step.getAttribute('data-x')) * 10, lo = 0, hi = len, p;
+      for(var i = 0; i < 24; i++){ var mid = (lo + hi) / 2; p = flowPath.getPointAtLength(mid); if(p.x < x) lo = mid; else hi = mid; }
+      step.style.setProperty('--x', x / 10); step.style.setProperty('--y', p.y.toFixed(1));
+    });
+  }
+
+  /* ---- copy the address ---- */
+  var mailCopy = document.getElementById('mailCopy'), mailAddr = document.getElementById('mailAddr');
+  function selectAddr(){ var r = document.createRange(); r.selectNodeContents(mailAddr); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+  mailCopy.addEventListener('click', function(){
+    var done = function(){ mailCopy.textContent = tr('contact.copied'); setTimeout(function(){ mailCopy.textContent = tr('contact.copy'); }, 1800); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(mailAddr.textContent).then(done).catch(selectAddr); }
+    else selectAddr();
+  });
+
+  /* ---- language ---- */
+  function setLang(next){
+    lang = T['nav.who'][next] !== undefined ? next : 'en';
+    each('[data-i18n]', function(el){ var e = T[el.getAttribute('data-i18n')]; if(e && e[lang] !== undefined) el.innerHTML = e[lang]; });
+    each('.lang-chip', function(c){ c.setAttribute('aria-pressed', c.getAttribute('data-lang') === lang ? 'true' : 'false'); });
+    root.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : lang);
+    root.setAttribute('data-lang', lang);
+    try{ localStorage.setItem('yag_lang', lang); }catch(err){}
+    steepText(); setLevel(range.value);
+  }
+  each('.lang-chip', function(c){ c.addEventListener('click', function(){ setLang(c.getAttribute('data-lang')); }); });
+  var saved = 'en';
+  try{ saved = localStorage.getItem('yag_lang') || 'en'; }catch(err){}
+  setLang(saved);
+  onScroll();
+})();
 </script>
-
 </body>
 </html>
