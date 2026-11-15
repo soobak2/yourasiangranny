@@ -14,7 +14,7 @@
   /* Layout: a hanging scroll. Wide margins, dotted construction lines, one thin oversized glyph per chapter;
      photographs stay small so the paper does the talking. One look, on purpose: mist-green paper, moss ink. */
   :root{
-    --paper:#F4F1E6; --mist:#E3EAD0; --porcelain:#FBFAF4;
+    --paper:#F4F1E6; --mist:#E3EAD0; --porcelain:#FBFAF4; --white:#FFFFFF;
     --ink:#20281C; --ink-soft:#465040; --ink-faint:#5E6852;
     --moss:#56642F; --moss-deep:#27311F; --line:#B4BE9C;
     --seal:#A8391F; --tea:#EFEBC2; --shade:rgba(32,40,28,.5);
@@ -262,9 +262,9 @@
   /* ---------- portfolio collage ---------- */
   .collage{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:24px; align-items:start; }
   .collage figure{ min-width:0; }
-  .collage figure a{ display:block; }
+  .collage figure a{ display:block; background:var(--white); padding:clamp(10px,1.4vw,18px); box-shadow:0 26px 34px -28px var(--shade), 0 0 0 1px rgba(32,40,28,.05); transition:box-shadow .3s ease, transform .3s ease; }
+  .collage figure a:hover{ transform:translateY(-3px); box-shadow:0 34px 40px -28px var(--shade), 0 0 0 1px rgba(32,40,28,.05); }
   .collage img{ width:100%; height:auto; }
-  .collage .blend{ mix-blend-mode:multiply; }
   .collage figcaption{ margin-top:14px; }
   .collage figcaption strong{ display:block; font:italic 400 1.3rem/1.25 var(--display); color:var(--ink); }
   .pf-a{ grid-column:1 / span 7; grid-row:1 / span 2; }
@@ -458,7 +458,7 @@
   .pf-g-photo .pf-shot{ break-inside:avoid; margin-bottom:clamp(12px,2vw,28px); }
   .pf-g-photo .pf-shot img{ transition:opacity .3s; } .pf-g-photo .pf-shot:hover img{ opacity:.86; }
   .pf-g-design{ display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:clamp(18px,3vw,44px); }
-  .pf-g-design .pf-shot img{ background:none; mix-blend-mode:multiply; }
+  .pf-g-design .pf-shot img{ background:var(--white); box-shadow:0 0 0 1px rgba(32,40,28,.07); }
   .pf-g-design .tall{ width:calc(50% - clamp(9px,1.5vw,22px)); }
   .pf-g-design .xtall{ width:30%; }
   .pf-g-design .sq{ width:70%; }
@@ -725,11 +725,11 @@
       </header>
       <div class="collage">
         <figure class="pf-a rev">
-          <a href="#pf-arabica"><img class="blend" src="assets/portfolio/arabica.jpg" alt="Hand-drawn illustration of the % Arabica coffee stand in Arashiyama with two customers" width="1000" height="800" loading="lazy"></a>
+          <a href="#pf-arabica"><img src="assets/portfolio/arabica.jpg" alt="Hand-drawn illustration of the % Arabica coffee stand in Arashiyama with two customers" width="1000" height="800" loading="lazy"></a>
           <figcaption><strong>Arabica% Café, Arashiyama</strong><span class="note paren" data-i18n="portfolio.cap1.sector">Café, illustration</span></figcaption>
         </figure>
         <figure class="pf-b rev">
-          <a href="#pf-cottonp"><img class="blend" src="assets/portfolio/cottonp.jpg" alt="Cotton.p. homeware logo in two colourways" width="1000" height="503" loading="lazy"></a>
+          <a href="#pf-cottonp"><img src="assets/portfolio/cottonp.jpg" alt="Cotton.p. homeware logo in two colourways" width="1000" height="503" loading="lazy"></a>
           <figcaption><strong>Cotton.p.</strong><span class="note paren" data-i18n="portfolio.cap2.sector">Her own homeware brand</span></figcaption>
         </figure>
         <figure class="pf-c rev">
