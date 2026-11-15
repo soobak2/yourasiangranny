@@ -515,6 +515,7 @@
   .route-card ul li:last-child{ border-bottom:none; padding-bottom:0; }
   .route-best{ margin-top: 18px; font-size: 0.78rem; color: var(--ink-faint); }
   .route-best span:first-child{ text-transform:uppercase; letter-spacing:0.08em; font-weight:700; color: var(--ink-soft); margin-right: 6px; }
+  .route-cta{ margin-top: 20px; width: 100%; justify-content: center; }
 
   /* ============ USAGE RIGHTS TABLE ============ */
   .rights-table{ margin-top: 8px; border-top: 1px solid var(--line); }
@@ -554,6 +555,28 @@
     content:"→"; margin-left: 10px; font-family: var(--sans); font-style:normal; color: var(--accent-strong);
   }
   .process-note{ margin-top: 18px; color: var(--ink-faint); font-size: 0.86rem; }
+
+  /* ============ STICKY MOBILE CTA ============
+     Phone-only: a persistent "Get in touch" bar so the next step is always
+     one tap away while scrolling, without duplicating the hero or closing
+     CTA — it's hidden whenever either of those is already on screen. */
+  .sticky-cta{
+    display:none;
+    position: fixed; left:0; right:0; bottom:0; z-index: 38;
+    align-items:center; justify-content:space-between; gap:12px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    backdrop-filter: blur(10px) saturate(1.1);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -10px 26px -18px rgba(36,24,18,0.3);
+    transform: translateY(100%);
+    transition: transform .25s ease;
+  }
+  .sticky-cta-text{ font-size: 0.82rem; font-weight:600; color: var(--ink); margin:0; line-height:1.3; }
+  .sticky-cta .btn{ flex: none; }
+  .sticky-cta.show{ transform: translateY(0); }
+  @media (max-width: 719px){ .sticky-cta{ display:flex; } }
+  @media (prefers-reduced-motion: reduce){ .sticky-cta{ transition:none; } }
 </style>
 </head>
 <body>
@@ -634,7 +657,7 @@
 
         <ul class="bg-list">
           <li><span class="mark">社</span><span data-i18n="who.bg.social"><strong>Social &amp; community:</strong> influencer marketing and community management in hospitality, across Switzerland and Japan.</span></li>
-          <li><span class="mark">設</span><span data-i18n="who.bg.design"><strong>Graphic design &amp; branding:</strong> identity and illustration for cafés, architecture studios, creators and fashion brands (S.W.shop portfolio).</span></li>
+          <li><span class="mark">設</span><span data-i18n="who.bg.design"><strong>Graphic design &amp; branding:</strong> visual identity, illustration and packaging for cafés, hospitality brands, fashion labels and engineering studios — full range at S.W.shop portfolio.</span></li>
           <li><span class="mark">醫</span><span data-i18n="who.bg.tcm"><strong>TCM study:</strong> working through Fundamentals of Chinese Medicine (Pan Yi) and continued reading; writes from her own health journey, not secondhand research.</span></li>
         </ul>
 
@@ -866,6 +889,7 @@
           <li data-i18n="route1.i8">Hooks, CTAs &amp; raw footage</li>
         </ul>
         <p class="route-best"><span data-i18n="route.best">Best for</span> <span data-i18n="route1.best">ad testing · product pages · email marketing</span></p>
+        <a class="btn btn-ghost btn-sm route-cta" href="mailto:soobakworkshop@gmail.com?subject=UGC%20%26%20licensing%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
       </div>
       <div class="route-card">
         <p class="route-index">02</p>
@@ -882,6 +906,7 @@
           <li data-i18n="route2.i8">Multi-platform bundle</li>
         </ul>
         <p class="route-best"><span data-i18n="route.best">Best for</span> <span data-i18n="route2.best">launches · niche trust · bilingual reach</span></p>
+        <a class="btn btn-ghost btn-sm route-cta" href="mailto:soobakworkshop@gmail.com?subject=Influencer%20partnership%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
       </div>
       <div class="route-card">
         <p class="route-index">03</p>
@@ -898,6 +923,7 @@
           <li data-i18n="route3.i8">Brand consulting</li>
         </ul>
         <p class="route-best"><span data-i18n="route.best">Best for</span> <span data-i18n="route3.best">repeat presence · exclusivity · long-term trust</span></p>
+        <a class="btn btn-ghost btn-sm route-cta" href="mailto:soobakworkshop@gmail.com?subject=Long-term%20collaboration%20inquiry%20%E2%80%94%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="route.cta">Ask about this →</a>
       </div>
     </div>
     <p class="open-note" data-i18n="offer.open">Open to other formats, on request.</p>
@@ -1027,6 +1053,11 @@
   </div>
 </footer>
 
+<div class="sticky-cta" id="stickyCta">
+  <p class="sticky-cta-text" data-i18n="sticky.text">Got a brand to pitch?</p>
+  <a class="btn btn-primary btn-sm" href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a>
+</div>
+
 <script>
   (function(){
     var bar = document.getElementById('topbar');
@@ -1066,6 +1097,30 @@
     } else {
       document.querySelectorAll('.rev').forEach(function(el){ el.classList.add('in'); });
     }
+
+    var stickyCta = document.getElementById('stickyCta');
+    var heroEl = document.querySelector('.hero');
+    var closingEl = document.querySelector('.closing');
+    var footerEl = document.querySelector('footer');
+    if(stickyCta && heroEl && closingEl && footerEl && 'IntersectionObserver' in window){
+      var heroVisible = true, closingVisible = false, footerVisible = false;
+      var updateSticky = function(){
+        if(!heroVisible && !closingVisible && !footerVisible){ stickyCta.classList.add('show'); }
+        else{ stickyCta.classList.remove('show'); }
+      };
+      new IntersectionObserver(function(entries){
+        heroVisible = entries[0].isIntersecting;
+        updateSticky();
+      }, { threshold: 0 }).observe(heroEl);
+      new IntersectionObserver(function(entries){
+        closingVisible = entries[0].isIntersecting;
+        updateSticky();
+      }, { threshold: 0 }).observe(closingEl);
+      new IntersectionObserver(function(entries){
+        footerVisible = entries[0].isIntersecting;
+        updateSticky();
+      }, { threshold: 0 }).observe(footerEl);
+    }
   })();
 </script>
 
@@ -1076,6 +1131,7 @@
       "nav.reels": { en:"Work", fr:"Travail", zh:"作品" },
       "nav.contact": { en:"Contact", fr:"Contact", zh:"聯絡方式" },
       "nav.cta": { en:"Get in touch", fr:"Me contacter", zh:"與我聯繫" },
+      "sticky.text": { en:"Got a brand to pitch?", fr:"Une marque à proposer ?", zh:"有品牌合作想法嗎？" },
 
       "reel1.title": { en:"Period care · slow living", fr:"Soin des règles · vie lente", zh:"經期養生 · 慢生活" },
       "reel2.title": { en:"Mundane yet beautiful", fr:"Banal mais beau", zh:"不起眼卻很美" },
@@ -1116,6 +1172,7 @@
       "offer.open": { en:"Open to other formats, on request.", fr:"Ouverte à d'autres formats, sur demande.", zh:"其他格式，歡迎洽詢。" },
 
       "route.best": { en:"Best for", fr:"Idéal pour", zh:"適合用於" },
+      "route.cta": { en:"Ask about this →", fr:"En discuter →", zh:"詢問這項方案 →" },
 
       "route1.h3": { en:"UGC &amp; licensing", fr:"UGC &amp; licence", zh:"UGC 與授權" },
       "route1.tag": { en:"I create. You post.", fr:"Je crée. Vous publiez.", zh:"我製作，你發布。" },
@@ -1255,9 +1312,9 @@
         zh:"<strong>社群與公關：</strong>曾在瑞士與日本的飯店業從事網紅行銷與社群經營。"
       },
       "who.bg.design": {
-        en:"<strong>Graphic design &amp; branding:</strong> identity and illustration for cafés, architecture studios, creators and fashion brands (S.W.shop portfolio).",
-        fr:"<strong>Design graphique &amp; identité :</strong> direction artistique et illustration pour des cafés, studios d'architecture, créateurs et marques de mode (portfolio S.W.shop).",
-        zh:"<strong>平面設計與品牌：</strong>為咖啡館、建築工作室、創作者與時尚品牌打造識別與插畫（S.W.shop 作品集）。"
+        en:"<strong>Graphic design &amp; branding:</strong> visual identity, illustration and packaging for cafés, hospitality brands, fashion labels and engineering studios — full range at S.W.shop portfolio.",
+        fr:"<strong>Design graphique &amp; identité :</strong> identité visuelle, illustration et packaging pour des cafés, marques hôtelières, labels de mode et studios d'ingénierie — portfolio complet sur S.W.shop.",
+        zh:"<strong>平面設計與品牌：</strong>為咖啡館、飯店品牌、時尚品牌與工程工作室打造視覺識別、插畫與包裝設計，完整作品集見 S.W.shop。"
       },
       "who.bg.tcm": {
         en:"<strong>TCM study:</strong> working through Fundamentals of Chinese Medicine (Pan Yi) and continued reading; writes from her own health journey, not secondhand research.",
