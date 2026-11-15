@@ -102,7 +102,7 @@
   .bar-cup{ --cup:22px; display:none; box-shadow:inset 0 0 0 1px rgba(32,40,28,.12); }
   .nav{ display:flex; align-items:center; gap:clamp(16px,2.4vw,34px); }
   .nav-link{ font:500 .7rem/1 var(--text); letter-spacing:.2em; text-transform:uppercase; text-decoration:none; color:var(--ink-soft); padding-block:6px; border-bottom:1px solid transparent; transition:color .2s, border-color .2s; }
-  .nav-link:hover{ color:var(--ink); border-color:var(--ink); }
+  .nav-link:hover, .nav-link.is-here{ color:var(--ink); border-color:var(--ink); }
   .langs{ display:flex; gap:12px; }
   .lang-chip{ background:none; border:none; padding:6px 0; cursor:pointer; font:500 .7rem/1 var(--text); letter-spacing:.12em; color:var(--ink-faint); border-bottom:1px dotted transparent; }
   .lang-chip:hover{ color:var(--ink); }
@@ -112,7 +112,7 @@
   .nav-toggle i:nth-child(1){ top:13px; width:24px; } .nav-toggle i:nth-child(2){ top:21px; width:15px; }
   .nav-open .nav-toggle i{ top:17px; width:24px; }
   .nav-open .nav-toggle i:nth-child(1){ transform:rotate(45deg); } .nav-open .nav-toggle i:nth-child(2){ transform:rotate(-45deg); }
-  @media (max-width:859px){
+  @media (max-width:979px){
     .topbar{ flex-wrap:wrap; }
     .brand-text{ display:none; }
     .bar-cup, .nav-toggle{ display:grid; } .nav-toggle{ display:block; }
@@ -262,6 +262,7 @@
   /* ---------- portfolio collage ---------- */
   .collage{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:24px; align-items:start; }
   .collage figure{ min-width:0; }
+  .collage figure a{ display:block; }
   .collage img{ width:100%; height:auto; }
   .collage .blend{ mix-blend-mode:multiply; }
   .collage figcaption{ margin-top:14px; }
@@ -402,7 +403,88 @@
   .foot-mark img{ width:30px; height:30px; object-fit:cover; }
   .foot-links{ display:flex; flex-wrap:wrap; gap:10px 24px; }
   .foot-links a{ text-decoration:none; letter-spacing:.06em; } .foot-links a:hover{ color:var(--leaf); }
-  @media (max-width:859px){ .foot{ padding-bottom:calc(96px + env(safe-area-inset-bottom,0px)); } }
+  @media (max-width:979px){ .foot{ padding-bottom:calc(96px + env(safe-area-inset-bottom,0px)); } }
+
+  /* ---------- portfolio view ---------- */
+  .pf{ padding-top:clamp(48px,7vw,104px); }
+  .pf section{ padding-block:0 clamp(80px,11vw,152px); }
+  .pf-filters{ display:flex; flex-wrap:wrap; gap:8px clamp(20px,3vw,36px); margin-bottom:clamp(40px,6vw,76px); }
+  .pf-filter{ background:none; border:none; padding:6px 0; cursor:pointer; font:400 clamp(1.25rem,2.1vw,1.6rem)/1.2 var(--display); color:var(--ink-faint); border-bottom:1px dotted transparent; transition:color .2s; }
+  .pf-filter sup{ font:500 .62rem/1 var(--text); letter-spacing:.08em; margin-left:5px; }
+  .pf-filter:hover{ color:var(--ink); }
+  .pf-filter[aria-pressed="true"]{ color:var(--ink); border-bottom-color:var(--ink); }
+  .pf-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(44px,6vw,84px) clamp(24px,4vw,56px); align-items:start; }
+  .pf-tile{ min-width:0; }
+  .pf-tile:nth-child(3n+2){ margin-top:clamp(32px,6vw,92px); }
+  .pf-tile a{ display:block; text-decoration:none; color:inherit; }
+  .pf-cover{ display:block; overflow:hidden; aspect-ratio:4/3; max-width:100%; background:var(--mist); }
+  .pf-cover img{ width:100%; height:100%; object-fit:cover; transition:transform 1s cubic-bezier(.3,.7,.2,1); }
+  .pf-tile a:hover .pf-cover img, .pf-tile a:focus-visible .pf-cover img{ transform:scale(1.045); }
+  .pf-meta{ display:block; margin-top:14px; }
+  .pf-meta strong{ display:block; font:400 clamp(1.25rem,1.9vw,1.5rem)/1.25 var(--display); color:var(--ink); }
+  @media (max-width:899px){
+    .pf-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .pf-tile:nth-child(3n+2){ margin-top:0; }
+    .pf-tile:nth-child(even){ margin-top:clamp(28px,7vw,64px); }
+  }
+  @media (max-width:559px){
+    .pf-grid{ grid-template-columns:minmax(0,1fr); }
+    .pf-tile:nth-child(even){ margin-top:0; width:80%; margin-left:auto; }
+  }
+  .pf-about{ margin-top:clamp(88px,12vw,168px); padding-top:clamp(40px,6vw,76px); border-top:1px dotted var(--line); display:grid; grid-template-columns:minmax(0,4fr) minmax(0,7fr); gap:clamp(32px,7vw,112px); align-items:start; }
+  .pf-about img{ width:100%; height:auto; }
+  .pf-about-text{ max-width:56ch; }
+  .pf-about-text p + p{ margin-top:18px; }
+  .pf-about-cta{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; padding-top:18px; }
+  @media (max-width:719px){ .pf-about{ grid-template-columns:minmax(0,1fr); } .pf-about img{ width:72%; } }
+
+  .pf-back{ display:inline-block; margin-bottom:clamp(44px,6vw,80px); }
+  .pf-dhead h2{ margin-top:16px; font:300 clamp(2.3rem,6.4vw,5rem)/1.04 var(--display); letter-spacing:-.005em; }
+  .pf-dhead .note{ display:block; margin-top:14px; font-size:1.3rem; }
+  .pf-dtext{ margin-top:clamp(36px,5vw,64px); padding-top:clamp(28px,4vw,48px); border-top:1px dotted var(--line); display:grid; grid-template-columns:minmax(0,7fr) minmax(0,4fr); gap:clamp(32px,7vw,112px); align-items:start; }
+  .pf-paras{ max-width:62ch; }
+  .pf-paras p + p{ margin-top:18px; }
+  .pf-paras blockquote{ margin:26px 0; padding-left:24px; border-left:1px solid var(--moss); font:italic 300 1.3rem/1.55 var(--display); font-synthesis:none; color:var(--ink); }
+  html[data-lang="zh"] .pf-paras blockquote{ font-size:1.05rem; line-height:1.9; }
+  .pf-paras cite{ display:block; margin-top:12px; font:500 .7rem/1.4 var(--text); letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); }
+  .pf-serv ul{ margin-top:12px; }
+  .pf-serv li{ padding:10px 0; border-bottom:1px dotted var(--line); font:300 1.3rem/1.3 var(--display); color:var(--ink); }
+  .pf-serv .link{ display:inline-block; margin-top:26px; }
+  @media (max-width:859px){ .pf-dtext{ grid-template-columns:minmax(0,1fr); } }
+  .pf-gallery{ margin-top:clamp(48px,7vw,104px); }
+  .pf-shot{ display:block; width:100%; padding:0; border:none; background:none; cursor:zoom-in; }
+  .pf-shot img{ display:block; width:100%; height:auto; background:var(--mist); }
+  .pf-g-photo{ columns:3; column-gap:clamp(12px,2vw,28px); }
+  .pf-g-photo .pf-shot{ break-inside:avoid; margin-bottom:clamp(12px,2vw,28px); }
+  .pf-g-photo .pf-shot img{ transition:opacity .3s; } .pf-g-photo .pf-shot:hover img{ opacity:.86; }
+  .pf-g-design{ display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:clamp(18px,3vw,44px); }
+  .pf-g-design .pf-shot img{ background:none; mix-blend-mode:multiply; }
+  .pf-g-design .tall{ width:calc(50% - clamp(9px,1.5vw,22px)); }
+  .pf-g-design .xtall{ width:30%; }
+  .pf-g-design .sq{ width:70%; }
+  .pf-g-single{ max-width:760px; }
+  @media (max-width:859px){ .pf-g-photo{ columns:2; } }
+  @media (max-width:559px){ .pf-g-design .tall, .pf-g-design .sq{ width:100%; } .pf-g-design .xtall{ width:52%; } }
+  .pf-pager{ margin-top:clamp(64px,9vw,128px); padding-top:30px; border-top:1px dotted var(--line); display:flex; justify-content:space-between; gap:24px; }
+  .pf-pager a{ max-width:46%; text-decoration:none; color:var(--ink); }
+  .pf-pager a:last-child{ text-align:right; }
+  .pf-pager strong{ display:block; margin-top:8px; font:400 clamp(1.25rem,2.6vw,2rem)/1.2 var(--display); transition:color .2s; }
+  .pf-pager a:hover strong{ color:var(--moss); }
+
+  /* ---------- image viewer ---------- */
+  .lb{ position:fixed; inset:0; z-index:70; display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:clamp(8px,2vw,28px);
+    padding:calc(18px + env(safe-area-inset-top,0px)) max(18px, env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(18px, env(safe-area-inset-left,0px));
+    background:color-mix(in srgb, var(--paper) 97%, transparent); }
+  .lb figure{ min-width:0; display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .lb img{ max-width:100%; max-height:80vh; width:auto; height:auto; object-fit:contain; }
+  .lb-btn{ width:46px; height:46px; flex:none; border-radius:50%; border:1px solid var(--line); background:var(--paper); color:var(--ink); cursor:pointer; font-size:1.05rem; line-height:1; transition:border-color .2s; }
+  .lb-btn:hover{ border-color:var(--ink); }
+  .lb-close{ position:absolute; top:calc(16px + env(safe-area-inset-top,0px)); right:max(16px, env(safe-area-inset-right,0px)); font-size:1.4rem; z-index:1; }
+  @media (max-width:719px){
+    .lb{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-rows:minmax(0,1fr) auto; }
+    .lb figure{ grid-column:1 / -1; grid-row:1; } .lb img{ max-height:68vh; }
+    .lb-prev{ grid-row:2; justify-self:end; } .lb-next{ grid-row:2; justify-self:start; }
+  }
 
   /* ---------- fixed companions ---------- */
   .steep{ position:fixed; z-index:35; left:max(22px, env(safe-area-inset-left,0px)); bottom:max(22px, env(safe-area-inset-bottom,0px)); display:flex; flex-direction:column-reverse; align-items:center; gap:14px; --cup:42px; opacity:0; transform:translateY(8px); pointer-events:none; transition:opacity .5s ease, transform .5s ease; }
@@ -417,7 +499,7 @@
   }
   .sticky-cta p{ font:italic 400 1.1rem/1.2 var(--display); font-synthesis:none; color:var(--ink); }
   .sticky-cta.show{ transform:none; }
-  @media (max-width:859px){ .sticky-cta{ display:flex; } }
+  @media (max-width:979px){ .sticky-cta{ display:flex; } }
   @media (prefers-reduced-motion: reduce){ .sticky-cta, .steep{ transition:none; } }
 </style>
 </head>
@@ -432,6 +514,7 @@
   <nav class="nav" id="topbarNav">
     <a href="#about" class="nav-link" data-i18n="nav.who">About</a>
     <a href="#work" class="nav-link" data-i18n="nav.reels">Work</a>
+    <a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a>
     <a href="#offer" class="nav-link" data-i18n="nav.offer">Offer</a>
     <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
     <div class="langs" role="group" aria-label="Language">
@@ -443,6 +526,7 @@
   </nav>
 </div>
 
+<div id="homeView">
 <header class="hero" id="top">
   <div class="guides" aria-hidden="true"><i class="gv gv1"></i><i class="gv gv2"></i><i class="gh gh1"></i><i class="gh gh2"></i></div>
   <div class="wrap hero-grid">
@@ -641,18 +725,18 @@
       </header>
       <div class="collage">
         <figure class="pf-a rev">
-          <img class="blend" src="assets/portfolio/arabica.jpg" alt="Hand-drawn illustration of the % Arabica coffee stand in Arashiyama with two customers" width="1000" height="800" loading="lazy">
-          <figcaption><strong>% Arabica, Arashiyama</strong><span class="note paren" data-i18n="portfolio.cap1.sector">Café, illustration</span></figcaption>
+          <a href="#pf-arabica"><img class="blend" src="assets/portfolio/arabica.jpg" alt="Hand-drawn illustration of the % Arabica coffee stand in Arashiyama with two customers" width="1000" height="800" loading="lazy"></a>
+          <figcaption><strong>Arabica% Café, Arashiyama</strong><span class="note paren" data-i18n="portfolio.cap1.sector">Café, illustration</span></figcaption>
         </figure>
         <figure class="pf-b rev">
-          <img class="blend" src="assets/portfolio/cottonp.jpg" alt="Cotton.p. homeware logo in two colourways" width="1000" height="503" loading="lazy">
+          <a href="#pf-cottonp"><img class="blend" src="assets/portfolio/cottonp.jpg" alt="Cotton.p. homeware logo in two colourways" width="1000" height="503" loading="lazy"></a>
           <figcaption><strong>Cotton.p.</strong><span class="note paren" data-i18n="portfolio.cap2.sector">Her own homeware brand</span></figcaption>
         </figure>
         <figure class="pf-c rev">
-          <img src="assets/portfolio/by-oceane.jpg" alt="Line illustration of a hat, basket bag and scarf for By Oceane" width="900" height="867" loading="lazy">
+          <a href="#pf-by-oceane"><img src="assets/portfolio/by-oceane.jpg" alt="Line illustration of a hat, basket bag and scarf for By Oceane" width="900" height="867" loading="lazy"></a>
           <figcaption><strong>By Oceane</strong><span class="note paren" data-i18n="portfolio.cap3.sector">Fashion accessories, branding</span></figcaption>
         </figure>
-        <p class="pf-cta rev"><a class="link" href="https://soobakworkshop.myportfolio.com" target="_blank" rel="noopener" data-i18n="portfolio.cta">See the full portfolio ↗</a></p>
+        <p class="pf-cta rev"><a class="link" href="#portfolio" data-i18n="portfolio.cta">See all the work →</a></p>
       </div>
     </div>
   </section>
@@ -848,11 +932,42 @@
       <dl class="contacts">
         <div><dt>Instagram</dt><dd><a href="https://instagram.com/your.asiangranny" target="_blank" rel="noopener">@your.asiangranny</a></dd></div>
         <div><dt>小紅書 · RedNote</dt><dd><a href="https://www.rednote.com/user/profile/5ec6587b0000000001005192" target="_blank" rel="noopener">@iris_you</a></dd></div>
-        <div><dt data-i18n="contact.portfolio">Design portfolio</dt><dd><a href="https://soobakworkshop.myportfolio.com" target="_blank" rel="noopener">soobakworkshop.myportfolio.com</a></dd></div>
+        <div><dt data-i18n="contact.portfolio">Design portfolio</dt><dd><a href="#portfolio" data-i18n="contact.portfolio.link">See the portfolio →</a></dd></div>
       </dl>
     </div>
   </section>
 </main>
+</div>
+
+<div class="pf" id="pfView" hidden>
+  <section id="pfIndex">
+    <div class="wrap">
+      <header class="head">
+        <span class="head-glyph" aria-hidden="true">集</span>
+        <div class="head-text">
+          <p class="label">S.W.shop · soobak workshop · Iris Lin</p>
+          <h2 data-i18n="pf.h1">Discover a world where the ordinary becomes extraordinary</h2>
+          <p class="lede" data-i18n="pf.lede">S.W.shop (soobak workshop) by Iris Lin, a creative studio where art comes alive through photography and design. Iris, an autodidact in both fields, brings a personalized touch to her work that captures the beauty of life's small moments.</p>
+        </div>
+      </header>
+      <div class="pf-filters" id="pfFilters" role="group" aria-label="Filter projects"></div>
+      <ol class="pf-grid" id="pfGrid"></ol>
+      <div class="pf-about">
+        <img src="assets/work/about.jpg" alt="Iris Lin holding a camera in a shopping street" width="900" height="1200" loading="lazy">
+        <div class="pf-about-text">
+          <p class="label" data-i18n="pf.about.label">About the studio</p>
+          <p data-i18n="pf.about.p2">With a deep appreciation for natural light and candid photography, Iris creates captivating images that reflect the genuine happiness found in everyday life. Her minimalistic approach in both photography and design showcases the intrinsic beauty of every detail, delivering art that resonates on a personal level.</p>
+          <p data-i18n="pf.about.p3">Drawing inspiration from her diverse background and extensive travels, Iris' creations embody a unique fusion of cultures and perspectives. Born in France to an Asian family and rooted in a hospitality background, she embraces the ability to see things from different angles, infusing her work with depth and meaning.</p>
+          <p data-i18n="pf.about.p4">Iris' primary objective as a photographer is to capture the essence of happiness and the beauty of life's small joys. In design, she aspires to create minimalistic masterpieces that speak volumes.</p>
+          <p class="pf-about-cta"><span class="note" data-i18n="pf.cta">Have a project in mind?</span><a class="btn btn-primary btn-sm" href="mailto:soobakworkshop@gmail.com?subject=Project%20inquiry%20%E2%80%94%20S.W.shop" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="pfDetail" hidden>
+    <div class="wrap" id="pfBody"></div>
+  </section>
+</div>
 
 <footer>
   <div class="wrap foot">
@@ -871,6 +986,13 @@
 <div class="sticky-cta" id="stickyCta">
   <p data-i18n="sticky.text">Got a brand to pitch?</p>
   <a class="btn btn-primary btn-sm" href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Close">×</button>
+  <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">←</button>
+  <figure><img id="lbImg" alt=""><figcaption class="note" id="lbCap"></figcaption></figure>
+  <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Next image">→</button>
 </div>
 
 <script>
@@ -964,7 +1086,7 @@
     "portfolio.cap1.sector": {"en":"Café, illustration","fr":"Café, illustration","zh":"咖啡館・插畫"},
     "portfolio.cap2.sector": {"en":"Her own homeware brand","fr":"Sa propre marque de linge de maison","zh":"她自己的居家品牌"},
     "portfolio.cap3.sector": {"en":"Fashion accessories, branding","fr":"Accessoires de mode, identité","zh":"時尚配件・品牌識別"},
-    "portfolio.cta": {"en":"See the full portfolio ↗","fr":"Voir le portfolio complet ↗","zh":"查看完整作品集 ↗"},
+    "portfolio.cta": {"en":"See all the work →","fr":"Voir tous les projets →","zh":"查看所有作品 →"},
     "offer.eyebrow": {"en":"What I Make","fr":"Ce que je crée","zh":"我能製作的內容"},
     "offer.h2": {"en":"Three ways to work together","fr":"Trois façons de collaborer","zh":"三種合作方式"},
     "offer.intro": {"en":"Pick a route, or combine them across a campaign.","fr":"Choisissez une voie, ou combinez-les sur une campagne.","zh":"可以選一種方式，也可以在同一檔活動中組合使用。"},
@@ -1046,7 +1168,7 @@
     "closing.h2": {"en":"一起合作，慢慢來","fr":"一起合作，慢慢來","zh":"一起合作，慢慢來"},
     "closing.body": {"en":"Send a brief, timeline, product and the usage rights you need.","fr":"Envoyez un brief, un calendrier, le produit et les droits d'usage dont vous avez besoin.","zh":"請提供企劃簡報、時程、產品與所需的使用權範圍。"},
     "closing.cta.email": {"en":"Get in touch","fr":"Me contacter","zh":"與我聯繫"},
-    "contact.portfolio": {"en":"Design portfolio","fr":"Portfolio design","zh":"設計作品集"},
+    "contact.portfolio": {"en":"Design & photography","fr":"Design & photographie","zh":"設計與攝影"},
     "footer.sub": {"en":"阿嬤日記 · 2026","fr":"阿嬤日記 · 2026","zh":"阿嬤日記 · 2026"},
     "footer.email": {"en":"Email","fr":"E-mail","zh":"電子郵件"},
     "footer.top": {"en":"Back to top ↑","fr":"Haut de page ↑","zh":"回到頂端 ↑"},
@@ -1062,6 +1184,26 @@
     "work.hint.touch": {"en":"Swipe through. Tap one to watch it on Instagram.","fr":"Faites défiler. Touchez pour regarder sur Instagram.","zh":"左右滑動，點一下即可在 Instagram 觀看。"},
     "stats.label": {"en":"In numbers","fr":"En chiffres","zh":"數據"},
     "rights.hint": {"en":"slide to see how far the content travels","fr":"glissez pour voir jusqu’où le contenu voyage","zh":"滑動看看內容能走多遠"},
+    "nav.portfolio": {"en":"Portfolio","fr":"Portfolio","zh":"作品集"},
+    "contact.portfolio.link": {"en":"See the portfolio →","fr":"Voir le portfolio →","zh":"查看作品集 →"},
+    "pf.h1": {"en":"Discover a world where the ordinary becomes extraordinary","fr":"Découvrez un monde où l’ordinaire devient extraordinaire","zh":"走進一個讓平凡變得不凡的世界"},
+    "pf.lede": {"en":"S.W.shop (soobak workshop) by Iris Lin, a creative studio where art comes alive through photography and design. Iris, an autodidact in both fields, brings a personalized touch to her work that captures the beauty of life’s small moments.","fr":"S.W.shop (soobak workshop) par Iris Lin : un studio créatif où l’art prend vie à travers la photographie et le design. Autodidacte dans les deux domaines, Iris apporte à son travail une touche personnelle qui saisit la beauté des petits moments de la vie.","zh":"S.W.shop（soobak workshop）是 Iris Lin 的創意工作室，讓藝術透過攝影與設計活起來。Iris 在這兩個領域都是自學出身，她為作品帶來個人化的筆觸，捕捉生活中微小時刻的美。"},
+    "pf.about.label": {"en":"About the studio","fr":"À propos du studio","zh":"關於工作室"},
+    "pf.about.p2": {"en":"With a deep appreciation for natural light and candid photography, Iris creates captivating images that reflect the genuine happiness found in everyday life. Her minimalistic approach in both photography and design showcases the intrinsic beauty of every detail, delivering art that resonates on a personal level.","fr":"Sensible à la lumière naturelle et à la photographie prise sur le vif, Iris crée des images qui reflètent le bonheur sincère du quotidien. Son approche minimaliste, en photographie comme en design, révèle la beauté propre à chaque détail et touche de façon personnelle.","zh":"Iris 深深喜愛自然光與抓拍攝影，她的影像映照出日常生活中真實的幸福。無論攝影或設計，她的極簡手法都展現每個細節原有的美，讓作品在個人層面引起共鳴。"},
+    "pf.about.p3": {"en":"Drawing inspiration from her diverse background and extensive travels, Iris’ creations embody a unique fusion of cultures and perspectives. Born in France to an Asian family and rooted in a hospitality background, she embraces the ability to see things from different angles, infusing her work with depth and meaning.","fr":"Nourries par un parcours multiple et de nombreux voyages, ses créations mêlent cultures et points de vue. Née en France dans une famille asiatique, formée dans l’hôtellerie, elle cultive l’art de regarder les choses sous différents angles, ce qui donne à son travail profondeur et sens.","zh":"多元的背景與豐富的旅行經驗是她的靈感來源，作品因此融合了不同的文化與視角。她出生於法國的亞裔家庭，並有飯店業的背景，習慣從不同角度看事情，為作品注入深度與意義。"},
+    "pf.about.p4": {"en":"Iris’ primary objective as a photographer is to capture the essence of happiness and the beauty of life’s small joys. In design, she aspires to create minimalistic masterpieces that speak volumes.","fr":"En photographie, son premier objectif est de saisir l’essence du bonheur et la beauté des petites joies de la vie. En design, elle cherche à créer des pièces minimalistes qui en disent long.","zh":"作為攝影師，Iris 最想捕捉的是幸福的本質與生活中小確幸的美。在設計上，她希望創作出簡約卻意味深長的作品。"},
+    "pf.cta": {"en":"Have a project in mind?","fr":"Un projet en tête ?","zh":"有想合作的案子嗎？"},
+    "pf.cat.all": {"en":"All","fr":"Tout","zh":"全部"},
+    "pf.cat.design": {"en":"Design","fr":"Design","zh":"設計"},
+    "pf.cat.food": {"en":"Food","fr":"Gastronomie","zh":"美食"},
+    "pf.cat.architecture": {"en":"Architecture","fr":"Architecture","zh":"建築"},
+    "pf.cat.world": {"en":"World","fr":"Monde","zh":"世界"},
+    "pf.back": {"en":"← All works","fr":"← Tous les projets","zh":"← 所有作品"},
+    "pf.services": {"en":"Design services","fr":"Prestations","zh":"設計服務"},
+    "pf.images": {"en":"images","fr":"images","zh":"張"},
+    "pf.prev": {"en":"Previous","fr":"Précédent","zh":"上一個"},
+    "pf.next": {"en":"Next","fr":"Suivant","zh":"下一個"},
+    "pf.brochure": {"en":"Open the brochure ↗","fr":"Ouvrir la brochure ↗","zh":"開啟手冊 ↗"},
     "contact.copy": {"en":"Copy address","fr":"Copier l’adresse","zh":"複製信箱"},
     "contact.copied": {"en":"Copied","fr":"Copié","zh":"已複製"}
   };
@@ -1141,6 +1283,7 @@
   }
 
   /* ---- mist over the portrait: wipe it like a fogged window ---- */
+  var initMist = function(){}, initFlow = function(){};
   var mist = document.getElementById('mist');
   if(mist && mist.getContext){
     var mctx = mist.getContext('2d'), mw = 0, mh = 0, FOG = '233,238,221';
@@ -1172,8 +1315,7 @@
     mist.addEventListener('pointerdown', function(e){ at(e, 0.34, 0.8); });
     var mistW = 0;
     window.addEventListener('resize', function(){ var w = mist.getBoundingClientRect().width; if(Math.abs(w - mistW) > 2){ mistW = w; paintFog(); } });
-    mistW = mist.getBoundingClientRect().width;
-    paintFog();
+    initMist = function(){ mistW = mist.getBoundingClientRect().width; paintFog(); };
   }
 
   /* ---- pillars: the turning tray ---- */
@@ -1249,14 +1391,14 @@
 
   /* ---- process: sit each step on the drawn line ---- */
   var flowPath = document.getElementById('flowPath');
-  if(flowPath && flowPath.getTotalLength){
+  if(flowPath && flowPath.getTotalLength) initFlow = function(){
     var len = flowPath.getTotalLength();
     each('.flow-step', function(step){
       var x = parseFloat(step.getAttribute('data-x')) * 10, lo = 0, hi = len, p;
       for(var i = 0; i < 24; i++){ var mid = (lo + hi) / 2; p = flowPath.getPointAtLength(mid); if(p.x < x) lo = mid; else hi = mid; }
       step.style.setProperty('--x', x / 10); step.style.setProperty('--y', p.y.toFixed(1));
     });
-  }
+  };
 
   /* ---- copy the address ---- */
   var mailCopy = document.getElementById('mailCopy'), mailAddr = document.getElementById('mailAddr');
@@ -1267,6 +1409,107 @@
     else selectAddr();
   });
 
+  /* ---- portfolio: every past project lives on this site now ---- */
+  var PF = [{"id":"moelleux","cat":"design","year":2024,"title":{"en":"Moelleux Café in Versailles","fr":"Moelleux Café à Versailles","zh":"凡爾賽 Moelleux 咖啡館"},"sub":{"en":"Branding","fr":"Branding","zh":"品牌塑造"},"text":{"en":["Moelleux is a coffee shop located in the magnificent town of Versailles, a true haven of peace for its inhabitants, where calm, beauty and comfort reign supreme.",{"q":"After discovering Blue Bottle Coffee during my semester in the U.S., I discovered what a good coffee was, and the slow life version of the coffee shop (as opposed to American Coffee Chains). Today, coffee shops are spreading throughout Paris and its surrounding areas, attracting the curiosity of local residents. Moelleux aims to offer customers a (non-alcoholic) coffee shop experience, featuring specialty coffees accompanied by homemade pastries (banana bread, matcha marble cake, carrot cake, cookies, brownie, etc.) and a lunchtime/afternoon brunch (in the pipeline). Other beverages on offer include matcha latte, chai latte, pumpkin latte, and a few signature drinks concocted according to seasonality. At Moelleux, we invite our customers to take a break, alone or accompanied, in a bright, cosy, minimalist, natural environment with touches of wood and soft, warm colors.","by":"Owner"},"Brand summary: A brand that advocates good coffee in a simple, relaxed, friendly and open environment.","Many declinations of the original logo were designed, allowing different printouts."],"fr":["Moelleux est un coffee shop situé dans la magnifique ville de Versailles, véritable havre de paix pour ses habitants, où règnent le calme, la beauté et le confort.",{"q":"Après avoir découvert Blue Bottle Coffee pendant mon semestre aux États-Unis, j’ai compris ce qu’était un bon café, et la version slow life du coffee shop (à l’opposé des chaînes américaines). Aujourd’hui, les coffee shops se multiplient à Paris et dans ses environs, et attirent la curiosité des habitants. Moelleux souhaite offrir à ses clients une expérience de coffee shop (sans alcool), avec des cafés de spécialité accompagnés de pâtisseries maison (banana bread, marbré au matcha, carrot cake, cookies, brownie, etc.) et un brunch du midi et de l’après-midi (en préparation). La carte propose aussi matcha latte, chai latte, pumpkin latte et quelques boissons signature imaginées au fil des saisons. Chez Moelleux, nous invitons nos clients à faire une pause, seuls ou accompagnés, dans un lieu lumineux, cosy, minimaliste et naturel, aux touches de bois et aux couleurs douces et chaleureuses.","by":"Le propriétaire"},"La marque en bref : une marque qui défend le bon café dans un cadre simple, détendu, convivial et ouvert.","Plusieurs déclinaisons du logo d’origine ont été dessinées pour différents supports d’impression."],"zh":["Moelleux 是一間位於美麗的凡爾賽市的咖啡館。對當地居民來說，凡爾賽是一處真正的寧靜之地，安靜、美麗而舒適。",{"q":"在美國交換的那個學期認識了 Blue Bottle Coffee 之後，我才知道什麼是一杯好咖啡，也認識了慢生活版本的咖啡館（和美式連鎖咖啡店正好相反）。如今咖啡館在巴黎與周邊地區越開越多，引起當地居民的好奇。Moelleux 想帶給客人一種（無酒精的）咖啡館體驗：精品咖啡，搭配自製甜點（香蕉蛋糕、抹茶大理石蛋糕、紅蘿蔔蛋糕、餅乾、布朗尼等），以及籌備中的午間與午後早午餐。其他飲品還有抹茶拿鐵、印度奶茶拿鐵、南瓜拿鐵，以及幾款隨季節調製的招牌飲品。在 Moelleux，我們邀請客人一個人或結伴來休息一下，待在明亮、舒適、極簡而自然的空間裡，有木質的點綴，也有柔和溫暖的色調。","by":"店主"},"品牌摘要：一個在簡單、放鬆、友善而開放的環境中推廣好咖啡的品牌。","原始標誌還延伸出多種版本，以適用不同的印刷需求。"]},"services":{"en":["Visual identity","Brand design"],"fr":["Identité visuelle","Design de marque"],"zh":["視覺識別","品牌設計"]},"dims":[[1200,777],[1186,1538],[1200,1396],[1200,775],[1200,1120],[1200,774]]},{"id":"a-smile","cat":"world","year":2023,"title":{"en":"A Smile","fr":"Un sourire","zh":"一個微笑"},"dims":[[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600]]},{"id":"iceland","cat":"world","year":2023,"title":{"en":"Iceland","fr":"Islande","zh":"冰島"},"dims":[[1200,1600],[1200,1500],[1200,1498],[1200,1600],[1200,1600]]},{"id":"chenmao","cat":"design","year":2023,"title":{"en":"ChenMao 呈懋工程","fr":"ChenMao 呈懋工程","zh":"ChenMao 呈懋工程"},"sub":{"en":"Branding","fr":"Branding","zh":"品牌塑造"},"text":{"en":["ChenMao - 呈懋工程 is a construction company headquartered in Taiwan. I was entrusted with the task of developing the brand identity, starting from the logo design to the creation of the business cards.","The logo has been crafted with a focus on simplicity, elegance, and distinctive architectural lines, symbolizing the essence of a building. By employing a nuanced combination of darker colors and light, tinted grey, the first two letters of ChenMao (C and M) are effectively highlighted.","To ensure consistency between the conceptualization of the business card and the brand’s image, a minimalistic design approach has been adopted, enabling the most pertinent information to take center stage."],"fr":["ChenMao - 呈懋工程 est une entreprise de construction dont le siège est à Taïwan. On m’a confié la création de son identité de marque, du logo jusqu’aux cartes de visite.","Le logo a été conçu autour de la simplicité, de l’élégance et de lignes architecturales marquées, qui évoquent l’essence d’un bâtiment. Une association nuancée de couleurs sombres et d’un gris clair teinté met en valeur les deux initiales de ChenMao (C et M).","Pour garder une cohérence entre la carte de visite et l’image de la marque, j’ai adopté une approche minimaliste, qui laisse la place aux informations les plus utiles."],"zh":["呈懋工程（ChenMao）是一家總部位於台灣的營造公司。我受託為其打造品牌識別，從標誌設計到名片製作。","標誌以簡潔、優雅與鮮明的建築線條為核心，象徵建築物的本質。透過深色與帶色調的淺灰細膩搭配，突顯出 ChenMao 的兩個首字母 C 與 M。","為了讓名片的構想與品牌形象保持一致，採用了極簡的設計方式，讓最重要的資訊成為主角。"]},"services":{"en":["Business card design","Visual identity","Logo design","Branding"],"fr":["Carte de visite","Identité visuelle","Création de logo","Branding"],"zh":["名片設計","視覺識別","標誌設計","品牌塑造"]},"dims":[[1200,685],[1200,900]]},{"id":"festivities-brochure","cat":"design","year":2023,"title":{"en":"Festivities Brochure","fr":"Brochure des fêtes","zh":"節慶手冊"},"sub":{"en":"Villars Alpine Resort","fr":"Villars Alpine Resort","zh":"Villars Alpine Resort"},"link":"https://publuu.com/flip-book/1133483/2522967","text":{"en":["Villars Alpine Resort is a hospitality group based in Villars-sur-Ollon, Switzerland.","To capture the essence of the brand, I designed a simple, minimalist, and elegant brochure for the end-of-year festivities at the resort. The brochure invites guests to experience a dreamy time, with its soft colors, flowing typography, and evocative imagery."],"fr":["Villars Alpine Resort est un groupe hôtelier installé à Villars-sur-Ollon, en Suisse.","Pour traduire l’esprit de la marque, j’ai conçu une brochure simple, minimaliste et élégante pour les fêtes de fin d’année du resort. Avec ses couleurs douces, sa typographie fluide et ses images évocatrices, elle invite les hôtes à vivre un moment de rêve."],"zh":["Villars Alpine Resort 是一家位於瑞士 Villars-sur-Ollon 的飯店集團。","為了呈現品牌的精神，我為度假村的歲末節慶設計了一本簡潔、極簡而優雅的手冊。柔和的色彩、流暢的字體與富有意境的影像，邀請賓客度過一段如夢的時光。"]},"services":{"en":["Brochure design","Visual & branding design"],"fr":["Design de brochure","Design visuel & branding"],"zh":["手冊設計","視覺與品牌設計"]},"dims":[]},{"id":"japan","cat":"world","year":2023,"title":{"en":"Japan","fr":"Japon","zh":"日本"},"dims":[[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1489],[1200,1600],[1200,1600],[1200,1600]]},{"id":"villars-alpine-resort","cat":"architecture","year":2023,"title":{"en":"Villars Alpine Resort","fr":"Villars Alpine Resort","zh":"Villars Alpine Resort"},"dims":[[1200,1800],[1200,1800],[1200,1800],[1200,800],[1200,1600],[1200,1600],[1200,750],[1200,800],[1200,1800],[1200,900]]},{"id":"villars-palace-1913","cat":"food","year":2023,"title":{"en":"Villars Palace, 1913","fr":"Villars Palace, 1913","zh":"Villars Palace, 1913"},"dims":[[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1662],[1200,1600],[1200,900],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600],[1200,1600]]},{"id":"montreux","cat":"world","year":2023,"title":{"en":"Montreux, Switzerland","fr":"Montreux, Suisse","zh":"瑞士蒙特勒"},"dims":[[1200,1600],[1200,925],[1200,1600],[1200,1600],[1200,1600],[1200,942],[1200,1600]]},{"id":"arabica","cat":"design","year":2021,"title":{"en":"Arabica% Café, Arashiyama","fr":"Arabica% Café, Arashiyama","zh":"Arabica% Café, Arashiyama"},"sub":{"en":"Illustration","fr":"Illustration","zh":"插畫"},"text":{"en":["Arabica% coffee shop is a company that was created in Japan. The brand represents the ideal life of the owner: “I truly need an amazing cup of coffee every day. This is why I founded % Arabica.”","Through this illustration, I wanted to depict the coffee shop’s philosophy of the founder’s passion for coffee and design but also his love of “seeing the world”."],"fr":["% Arabica est une enseigne de café née au Japon. La marque incarne la vie idéale de son fondateur : « J’ai vraiment besoin d’une tasse de café exceptionnelle chaque jour. C’est pour cela que j’ai fondé % Arabica. »","Avec cette illustration, j’ai voulu représenter la philosophie du lieu : la passion du fondateur pour le café et le design, mais aussi son envie de « voir le monde »."],"zh":["% Arabica 是一個創立於日本的咖啡品牌，代表了創辦人理想中的生活：「我每天都真的需要一杯很棒的咖啡，所以我創立了 % Arabica。」","透過這幅插畫，我想描繪這間咖啡店的理念：創辦人對咖啡與設計的熱情，以及他對「看世界」的喜愛。"]},"services":{"en":["Visual design","Graphic design","Illustration"],"fr":["Design visuel","Design graphique","Illustration"],"zh":["視覺設計","平面設計","插畫"]},"dims":[[1200,960]]},{"id":"business-card","cat":"design","year":2021,"title":{"en":"Business card design","fr":"Carte de visite","zh":"名片設計"},"sub":{"en":"Tsutsui Hikaru, film director","fr":"Tsutsui Hikaru, réalisateur","zh":"Tsutsui Hikaru，導演"},"text":{"en":["Tsutsui Hikaru is a Japanese film director specialised in the creation and direction of visual contents. The need for a business card, that would be able to leave a memorable first impression to the customers, was requested.","This visual identity was created with a touch of modernity, keeping a distinct design that reflects the film director. The representation is kept simple, clean yet personalised, mixing professional aesthetic standards with the artist’s identity.","The light background colour with the black writings allow to show the minimalism and innovation followed by a touch of yellow representing the “light”. Hikaru (光) in Kanji (Chinese character) representing the symbol of “light”."],"fr":["Tsutsui Hikaru est un réalisateur japonais spécialisé dans la création et la direction de contenus visuels. Il souhaitait une carte de visite capable de laisser une première impression mémorable à ses clients.","Cette identité visuelle a été créée avec une touche de modernité, autour d’un design distinctif à l’image du réalisateur. L’ensemble reste simple, net et personnel, entre standards esthétiques professionnels et identité de l’artiste.","Le fond clair et les écritures noires expriment le minimalisme et l’innovation, relevés d’une touche de jaune pour la « lumière » : Hikaru (光), en kanji, est le symbole de la lumière."],"zh":["Tsutsui Hikaru 是一位日本導演，專精於影像內容的創作與執導。他需要一張能讓客戶留下深刻第一印象的名片。","這套視覺識別帶有現代感，並保有能反映導演本人的獨特設計。整體呈現簡單、乾淨而有個人特色，結合了專業的美感標準與藝術家的個性。","淺色背景搭配黑色文字，呈現極簡與創新，再以一抹黃色代表「光」：Hikaru 的漢字「光」，正是光的象徵。"]},"services":{"en":["Visual identity","Business card design"],"fr":["Identité visuelle","Carte de visite"],"zh":["視覺識別","名片設計"]},"dims":[[1200,828],[1200,675],[1200,660],[1200,844],[1200,800],[1200,1088],[1200,900]]},{"id":"cottonp","cat":"design","year":2021,"title":{"en":"Cotton.p.","fr":"Cotton.p.","zh":"Cotton.p."},"sub":{"en":"Branding","fr":"Branding","zh":"品牌塑造"},"text":{"en":["Cotton.p. is a brand I have created, specialized in homewares. I have designed a logo and the tag that will be part of the packaging of the products.","Cotton.p. stands for cotton point. The logo is the illustration of a cotton flower alongside the Sleeping Koala, representing a point of softness, comfort, and simplicity that can be found in the house. The lightness of the colours highlight the “naturalness” and “simpleness” from the housewares that easily find their place and utility within a household’s everyday life.","Many declinations of the original logo were designed, allowing different printouts."],"fr":["Cotton.p. est une marque que j’ai créée, spécialisée dans les articles pour la maison. J’en ai dessiné le logo et l’étiquette qui accompagne l’emballage des produits.","Cotton.p. signifie « cotton point ». Le logo associe une fleur de coton et le Koala endormi : un point de douceur, de confort et de simplicité que l’on retrouve à la maison. La légèreté des couleurs souligne le côté naturel et simple d’objets qui trouvent facilement leur place et leur utilité dans le quotidien d’un foyer.","Plusieurs déclinaisons du logo d’origine ont été dessinées pour différents supports d’impression."],"zh":["Cotton.p. 是我自己創立的居家用品品牌。我設計了品牌標誌，以及作為產品包裝一部分的吊牌。","Cotton.p. 是 cotton point 的縮寫。標誌描繪了一朵棉花與「沉睡的無尾熊」，象徵家中那一點柔軟、舒適與簡單。輕盈的色彩突顯居家用品的「自然」與「簡單」，讓它們輕鬆融入每個家庭的日常生活。","原始標誌還延伸出多種版本，以適用不同的印刷需求。"]},"services":{"en":["Visual identity","Brand design"],"fr":["Identité visuelle","Design de marque"],"zh":["視覺識別","品牌設計"]},"dims":[[1200,703],[1200,603],[1200,1612],[1200,1704],[1200,703]]},{"id":"wedding-invitation","cat":"design","year":2021,"title":{"en":"Wedding invitation card","fr":"Faire-part de mariage","zh":"婚禮邀請卡"},"sub":{"en":"Illustration","fr":"Illustration","zh":"插畫"},"text":{"en":["The overall design was meant to be refreshing, simple yet memorable.","You can find on this invitation card’s cover page, the representation of the married couple. This illustration was first made on paper with coloured pencils, then meticulously edited on Illustrator and Procreate."],"fr":["L’ensemble se voulait frais, simple et mémorable.","La couverture du faire-part représente les mariés. L’illustration a d’abord été réalisée sur papier aux crayons de couleur, puis retravaillée avec soin sur Illustrator et Procreate."],"zh":["整體設計希望清新、簡單，卻令人難忘。","邀請卡的封面畫的是這對新人。這幅插畫先以色鉛筆在紙上完成，再用 Illustrator 與 Procreate 細心修整。"]},"services":{"en":["Invitation card design","Illustration"],"fr":["Création de faire-part","Illustration"],"zh":["邀請卡設計","插畫"]},"dims":[[1200,1177],[1200,1697],[1200,1655]]},{"id":"82-paris","cat":"design","year":2022,"title":{"en":"+82 Paris","fr":"+82 Paris","zh":"+82 Paris"},"sub":{"en":"Poster menu design","fr":"Menu-affiche","zh":"海報菜單設計"},"text":{"en":["+82 Paris is a Korean concept café situated in Paris. The customer requested the design of a special winter menu, presented as a poster.","The visual graphic conception was created in a way that would allow easy reading of the menu but also by keeping modernity, clarity and simplicity within the design of the poster."],"fr":["+82 Paris est un concept café coréen situé à Paris. Le client souhaitait un menu d’hiver spécial, présenté sous forme d’affiche.","La conception graphique permet une lecture facile du menu tout en gardant modernité, clarté et simplicité."],"zh":["+82 Paris 是一間位於巴黎的韓式概念咖啡館。客戶希望以海報的形式設計一份冬季特別菜單。","視覺設計讓菜單容易閱讀，同時保有現代感、清晰與簡潔。"]},"services":{"en":["Illustration","Menu design"],"fr":["Illustration","Design de menu"],"zh":["插畫","菜單設計"]},"dims":[[1200,741],[1200,1697],[1200,1697],[1200,1697],[1200,1697]]},{"id":"by-oceane","cat":"design","year":2021,"title":{"en":"By Oceane","fr":"By Oceane","zh":"By Oceane"},"sub":{"en":"Branding","fr":"Branding","zh":"品牌塑造"},"text":{"en":["By Oceane is a fashion accessories wholesaler. The company requested a rebranding for their logo that would allow to highlight their goods. The visual identity is kept simple with a touch of modernity yet clearly representing the brand.","An Instagram post that describes the product has also been requested. In this graphic design, I have used illustration to bring out a refreshing and unique way of showcasing the product."],"fr":["By Oceane est un grossiste en accessoires de mode. L’entreprise souhaitait repenser son logo pour mieux mettre en valeur ses produits. L’identité visuelle reste simple, avec une touche de modernité, tout en représentant clairement la marque.","Un post Instagram présentant le produit a aussi été demandé. Pour ce visuel, j’ai choisi l’illustration afin de montrer le produit de façon fraîche et singulière."],"zh":["By Oceane 是一家時尚配件批發商。公司希望重新設計標誌，以突顯自家商品。視覺識別保持簡潔，帶有一點現代感，同時清楚代表品牌。","客戶也需要一則介紹產品的 Instagram 貼文。在這件平面設計中，我用插畫帶出清新而獨特的產品呈現方式。"]},"services":{"en":["Visual identity","Branding","Illustration"],"fr":["Identité visuelle","Branding","Illustration"],"zh":["視覺識別","品牌塑造","插畫"]},"dims":[[612,2400],[1200,675],[1200,1200]]}];
+  var CATS = ['all', 'design', 'food', 'architecture', 'world'];
+  var homeView = document.getElementById('homeView'), pfView = document.getElementById('pfView');
+  var pfIndex = document.getElementById('pfIndex'), pfDetail = document.getElementById('pfDetail');
+  var pfGrid = document.getElementById('pfGrid'), pfFilters = document.getElementById('pfFilters'), pfBody = document.getElementById('pfBody');
+  var pfFilter = 'all', pfShown = null, idxScroll = 0, lastView = '', homeReady = false;
+  function L(o){ return o ? (o[lang] !== undefined ? o[lang] : o.en) : ''; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]; }); }
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function pfMeta(p){ return tr('pf.cat.' + p.cat) + ' · ' + p.year; }
+  function renderIndex(){
+    pfFilters.innerHTML = CATS.map(function(c){
+      var n = c === 'all' ? PF.length : PF.filter(function(p){ return p.cat === c; }).length;
+      return '<button type="button" class="pf-filter" data-cat="' + c + '" aria-pressed="' + (c === pfFilter) + '">' + tr('pf.cat.' + c) + '<sup>' + n + '</sup></button>';
+    }).join('');
+    pfGrid.innerHTML = PF.filter(function(p){ return pfFilter === 'all' || p.cat === pfFilter; }).map(function(p){
+      return '<li class="pf-tile"><a href="#pf-' + p.id + '"><span class="pf-cover"><img src="assets/work/' + p.id + '/cover.jpg" alt="" width="800" height="600" loading="lazy"></span>' +
+        '<span class="pf-meta"><strong>' + esc(L(p.title)) + '</strong><span class="note">' + pfMeta(p) + '</span></span></a></li>';
+    }).join('');
+  }
+  function renderDetail(p){
+    var i = PF.indexOf(p), prev = PF[(i - 1 + PF.length) % PF.length], next = PF[(i + 1) % PF.length];
+    var title = esc(L(p.title)), photo = p.cat !== 'design', n = p.dims.length;
+    var paras = (L(p.text) || []).map(function(t){
+      return typeof t === 'string' ? '<p>' + esc(t) + '</p>' : '<blockquote>' + esc(t.q) + '<cite>' + esc(t.by) + '</cite></blockquote>';
+    }).join('');
+    var serv = (L(p.services) || []).map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('');
+    var shots = p.dims.map(function(d, k){
+      var r = d[1] / d[0], cls = photo ? '' : (r > 2.5 ? ' xtall' : r > 1.1 ? ' tall' : r > 0.9 ? ' sq' : '');
+      return '<button type="button" class="pf-shot' + cls + '" data-i="' + k + '"><img src="assets/work/' + p.id + '/' + pad(k + 1) + (photo ? '-s' : '') + '.jpg" width="' + d[0] + '" height="' + d[1] + '"' + (k > 1 ? ' loading="lazy"' : '') + ' alt="' + title + ', ' + (k + 1) + ' / ' + n + '"></button>';
+    }).join('');
+    if(!n) shots = '<img src="assets/work/' + p.id + '/cover.jpg" width="800" height="600" alt="' + title + '">';
+    pfBody.innerHTML =
+      '<a class="link pf-back" href="#portfolio">' + tr('pf.back') + '</a>' +
+      '<header class="pf-dhead"><p class="label">' + pfMeta(p) + (n > 1 ? ' · ' + n + ' ' + tr('pf.images') : '') + '</p><h2>' + title + '</h2>' + (p.sub ? '<span class="note">' + esc(L(p.sub)) + '</span>' : '') + '</header>' +
+      (paras || serv ? '<div class="pf-dtext"><div class="pf-paras">' + paras + '</div><aside class="pf-serv">' + (serv ? '<p class="label">' + tr('pf.services') + '</p><ul>' + serv + '</ul>' : '') +
+        (p.link ? '<a class="link" href="' + esc(p.link) + '" target="_blank" rel="noopener">' + tr('pf.brochure') + '</a>' : '') + '</aside></div>' : '') +
+      '<div class="pf-gallery ' + (!n ? 'pf-g-single' : photo ? 'pf-g-photo' : 'pf-g-design') + '">' + shots + '</div>' +
+      '<nav class="pf-pager" aria-label="Projects"><a href="#pf-' + prev.id + '"><span class="label">← ' + tr('pf.prev') + '</span><strong>' + esc(L(prev.title)) + '</strong></a>' +
+      '<a href="#pf-' + next.id + '"><span class="label">' + tr('pf.next') + ' →</span><strong>' + esc(L(next.title)) + '</strong></a></nav>';
+  }
+  pfFilters.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.pf-filter') : null;
+    if(b){ pfFilter = b.getAttribute('data-cat'); renderIndex(); }
+  });
+
+  /* ---- image viewer ---- */
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), lbI = 0, lbFrom = null;
+  function lbShow(k){
+    var n = pfShown.dims.length; lbI = ((k % n) + n) % n;
+    lbImg.src = 'assets/work/' + pfShown.id + '/' + pad(lbI + 1) + '.jpg';
+    lbImg.alt = L(pfShown.title) + ', ' + (lbI + 1) + ' / ' + n;
+    lbCap.textContent = L(pfShown.title) + ' · ' + (lbI + 1) + ' / ' + n;
+    document.getElementById('lbPrev').hidden = document.getElementById('lbNext').hidden = n < 2;
+  }
+  function lbOpen(k, from){ lbFrom = from; lb.hidden = false; document.body.style.overflow = 'hidden'; lbShow(k); document.getElementById('lbClose').focus(); }
+  function lbClose(){
+    if(lb.hidden) return;
+    lb.hidden = true; document.body.style.overflow = ''; lbImg.removeAttribute('src');
+    if(lbFrom && document.body.contains(lbFrom)) lbFrom.focus();
+    lbFrom = null;
+  }
+  pfBody.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.pf-shot') : null;
+    if(b) lbOpen(parseInt(b.getAttribute('data-i'), 10), b);
+  });
+  document.getElementById('lbClose').addEventListener('click', lbClose);
+  document.getElementById('lbPrev').addEventListener('click', function(){ lbShow(lbI - 1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ lbShow(lbI + 1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb || e.target.tagName === 'FIGURE') lbClose(); });
+  document.addEventListener('keydown', function(e){
+    if(lb.hidden) return;
+    if(e.key === 'Escape') lbClose();
+    else if(e.key === 'ArrowLeft') lbShow(lbI - 1);
+    else if(e.key === 'ArrowRight') lbShow(lbI + 1);
+  });
+
+  /* ---- two views, one page: the diary and the portfolio ---- */
+  function jump(y){ root.style.scrollBehavior = 'auto'; window.scrollTo(0, y); requestAnimationFrame(function(){ root.style.scrollBehavior = ''; }); }
+  function route(){
+    var h = (location.hash || '').slice(1), isPf = h === 'portfolio' || h.indexOf('pf-') === 0;
+    each('.nav-link', function(a){ a.classList.toggle('is-here', isPf && a.getAttribute('href') === '#portfolio'); });
+    lbClose();
+    if(!isPf){
+      var was = !pfView.hidden;
+      pfView.hidden = true; homeView.hidden = false;
+      if(!homeReady){ homeReady = true; initMist(); initFlow(); }
+      if(was){ var t = h ? document.getElementById(h) : null; jump(t ? t.getBoundingClientRect().top + window.scrollY : 0); }
+      lastView = 'home'; onScroll(); return;
+    }
+    if(lastView === 'portfolio' && h !== 'portfolio') idxScroll = window.scrollY;
+    homeView.hidden = true; pfView.hidden = false; closeMenu();
+    var p = null; PF.forEach(function(x){ if('pf-' + x.id === h) p = x; });
+    pfShown = p; pfIndex.hidden = !!p; pfDetail.hidden = !p;
+    if(p){ renderDetail(p); jump(0); }
+    else { renderIndex(); jump(lastView.indexOf('pf-') === 0 ? idxScroll : 0); }
+    lastView = p ? h : 'portfolio'; onScroll();
+  }
+  window.addEventListener('hashchange', route);
+
   /* ---- language ---- */
   function setLang(next){
     lang = T['nav.who'][next] !== undefined ? next : 'en';
@@ -1276,11 +1519,13 @@
     root.setAttribute('data-lang', lang);
     try{ localStorage.setItem('yag_lang', lang); }catch(err){}
     steepText(); setLevel(range.value);
+    if(!pfView.hidden){ if(pfShown) renderDetail(pfShown); else renderIndex(); }
   }
   each('.lang-chip', function(c){ c.addEventListener('click', function(){ setLang(c.getAttribute('data-lang')); }); });
   var saved = 'en';
   try{ saved = localStorage.getItem('yag_lang') || 'en'; }catch(err){}
   setLang(saved);
+  route();
   onScroll();
 })();
 </script>
