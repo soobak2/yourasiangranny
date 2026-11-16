@@ -227,7 +227,9 @@
   @keyframes breathe{ 0%,100%{ transform:scale(.8); opacity:.45; } 50%{ transform:scale(1.12); opacity:1; } }
   @media (prefers-reduced-motion: reduce){ .pause::before{ animation:none; } }
   .pause .wrap{ position:relative; }
-  .pause-zh{ font:200 clamp(3rem,11vw,8rem)/1 var(--cjk); letter-spacing:.18em; text-indent:.18em; color:var(--moss); }
+  .pause-zh{ display:flex; justify-content:center; gap:.2em; font:200 clamp(3rem,11vw,8rem)/1 var(--cjk); color:var(--moss); }
+  .pause-zh ruby{ ruby-position:over; ruby-align:center; }
+  .pause-zh rt{ font:italic 400 clamp(1rem,1.7vw,1.4rem)/1 var(--display); font-synthesis:none; letter-spacing:.06em; color:var(--ink-faint); padding-bottom:.55em; }
   .pause .note{ position:relative; display:block; margin-top:30px; }
 
   /* ---------- work: postcards on a table ---------- */
@@ -736,8 +738,8 @@
 
   <section class="pause band" aria-label="Pause">
     <div class="wrap">
-      <p class="pause-zh" lang="zh-Hant">慢慢來</p>
-      <span class="note" data-i18n="pause.gloss">màn màn lái. Take your time. Nothing here is in a hurry.</span>
+      <p class="pause-zh" lang="zh-Hant"><span><ruby>慢<rt lang="zh-Latn">màn</rt></ruby></span><span><ruby>慢<rt lang="zh-Latn">màn</rt></ruby></span><span><ruby>來<rt lang="zh-Latn">lái</rt></ruby></span></p>
+      <span class="note" data-i18n="pause.gloss">Take your time. Nothing here is in a hurry.</span>
     </div>
   </section>
 
@@ -1255,7 +1257,7 @@
     "cup.ready": {"en":"the tea’s ready","fr":"le thé est prêt","zh":"茶泡好了"},
     "who.bg.label": {"en":"Behind the camera","fr":"Derrière la caméra","zh":"鏡頭背後"},
     "pillars.hint": {"en":"turn the tray, pick a pillar","fr":"tournez le plateau, choisissez un pilier","zh":"轉動茶盤，選一個主題"},
-    "pause.gloss": {"en":"màn màn lái. Take your time. Nothing here is in a hurry.","fr":"màn màn lái. Prenez votre temps. Ici, rien ne presse.","zh":"不急。這裡的一切，都不趕時間。"},
+    "pause.gloss": {"en":"Take your time. Nothing here is in a hurry.","fr":"Prenez votre temps. Ici, rien ne presse.","zh":"不急。這裡的一切，都不趕時間。"},
     "work.hint": {"en":"They’re yours to move around. Click one to watch it on Instagram.","fr":"Déplacez-les à votre guise. Cliquez pour regarder sur Instagram.","zh":"可以隨意拖動。點一下就能在 Instagram 觀看。"},
     "work.hint.touch": {"en":"Swipe through. Tap one to watch it on Instagram.","fr":"Faites défiler. Touchez pour regarder sur Instagram.","zh":"左右滑動，點一下即可在 Instagram 觀看。"},
     "stats.label": {"en":"In numbers","fr":"En chiffres","zh":"數據"},
