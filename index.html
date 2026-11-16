@@ -17,7 +17,7 @@
     --paper:#F4F1E6; --mist:#E3EAD0; --porcelain:#FBFAF4; --white:#FFFFFF;
     --ink:#20281C; --ink-soft:#465040; --ink-faint:#5E6852;
     --moss:#56642F; --moss-deep:#27311F; --line:#B4BE9C;
-    --seal:#A8391F; --tea:#EFEBC2; --shade:rgba(32,40,28,.5);
+    --seal:#A8391F; --tea:#EFEBC2; --tea-full:#C58A3C; --sage:#A9B88A; --moss-mid:#7F9562; --shade:rgba(32,40,28,.5);
     --on-deep:#EFF1E3; --on-deep-soft:#C3CCB1; --leaf:#CBD79C; --line-deep:#5A6849;
     --display:"Cormorant Garamond","Noto Serif TC",Georgia,serif;
     --cjk:"Noto Serif TC","Songti TC",serif;
@@ -280,24 +280,44 @@
   }
 
   /* ---------- numbers ---------- */
-  .plats{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(48px,8vw,128px); }
-  .plat-top{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; border-bottom:1px dotted var(--line); padding-bottom:14px; }
+  .newe{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:clamp(36px,7vw,112px); align-items:center; }
+  .newe-big{ font:300 clamp(4.6rem,12vw,9.5rem)/.92 var(--display); font-variant-numeric:lining-nums; letter-spacing:-.02em; color:var(--ink); }
+  html[data-lang="zh"] .newe-big{ font-family:var(--cjk); font-weight:200; letter-spacing:.06em; }
+  .newe-copy{ margin-top:22px; max-width:34ch; font:300 clamp(1.3rem,2.1vw,1.62rem)/1.45 var(--display); color:var(--ink); }
+  html[data-lang="zh"] .newe-copy{ font-size:clamp(1.08rem,1.6vw,1.25rem); line-height:1.85; }
+  .newe-cups{ display:flex; flex-direction:column; align-items:center; gap:22px; }
+  .cups{ --cup:clamp(46px,6.2vw,74px); display:grid; grid-template-columns:repeat(5,var(--cup)); gap:clamp(12px,1.8vw,22px); }
+  .cups .cup{ box-shadow:0 12px 18px -14px var(--shade), inset 0 0 0 1px rgba(32,40,28,.08); }
+  .cups .cup::before{ background:var(--paper); box-shadow:inset 0 3px 6px rgba(70,50,10,.1); transition:background .8s ease calc(var(--d,0) * 150ms + 250ms), box-shadow .8s ease calc(var(--d,0) * 150ms + 250ms); }
+  .cups .cup.full::before{ background:var(--tea-full); box-shadow:inset 0 4px 9px rgba(70,50,10,.24), inset 0 -2px 4px rgba(255,255,255,.3); }
+  .rev.pre .cups .cup.full::before{ background:var(--paper); box-shadow:inset 0 3px 6px rgba(70,50,10,.1); }
+  @media (prefers-reduced-motion: reduce){ .cups .cup::before{ transition:none; } }
+  .menus{ margin-top:clamp(72px,10vw,136px); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(48px,8vw,128px); align-items:start; }
+  .plat-top{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; border-bottom:1px solid var(--ink); padding-bottom:14px; }
   .plat-top h3{ font:italic 400 1.6rem/1.2 var(--display); font-synthesis:none; }
   .plat-top span{ font-size:.76rem; letter-spacing:.08em; color:var(--ink-faint); }
-  .plat-nums{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(30px,4vw,48px) 24px; margin-top:clamp(28px,4vw,44px); }
-  .num{ display:block; font:300 clamp(2.6rem,5vw,4rem)/1 var(--display); font-variant-numeric:lining-nums tabular-nums; color:var(--ink); }
-  .num-label{ display:block; margin-top:10px; font-size:.82rem; color:var(--ink-faint); }
-  .aud{ margin-top:clamp(72px,10vw,128px); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(48px,8vw,128px); align-items:start; }
-  .age{ margin-top:26px; display:flex; flex-direction:column; gap:20px; }
-  .age-row{ display:grid; grid-template-columns:58px minmax(0,1fr) 56px; align-items:center; gap:14px; font-size:.84rem; font-variant-numeric:tabular-nums; }
-  .age-track{ position:relative; height:1px; border-top:1px dotted var(--line); }
-  .age-track i{ position:absolute; left:0; top:-2px; height:3px; width:var(--v); background:var(--moss); border-radius:2px; }
-  .age-row b{ text-align:right; font-weight:500; color:var(--ink); }
-  .geo{ margin-top:26px; display:flex; align-items:flex-end; gap:clamp(16px,3vw,36px); }
-  .geo-item{ display:flex; flex-direction:column; align-items:center; gap:12px; font-size:.84rem; text-align:center; }
-  .geo-item i{ width:var(--d); aspect-ratio:1; border-radius:50%; border:1px solid var(--moss); background:color-mix(in srgb, var(--moss) 10%, transparent); }
-  .geo-item b{ display:block; font-weight:500; color:var(--ink); font-variant-numeric:tabular-nums; }
-  @media (max-width:859px){ .plats, .aud{ grid-template-columns:minmax(0,1fr); } }
+  .menu li{ display:flex; align-items:baseline; gap:14px; padding:clamp(14px,2vw,22px) 0 0; }
+  .menu li > span{ font-size:.95rem; color:var(--ink-soft); }
+  .menu li > i{ flex:1; min-width:24px; border-bottom:1px dotted var(--ink-faint); transform:translateY(-5px); }
+  .num{ font:300 clamp(2.1rem,4.4vw,3.3rem)/1 var(--display); font-variant-numeric:lining-nums tabular-nums; color:var(--ink); white-space:nowrap; }
+  .aud{ margin-top:clamp(72px,10vw,136px); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(48px,8vw,128px); align-items:start; }
+  .aud-sum{ margin-top:14px; font:300 clamp(1.6rem,3vw,2.3rem)/1.2 var(--display); font-variant-numeric:lining-nums; color:var(--ink); }
+  html[data-lang="zh"] .aud-sum{ font-size:clamp(1.3rem,2.3vw,1.8rem); line-height:1.5; }
+  .age-strip{ margin-top:30px; display:flex; gap:3px; height:12px; }
+  .age-strip i{ flex:var(--w) 1 0; background:var(--c); border-radius:1px; }
+  .age-strip .rest{ background:none; border-bottom:1px dotted var(--ink-faint); }
+  .legend{ margin-top:8px; }
+  .legend li > span{ display:inline-flex; align-items:center; gap:10px; font-variant-numeric:tabular-nums; }
+  .legend .sw{ width:10px; height:10px; border-radius:50%; background:var(--c); }
+  .legend b{ font:italic 400 1.25rem/1.2 var(--hand); font-synthesis:none; color:var(--ink); }
+  .beads{ position:relative; margin-top:30px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; text-align:center; }
+  .beads::before{ content:""; position:absolute; left:0; right:0; top:55px; border-top:1px dotted var(--ink-faint); }
+  .bead{ display:flex; flex-direction:column; align-items:center; min-width:0; }
+  .bead-dot{ position:relative; height:110px; display:grid; place-items:center; margin-bottom:14px; }
+  .bead-dot i{ display:block; width:var(--d); max-width:100%; aspect-ratio:1; border-radius:50%; border:1px solid var(--moss); background:color-mix(in srgb, var(--moss) 16%, var(--paper)); }
+  .bead strong{ font:400 1.2rem/1.25 var(--display); color:var(--ink); }
+  .stats-note{ display:block; margin-top:clamp(56px,8vw,96px); padding-top:24px; border-top:1px dotted var(--line); max-width:none; }
+  @media (max-width:859px){ .newe, .menus, .aud{ grid-template-columns:minmax(0,1fr); } .newe-cups{ align-items:flex-start; } .cups{ --cup:min(56px,14.5vw); gap:min(14px,3.4vw); } }
 
   /* ---------- offer: three routes ---------- */
   .routes{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); grid-template-rows:auto auto auto 1fr; column-gap:clamp(32px,6vw,96px); }
@@ -827,44 +847,59 @@
           <h2 data-i18n="stats.eyebrow">Real engagement, not just reach</h2>
         </div>
       </header>
-      <div class="plats rev">
-        <div class="plat">
-          <div class="plat-top"><h3>Instagram</h3><span>@your.asiangranny</span></div>
-          <div class="plat-nums">
-            <div><b class="num" data-to="13849">13,849</b><span class="num-label" data-i18n="stats.ig.l1">views, last 30 days</span></div>
-            <div><b class="num" data-to="7220">7,220</b><span class="num-label" data-i18n="stats.ig.l2">accounts reached</span></div>
-            <div><b class="num" data-to="890">890</b><span class="num-label" data-i18n="stats.ig.l3">interactions</span></div>
-            <div><b class="num" data-to="83.1" data-dec="1" data-suffix="%">83.1%</b><span class="num-label" data-i18n="stats.ig.l4">views from non-followers</span></div>
-          </div>
+      <div class="newe rev">
+        <div class="newe-text">
+          <p class="newe-big" data-i18n="stats.new.big">8 in 10</p>
+          <p class="newe-copy" data-i18n="stats.new.text">Instagram views come from people who don't follow her yet: the content travels beyond the account.</p>
         </div>
-        <div class="plat">
-          <div class="plat-top"><h3>小紅書 · RedNote</h3><span>@iris_you</span></div>
-          <div class="plat-nums">
-            <div><b class="num" data-to="95">95</b><span class="num-label" data-i18n="stats.rn.l1">notes published</span></div>
-            <div><b class="num" data-to="2.3" data-dec="1" data-suffix="K">2.3K</b><span class="num-label" data-i18n="stats.rn.l2">likes &amp; saves</span></div>
-            <div><b class="num" data-to="8" data-prefix="~" data-suffix="%">~8%</b><span class="num-label" data-i18n="stats.rn.l3">engagement rate</span></div>
-            <div><b class="num">2–3×</b><span class="num-label" data-i18n="stats.rn.l4">posts per week</span></div>
-          </div>
+        <div class="newe-cups">
+          <div class="cups" role="img" aria-label="Ten cups of tea, eight of them filled"><span class="cup full" style="--d:0"></span><span class="cup full" style="--d:1"></span><span class="cup full" style="--d:2"></span><span class="cup full" style="--d:3"></span><span class="cup full" style="--d:4"></span><span class="cup full" style="--d:5"></span><span class="cup full" style="--d:6"></span><span class="cup full" style="--d:7"></span><span class="cup"></span><span class="cup"></span></div>
+          <span class="note paren" data-i18n="stats.new.note">one cup = one view in ten</span>
         </div>
       </div>
+
+      <div class="menus rev">
+        <div class="menu">
+          <div class="plat-top"><h3>Instagram</h3><span>@your.asiangranny</span></div>
+          <ul>
+            <li><span data-i18n="stats.m1">Views a month</span><i></i><b class="num" data-to="10" data-suffix="K+">10K+</b></li>
+            <li><span data-i18n="stats.m2">Accounts reached a month</span><i></i><b class="num" data-to="6" data-suffix="K+">6K+</b></li>
+            <li><span data-i18n="stats.m3">Interactions a month</span><i></i><b class="num" data-to="700" data-suffix="+">700+</b></li>
+          </ul>
+        </div>
+        <div class="menu">
+          <div class="plat-top"><h3>小紅書 · RedNote</h3><span>@iris_you</span></div>
+          <ul>
+            <li><span data-i18n="stats.m4">Notes published</span><i></i><b class="num" data-to="90" data-suffix="+">90+</b></li>
+            <li><span data-i18n="stats.m5">Likes &amp; saves</span><i></i><b class="num" data-to="2" data-suffix="K+">2K+</b></li>
+            <li><span data-i18n="stats.m6">Engagement rate</span><i></i><b class="num">~8%</b></li>
+            <li><span data-i18n="stats.m7">Posts a week</span><i></i><b class="num">2–3</b></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="aud rev">
         <div>
           <p class="label" data-i18n="audience.eyebrow">Audience, by age</p>
-          <div class="age">
-            <div class="age-row"><span>25–34</span><span class="age-track"><i style="--v:46.3%"></i></span><b>46.3%</b></div>
-            <div class="age-row"><span>18–24</span><span class="age-track"><i style="--v:26.8%"></i></span><b>26.8%</b></div>
-            <div class="age-row"><span>35–44</span><span class="age-track"><i style="--v:19.5%"></i></span><b>19.5%</b></div>
-          </div>
+          <p class="aud-sum" data-i18n="stats.age.sum">7 in 10 are between 18 and 34.</p>
+          <div class="age-strip" aria-hidden="true"><i style="--w:27;--c:var(--sage)"></i><i style="--w:46;--c:var(--moss)"></i><i style="--w:20;--c:var(--moss-mid)"></i><i class="rest" style="--w:7"></i></div>
+          <ul class="menu legend">
+            <li><span><em class="sw" style="--c:var(--moss)"></em>25–34</span><i></i><b data-i18n="stats.age.b">nearly half</b></li>
+            <li><span><em class="sw" style="--c:var(--sage)"></em>18–24</span><i></i><b data-i18n="stats.age.a">about a quarter</b></li>
+            <li><span><em class="sw" style="--c:var(--moss-mid)"></em>35–44</span><i></i><b data-i18n="stats.age.c">about one in five</b></li>
+          </ul>
         </div>
         <div>
           <p class="label" data-i18n="geo.eyebrow">Where they're watching from</p>
-          <div class="geo">
-            <div class="geo-item"><i style="--d:127px"></i><span><span data-i18n="geo.france">France</span><b>33.3%</b></span></div>
-            <div class="geo-item"><i style="--d:82px"></i><span><span data-i18n="geo.taiwan">Taiwan</span><b>14.0%</b></span></div>
-            <div class="geo-item"><i style="--d:67px"></i><span><span data-i18n="geo.us">United States</span><b>9.3%</b></span></div>
+          <p class="aud-sum" data-i18n="stats.geo.sum">One in three watches from France.</p>
+          <div class="beads">
+            <div class="bead"><span class="bead-dot"><i style="--d:58px"></i></span><strong data-i18n="geo.us">United States</strong><span class="note" data-i18n="stats.geo.us">nearly 1 in 10</span></div>
+            <div class="bead"><span class="bead-dot"><i style="--d:110px"></i></span><strong data-i18n="geo.france">France</strong><span class="note" data-i18n="stats.geo.fr">1 in 3</span></div>
+            <div class="bead"><span class="bead-dot"><i style="--d:71px"></i></span><strong data-i18n="geo.taiwan">Taiwan</strong><span class="note" data-i18n="stats.geo.tw">1 in 7</span></div>
           </div>
         </div>
       </div>
+      <p class="stats-note note rev" data-i18n="stats.note">Rounded down from Instagram and RedNote insights, so the figures stay true as the account grows. Ask for this month's screenshots with your brief.</p>
     </div>
   </section>
 
@@ -1260,6 +1295,25 @@
     "pause.gloss": {"en":"Take your time. Nothing here is in a hurry.","fr":"Prenez votre temps. Ici, rien ne presse.","zh":"不急。這裡的一切，都不趕時間。"},
     "work.hint": {"en":"They’re yours to move around. Click one to watch it on Instagram.","fr":"Déplacez-les à votre guise. Cliquez pour regarder sur Instagram.","zh":"可以隨意拖動。點一下就能在 Instagram 觀看。"},
     "work.hint.touch": {"en":"Swipe through. Tap one to watch it on Instagram.","fr":"Faites défiler. Touchez pour regarder sur Instagram.","zh":"左右滑動，點一下即可在 Instagram 觀看。"},
+    "stats.new.big": {"en":"8 in 10","fr":"8 sur 10","zh":"十之八"},
+    "stats.new.text": {"en":"Instagram views come from people who don’t follow her yet: the content travels beyond the account.","fr":"des vues Instagram viennent de personnes qui ne la suivent pas encore : le contenu voyage au-delà du compte.","zh":"的 Instagram 觀看，來自還沒追蹤她的人：內容走得比帳號更遠。"},
+    "stats.new.note": {"en":"one cup = one view in ten","fr":"une tasse = une vue sur dix","zh":"一杯 = 十分之一的觀看"},
+    "stats.m1": {"en":"Views a month","fr":"Vues par mois","zh":"每月觀看次數"},
+    "stats.m2": {"en":"Accounts reached a month","fr":"Comptes touchés par mois","zh":"每月觸及帳號數"},
+    "stats.m3": {"en":"Interactions a month","fr":"Interactions par mois","zh":"每月互動次數"},
+    "stats.m4": {"en":"Notes published","fr":"Notes publiées","zh":"已發布筆記"},
+    "stats.m5": {"en":"Likes &amp; saves","fr":"Likes &amp; sauvegardes","zh":"按讚與收藏"},
+    "stats.m6": {"en":"Engagement rate","fr":"Taux d’engagement","zh":"互動率"},
+    "stats.m7": {"en":"Posts a week","fr":"Publications par semaine","zh":"每週發文數"},
+    "stats.age.sum": {"en":"7 in 10 are between 18 and 34.","fr":"7 sur 10 ont entre 18 et 34 ans.","zh":"十之七介於 18 至 34 歲。"},
+    "stats.age.a": {"en":"about a quarter","fr":"environ un quart","zh":"約四分之一"},
+    "stats.age.b": {"en":"nearly half","fr":"près de la moitié","zh":"將近一半"},
+    "stats.age.c": {"en":"about one in five","fr":"environ un sur cinq","zh":"約五分之一"},
+    "stats.geo.sum": {"en":"One in three watches from France.","fr":"Un sur trois regarde depuis la France.","zh":"三分之一的觀眾在法國。"},
+    "stats.geo.fr": {"en":"1 in 3","fr":"1 sur 3","zh":"三分之一"},
+    "stats.geo.tw": {"en":"1 in 7","fr":"1 sur 7","zh":"七分之一"},
+    "stats.geo.us": {"en":"nearly 1 in 10","fr":"près de 1 sur 10","zh":"將近十分之一"},
+    "stats.note": {"en":"Rounded down from Instagram and RedNote insights, so the figures stay true as the account grows. Ask for this month’s screenshots with your brief.","fr":"Chiffres arrondis à la baisse à partir des statistiques Instagram et RedNote : ils restent vrais à mesure que le compte grandit. Demandez les captures du mois avec votre brief.","zh":"數字依 Instagram 與小紅書後台數據向下取整，帳號成長時依然成立。歡迎在提案時索取當月截圖。"},
     "stats.label": {"en":"In numbers","fr":"En chiffres","zh":"數據"},
     "rights.hint": {"en":"slide to see how far the content travels","fr":"glissez pour voir jusqu’où le contenu voyage","zh":"滑動看看內容能走多遠"},
     "nav.portfolio": {"en":"Portfolio","fr":"Portfolio","zh":"作品集"},
