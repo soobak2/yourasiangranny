@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 200 200" role="img" aria-label="Drawing: a bamboo steamer of buns with a dish of sauce and chopsticks"><defs><filter id="hand" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g filter="url(#hand)" transform="translate(100 102) scale(0.88) translate(-100 -100)">
+  <path d="M40 116 V150 Q100 174 160 150 V116 Q100 138 40 116Z" fill="#D6B692" transform="translate(3 3)"/>
+  <ellipse cx="100" cy="116" rx="59" ry="16" fill="#F8EAD0"/>
+  <path d="M40 116 A60 17 0 0 1 160 116" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M56 119 Q51 84 80 80 Q109 84 104 119Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M97 121 Q94 86 123 83 Q152 87 147 121Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80 81 q-7 6 -11 15 M80 81 q-1 8 -2 17 M80 81 q7 6 10 15" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M77 79 q3 -4 6 0" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M123 84 q-7 6 -11 15 M123 84 q-1 8 -2 17 M123 84 q7 6 10 15" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M120 82 q3 -4 6 0" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 116 A60 17 0 0 0 160 116" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 116 V150 Q100 174 160 150 V116" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 132 Q100 155 160 132" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M68 140 v14 M74 142 v14 M126 142 v14 M132 140 v14" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74 62 q-7 -8 0 -16 q7 -8 0 -16 M102 56 q-6 -7 0 -14 q6 -7 0 -14 M130 62 q-7 -8 0 -16 q7 -8 0 -16" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="46" cy="179" rx="17" ry="6" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="46" cy="178.500" rx="11" ry="3.400" fill="#C8634F"/>
+  <path d="M96 190 L176 170 M100 196 L178 177" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>

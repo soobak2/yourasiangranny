@@ -201,9 +201,9 @@
   }
   .wheel-btn:hover{ border-color:var(--moss); }
   .wheel-btn[aria-pressed="true"]{ background:var(--moss-deep); border-color:var(--moss-deep); color:var(--porcelain); }
-  .wheel-center{ position:absolute; inset:23%; border-radius:50%; overflow:hidden; background:var(--paper); box-shadow:0 22px 34px -26px var(--shade); }
-  .wheel-center img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .8s ease; }
-  .wheel-center img.on{ opacity:1; }
+  .wheel-center{ position:absolute; inset:20%; border-radius:50%; overflow:hidden; background:var(--white); box-shadow:0 22px 34px -26px var(--shade); }
+  .wheel-center .ill{ position:absolute; inset:0; width:100%; height:100%; opacity:0; transition:opacity .8s ease; }
+  .wheel-center .ill.on{ opacity:1; }
   @media (prefers-reduced-motion: reduce){ .wheel-ring, .wheel-btn{ transition:none; } }
   .pillar-glyph{ font:200 clamp(5rem,10vw,8rem)/1 var(--cjk); color:var(--moss); }
   .pillar-item h3{ font:300 clamp(2rem,3.4vw,2.8rem)/1.1 var(--display); margin-top:14px; }
@@ -616,11 +616,86 @@
             <button type="button" class="wheel-btn" style="--i:4" aria-pressed="false" aria-label="Open air">野</button>
           </div>
           <div class="wheel-center">
-            <img class="on" src="assets/pillar-body.jpg" alt="Herbal tea, sliced fruit and a teapot from a skin-care tea reel">
-            <img src="assets/pillar-mind.jpg" alt="Iris stretching under trees in a garden" loading="lazy">
-            <img src="assets/pillar-art.jpg" alt="Iris holding up a Chinese medicine book" loading="lazy">
-            <img src="assets/pillar-roots.jpg" alt="Iris talking to camera about learning Chinese" loading="lazy">
-            <img src="assets/pillar-openair.jpg" alt="Iris with arms raised in a meadow under a pine" loading="lazy">
+            <svg class="ill on" viewBox="0 0 200 200" role="img" aria-label="Drawing: a glass teapot of herbal tea with a cup and goji berries"><g filter="url(#hand)" transform="translate(102 100) scale(0.84) translate(-100 -100)">
+  <path d="M43 114 Q88 106 133 114 A46 40 0 1 1 43 114Z" fill="#E7B05E" transform="translate(3 2.5)"/>
+  <ellipse cx="160" cy="149" rx="12.5" ry="3.6" fill="#E7B05E"/>
+  <circle cx="60" cy="176" r="4.6" fill="#C8634F"/><ellipse cx="74" cy="182" rx="5.4" ry="4" fill="#C8634F"/><circle cx="48" cy="184" r="4" fill="#C8634F"/>
+  <path d="M96 180 q10 -12 24 -8 q-8 12 -24 8z" fill="#A9B88A"/><path d="M104 190 q12 -8 24 0 q-12 8 -24 0z" fill="#A9B88A"/>
+  <ellipse cx="88" cy="118" rx="46" ry="40" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M43 114 Q88 106 133 114" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="72" cy="134" r="8" fill="#F8EAD0" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M72 129 v10 M67 134 h10" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="104" cy="140" r="6.5" fill="#F8EAD0" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M104 136 v8 M100 140 h8" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="92" cy="124" r="3" fill="#C8634F"/><circle cx="118" cy="128" r="2.6" fill="#C8634F"/>
+  <path d="M62 86 Q88 64 114 86" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="88" cy="68" r="4.6" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M129 100 Q147 98 153 78 L163 82 Q161 120 133 127" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 100 Q17 97 19 122 Q22 143 51 138" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M168 66 q-7 -9 0 -18 q7 -9 0 -18" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M181 70 q-5 -7 0 -14" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 148 Q144 170 160 170 Q176 170 175 148" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="160" cy="148" rx="15" ry="4.6" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M175 152 q11 2 2 13" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M140 175 h40" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 185 l22 -9 M108 195 l18 -5" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <svg class="ill" viewBox="0 0 200 200" role="img" aria-label="Drawing: a cat asleep on a cushion under a crescent moon"><g filter="url(#hand)" transform="translate(100 98) scale(0.9) translate(-100 -100)">
+  <path d="M34 152 Q30 134 54 134 H148 Q172 134 168 152 Q170 170 148 170 H54 Q32 170 34 152Z" fill="#A9B88A" transform="translate(3 3)"/>
+  <path d="M146 34 A21 21 0 1 0 172 62 A17 17 0 0 1 146 34Z" fill="#E7B05E" transform="translate(2 2)"/>
+  <path d="M34 152 Q30 134 54 134 H148 Q172 134 168 152 Q170 170 148 170 H54 Q32 170 34 152Z" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M60 142 Q50 114 78 103 Q112 90 142 106 Q162 118 152 142Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 96 Q130 92 144 108 Q126 104 108 112 Q100 104 104 96Z" fill="#E7B05E"/>
+  <path d="M150 134 Q168 152 134 150 Q112 148 98 142" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M60 110 L58 95 L71 103 M83 102 L93 93 L93 108" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="76" cy="122" r="19.5" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62 104 L60 96 L67 100Z" fill="#F1CDBB"/><path d="M86 101 L91 96 L91 104Z" fill="#F1CDBB"/>
+  <path d="M66 121 q4 4.5 8 0 M80 121 q4 4.5 8 0" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M74.5 127 l2.5 2.4 l2.5 -2.4" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M58 126 l-10 -2 M58 131 l-10 3 M95 126 l10 -2 M95 131 l10 3" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M146 34 A21 21 0 1 0 172 62 A17 17 0 0 1 146 34Z" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 74 h11 l-11 11 h11" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M128 54 h7.5 l-7.5 7.5 h7.5" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 62 v10 M39 67 h10 M178 96 v8 M174 100 h8 M66 44 v6 M63 47 h6" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74 158 q6 4 12 0 M120 158 q6 4 12 0" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <svg class="ill" viewBox="0 0 200 200" role="img" aria-label="Drawing: an open book with a pressed flower, a brush and a cup of tea"><g filter="url(#hand)" transform="translate(100 100) scale(0.86) translate(-100 -100)">
+  <path d="M35 74 V148 Q70 139 100 152 Q130 139 165 148 V74 Q130 64 100 80 Q70 64 35 74Z" fill="#D6B692" transform="translate(3 4)"/>
+  <path d="M100 76 Q70 61 40 69 V140 Q70 132 100 146Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 76 Q130 61 160 69 V140 Q130 132 100 146Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51 85 Q70 79 89 86 M51 97 Q70 91 89 98 M51 109 Q70 103 89 110 M51 121 Q66 116 78 119" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130 124 Q128 104 132 88" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 100 q-14 -4 -16 -18 q14 0 16 18z" fill="#A9B88A" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M131 112 q14 -2 18 -16 q-14 -2 -18 16z" fill="#A9B88A" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="133" cy="84" r="6" fill="#F1CDBB" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M146 62 V96 l6 -6 l6 6 V64Z" fill="#C8634F" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M52 166 L122 180" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M54 161 L124 175" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M53 163.500 Q36 156 26 168 Q38 174 53 168.500Z" fill="#26241F" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="158" cy="165" rx="12" ry="3.4" fill="#E7B05E"/>
+  <path d="M144 164 Q143 184 158 184 Q173 184 172 164" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="164" rx="14" ry="4.4" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="165.500" rx="10.500" ry="2.600" fill="#E7B05E"/>
+  <path d="M22 96 v9 M17.500 100.500 h9 M178 116 v8 M174 120 h8" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <svg class="ill" viewBox="0 0 200 200" role="img" aria-label="Drawing: a bamboo steamer of buns with a dish of sauce and chopsticks"><g filter="url(#hand)" transform="translate(100 102) scale(0.88) translate(-100 -100)">
+  <path d="M40 116 V150 Q100 174 160 150 V116 Q100 138 40 116Z" fill="#D6B692" transform="translate(3 3)"/>
+  <ellipse cx="100" cy="116" rx="59" ry="16" fill="#F8EAD0"/>
+  <path d="M40 116 A60 17 0 0 1 160 116" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M56 119 Q51 84 80 80 Q109 84 104 119Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M97 121 Q94 86 123 83 Q152 87 147 121Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80 81 q-7 6 -11 15 M80 81 q-1 8 -2 17 M80 81 q7 6 10 15" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M77 79 q3 -4 6 0" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M123 84 q-7 6 -11 15 M123 84 q-1 8 -2 17 M123 84 q7 6 10 15" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M120 82 q3 -4 6 0" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 116 A60 17 0 0 0 160 116" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 116 V150 Q100 174 160 150 V116" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 132 Q100 155 160 132" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M68 140 v14 M74 142 v14 M126 142 v14 M132 140 v14" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74 62 q-7 -8 0 -16 q7 -8 0 -16 M102 56 q-6 -7 0 -14 q6 -7 0 -14 M130 62 q-7 -8 0 -16 q7 -8 0 -16" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="46" cy="179" rx="17" ry="6" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="46" cy="178.500" rx="11" ry="3.400" fill="#C8634F"/>
+  <path d="M96 190 L176 170 M100 196 L178 177" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+            <svg class="ill" viewBox="0 0 200 200" role="img" aria-label="Drawing: a walker on a winding path below two hills, a tree and the sun"><g filter="url(#hand)" transform="translate(100 100) scale(0.88) translate(-100 -100)">
+  <circle cx="144" cy="60" r="15" fill="#E7B05E" transform="translate(2.500 2.500)"/>
+  <path d="M68 150 Q126 82 186 150Z" fill="#CBD6B2" transform="translate(3 2)"/>
+  <path d="M14 150 Q62 96 112 150Z" fill="#A9B88A" transform="translate(3 2)"/>
+  <path d="M68 150 Q126 82 186 150" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 150 Q62 96 112 150" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 150 H190" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M60 128 V104" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 102 Q34 92 45 83 Q47 68 61 72 Q76 66 78 81 Q89 90 78 100 Q68 108 60 101 Q52 108 45 102Z" fill="#7F9562" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="144" cy="60" r="15" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M144 34 v-7 M144 93 v-7 M118 60 h-7 M177 60 h-7 M126 42 l-5 -5 M162 42 l5 -5 M126 78 l-5 5 M162 78 l5 5" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 60 Q26 50 38 50 Q42 40 54 46 Q66 42 66 54 Q74 58 66 62 H34 Q28 62 30 60Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M88 44 q5 -6 10 0 q5 -6 10 0" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 66 q4 -5 8 0 q4 -5 8 0" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M96 192 Q124 180 104 168 Q88 158 106 151" fill="none" stroke="#26241F" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="1 7"/>
+  <circle cx="136" cy="158" r="5.400" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M128 154 h16" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M136 164 V178 M136 168 l-8 6 M136 168 l8 3 l2 16 M136 178 l-6 12 M136 178 l7 11" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 166 h8 v10 h-8z" fill="#C8634F"/>
+  <path d="M30 164 l3 -8 l3 8 M168 172 l3 -8 l3 8 M70 178 l3 -7 l3 7" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
           </div>
         </div>
         <div class="tray-detail" aria-live="polite">
@@ -988,6 +1063,7 @@
   <a class="btn btn-primary btn-sm" href="mailto:soobakworkshop@gmail.com?subject=Collaboration%20with%20Your%20Asian%20Granny" target="_blank" rel="noopener" data-i18n="nav.cta">Get in touch</a>
 </div>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="hand" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
   <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Close">×</button>
   <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">←</button>
@@ -1321,7 +1397,7 @@
   /* ---- pillars: the turning tray ---- */
   var wheel = document.getElementById('wheel');
   if(wheel){
-    var wbtns = wheel.querySelectorAll('.wheel-btn'), wimgs = wheel.querySelectorAll('.wheel-center img');
+    var wbtns = wheel.querySelectorAll('.wheel-btn'), wimgs = wheel.querySelectorAll('.wheel-center .ill');
     var pitems = document.querySelectorAll('.pillar-item'), trayCount = document.getElementById('trayCount');
     var cur = 0, rot = 0, n = wbtns.length;
     var setPillar = function(i){

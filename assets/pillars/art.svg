@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 200 200" role="img" aria-label="Drawing: an open book with a pressed flower, a brush and a cup of tea"><defs><filter id="hand" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g filter="url(#hand)" transform="translate(100 100) scale(0.86) translate(-100 -100)">
+  <path d="M35 74 V148 Q70 139 100 152 Q130 139 165 148 V74 Q130 64 100 80 Q70 64 35 74Z" fill="#D6B692" transform="translate(3 4)"/>
+  <path d="M100 76 Q70 61 40 69 V140 Q70 132 100 146Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 76 Q130 61 160 69 V140 Q130 132 100 146Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51 85 Q70 79 89 86 M51 97 Q70 91 89 98 M51 109 Q70 103 89 110 M51 121 Q66 116 78 119" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130 124 Q128 104 132 88" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 100 q-14 -4 -16 -18 q14 0 16 18z" fill="#A9B88A" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M131 112 q14 -2 18 -16 q-14 -2 -18 16z" fill="#A9B88A" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="133" cy="84" r="6" fill="#F1CDBB" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M146 62 V96 l6 -6 l6 6 V64Z" fill="#C8634F" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M52 166 L122 180" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M54 161 L124 175" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M53 163.500 Q36 156 26 168 Q38 174 53 168.500Z" fill="#26241F" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="158" cy="165" rx="12" ry="3.4" fill="#E7B05E"/>
+  <path d="M144 164 Q143 184 158 184 Q173 184 172 164" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="164" rx="14" ry="4.4" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="165.500" rx="10.500" ry="2.600" fill="#E7B05E"/>
+  <path d="M22 96 v9 M17.500 100.500 h9 M178 116 v8 M174 120 h8" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></svg>

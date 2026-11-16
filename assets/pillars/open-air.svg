@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 200 200" role="img" aria-label="Drawing: a walker on a winding path below two hills, a tree and the sun"><defs><filter id="hand" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g filter="url(#hand)" transform="translate(100 100) scale(0.88) translate(-100 -100)">
+  <circle cx="144" cy="60" r="15" fill="#E7B05E" transform="translate(2.500 2.500)"/>
+  <path d="M68 150 Q126 82 186 150Z" fill="#CBD6B2" transform="translate(3 2)"/>
+  <path d="M14 150 Q62 96 112 150Z" fill="#A9B88A" transform="translate(3 2)"/>
+  <path d="M68 150 Q126 82 186 150" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 150 Q62 96 112 150" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 150 H190" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M60 128 V104" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 102 Q34 92 45 83 Q47 68 61 72 Q76 66 78 81 Q89 90 78 100 Q68 108 60 101 Q52 108 45 102Z" fill="#7F9562" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="144" cy="60" r="15" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M144 34 v-7 M144 93 v-7 M118 60 h-7 M177 60 h-7 M126 42 l-5 -5 M162 42 l5 -5 M126 78 l-5 5 M162 78 l5 5" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 60 Q26 50 38 50 Q42 40 54 46 Q66 42 66 54 Q74 58 66 62 H34 Q28 62 30 60Z" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M88 44 q5 -6 10 0 q5 -6 10 0" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 66 q4 -5 8 0 q4 -5 8 0" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M96 192 Q124 180 104 168 Q88 158 106 151" fill="none" stroke="#26241F" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="1 7"/>
+  <circle cx="136" cy="158" r="5.400" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M128 154 h16" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M136 164 V178 M136 168 l-8 6 M136 168 l8 3 l2 16 M136 178 l-6 12 M136 178 l7 11" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 166 h8 v10 h-8z" fill="#C8634F"/>
+  <path d="M30 164 l3 -8 l3 8 M168 172 l3 -8 l3 8 M70 178 l3 -7 l3 7" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></svg>

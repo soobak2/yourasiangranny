@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 200 200" role="img" aria-label="Drawing: a glass teapot of herbal tea with a cup and goji berries"><defs><filter id="hand" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g filter="url(#hand)" transform="translate(102 100) scale(0.84) translate(-100 -100)">
+  <path d="M43 114 Q88 106 133 114 A46 40 0 1 1 43 114Z" fill="#E7B05E" transform="translate(3 2.5)"/>
+  <ellipse cx="160" cy="149" rx="12.5" ry="3.6" fill="#E7B05E"/>
+  <circle cx="60" cy="176" r="4.6" fill="#C8634F"/><ellipse cx="74" cy="182" rx="5.4" ry="4" fill="#C8634F"/><circle cx="48" cy="184" r="4" fill="#C8634F"/>
+  <path d="M96 180 q10 -12 24 -8 q-8 12 -24 8z" fill="#A9B88A"/><path d="M104 190 q12 -8 24 0 q-12 8 -24 0z" fill="#A9B88A"/>
+  <ellipse cx="88" cy="118" rx="46" ry="40" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M43 114 Q88 106 133 114" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="72" cy="134" r="8" fill="#F8EAD0" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M72 129 v10 M67 134 h10" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="104" cy="140" r="6.5" fill="#F8EAD0" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M104 136 v8 M100 140 h8" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="92" cy="124" r="3" fill="#C8634F"/><circle cx="118" cy="128" r="2.6" fill="#C8634F"/>
+  <path d="M62 86 Q88 64 114 86" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="88" cy="68" r="4.6" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M129 100 Q147 98 153 78 L163 82 Q161 120 133 127" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 100 Q17 97 19 122 Q22 143 51 138" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M168 66 q-7 -9 0 -18 q7 -9 0 -18" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M181 70 q-5 -7 0 -14" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 148 Q144 170 160 170 Q176 170 175 148" fill="#FFFFFF" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="160" cy="148" rx="15" ry="4.6" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M175 152 q11 2 2 13" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M140 175 h40" fill="none" stroke="#26241F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 185 l22 -9 M108 195 l18 -5" fill="none" stroke="#26241F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
