@@ -141,7 +141,12 @@
   .hero-side{ position:relative; }
   .arch{ position:relative; aspect-ratio:3/4; max-width:100%; border-radius:50% 50% 0 0 / 37.5% 37.5% 0 0; overflow:hidden; background:var(--mist); }
   .arch img{ width:100%; height:100%; object-fit:cover; }
-  .arch canvas{ position:absolute; inset:0; width:100%; height:100%; touch-action:pan-y; cursor:grab; }
+  .arch canvas{ position:absolute; inset:0; width:100%; height:100%; touch-action:none; cursor:grab; transition:opacity 1.6s ease; }
+  .arch canvas.cleared{ opacity:0; pointer-events:none; }
+  .mist-hint{ transition:opacity .8s ease; }
+  .mist-hint.cleared{ opacity:0; }
+  .mist-hint .hint-touch{ display:none; }
+  @media (pointer:coarse){ .mist-hint .hint-fine{ display:none; } .mist-hint .hint-touch{ display:inline; } }
   .hero-side figcaption{ margin-top:18px; display:flex; gap:12px; align-items:flex-start; justify-content:flex-end; text-align:right; }
   .hero-side figcaption strong{ display:block; font:italic 400 1.3rem/1.2 var(--display); color:var(--ink); }
   .hero-side figcaption span{ font-size:.78rem; line-height:1.5; color:var(--ink-faint); }
@@ -263,7 +268,7 @@
       margin-inline:calc(-1 * max(var(--gut), env(safe-area-inset-left,0px))); padding:14px max(var(--gut), env(safe-area-inset-left,0px)) 34px; scrollbar-width:none; }
     .table::-webkit-scrollbar{ display:none; }
     .postcard{ position:static; flex:none; width:172px; scroll-snap-align:center; cursor:pointer; translate:none; rotate:calc(var(--r,0deg) * .4); }
-    .hint-fine{ display:none; } .hint-touch{ display:inline; }
+    .head .hint-fine{ display:none; } .head .hint-touch{ display:inline; }
     .table{ --fl:0px; --fr:44px;
       -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%);
       mask-image:linear-gradient(90deg, transparent 0, #000 var(--fl), #000 calc(100% - var(--fr)), transparent 100%); }
@@ -588,7 +593,7 @@
         <img src="assets/portrait.jpg" alt="Iris Lin, creator behind Your Asian Granny, standing in a courtyard">
         <canvas id="mist" aria-hidden="true"></canvas>
       </div>
-      <span class="note paren mist-hint" data-i18n="hero.mist">wipe the mist away</span>
+      <span class="note paren mist-hint" id="mistHint"><span class="hint-fine" data-i18n="hero.mist">wipe the mist away</span><span class="hint-touch" data-i18n="hero.mist.touch">swipe across the photo to clear the mist</span></span>
       <div class="hero-cup">
         <span class="note" data-i18n="hero.cup">Scroll slowly. The tea steeps as you read.</span>
         <span class="cup" aria-hidden="true"></span>
@@ -1314,6 +1319,7 @@
     "footer.top": {"en":"Back to top ↑","fr":"Haut de page ↑","zh":"回到頂端 ↑"},
     "hero.kicker": {"en":"A diary of slow living, kept in Paris","fr":"Un journal du slow living, tenu à Paris","zh":"一本在巴黎寫下的慢生活日記"},
     "hero.mist": {"en":"wipe the mist away","fr":"effacez la brume","zh":"把霧氣抹開看看"},
+    "hero.mist.touch": {"en":"swipe across the photo to clear the mist","fr":"glissez le doigt sur la photo pour effacer la brume","zh":"用手指在照片上滑動，抹開霧氣"},
     "hero.cup": {"en":"Scroll slowly. The tea steeps as you read.","fr":"Faites défiler doucement. Le thé infuse pendant votre lecture.","zh":"慢慢往下滑，茶會在你閱讀時泡好。"},
     "cup.steeping": {"en":"steeping","fr":"infusion","zh":"浸泡中"},
     "cup.ready": {"en":"the tea’s ready","fr":"le thé est prêt","zh":"茶泡好了"},
@@ -1466,15 +1472,44 @@
       }
       wipe(mw * 0.5, mh * 0.5, mw * 0.5, 0.95);
     };
-    var at = function(e, rad, s){
+    var mistDone = false, mistHint = document.getElementById('mistHint'), last = null;
+    var toCanvas = function(e){
       var r = mist.getBoundingClientRect();
-      wipe((e.clientX - r.left) / r.width * mw, (e.clientY - r.top) / r.height * mh, mw * rad, s);
+      return { x: (e.clientX - r.left) / r.width * mw, y: (e.clientY - r.top) / r.height * mh };
     };
-    mist.addEventListener('pointermove', function(e){ at(e, 0.24, e.pointerType === 'mouse' ? 0.22 : 0.5); });
-    mist.addEventListener('pointerdown', function(e){ at(e, 0.34, 0.8); });
+    var stroke = function(p, rad, s){
+      if(last){
+        var dx = p.x - last.x, dy = p.y - last.y, dist = Math.sqrt(dx * dx + dy * dy), gap = rad * 0.3;
+        for(var d = gap; d < dist; d += gap) wipe(last.x + dx * d / dist, last.y + dy * d / dist, rad, s);
+      }
+      wipe(p.x, p.y, rad, s);
+      last = p;
+    };
+    var clearedShare = function(){
+      var data = mctx.getImageData(0, 0, mw, mh).data, step = 7, seen = 0, clear = 0;
+      for(var y = 0; y < mh; y += step) for(var x = 0; x < mw; x += step){ seen++; if(data[(y * mw + x) * 4 + 3] < 70) clear++; }
+      return seen ? clear / seen : 0;
+    };
+    var checkDone = function(){
+      if(mistDone || clearedShare() < 0.62) return;
+      mistDone = true; mist.classList.add('cleared'); if(mistHint) mistHint.classList.add('cleared');
+    };
+    mist.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse'){ try{ mist.setPointerCapture(e.pointerId); }catch(err){} }
+      last = null; stroke(toCanvas(e), mw * 0.2, 0.9);
+    });
+    mist.addEventListener('pointermove', function(e){
+      var touch = e.pointerType !== 'mouse';
+      if(touch && !e.buttons && e.pressure === 0) return;
+      stroke(toCanvas(e), mw * (touch ? 0.2 : 0.22), touch ? 0.9 : 0.24);
+    });
+    mist.addEventListener('pointerleave', function(e){ if(e.pointerType === 'mouse') last = null; });
+    ['pointerup', 'pointercancel'].forEach(function(t){ mist.addEventListener(t, function(){ last = null; checkDone(); }); });
+    var mouseCheck = null;
+    mist.addEventListener('pointermove', function(e){ if(e.pointerType === 'mouse'){ clearTimeout(mouseCheck); mouseCheck = setTimeout(checkDone, 250); } });
     var mistW = 0;
-    window.addEventListener('resize', function(){ var w = mist.getBoundingClientRect().width; if(Math.abs(w - mistW) > 2){ mistW = w; paintFog(); } });
-    initMist = function(){ mistW = mist.getBoundingClientRect().width; paintFog(); };
+    window.addEventListener('resize', function(){ var w = mist.getBoundingClientRect().width; if(!mistDone && Math.abs(w - mistW) > 2){ mistW = w; paintFog(); } });
+    initMist = function(){ mistW = mist.getBoundingClientRect().width; if(!mistDone) paintFog(); };
   }
 
   /* ---- pillars: the turning tray ---- */
